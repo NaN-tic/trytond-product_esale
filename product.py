@@ -26,27 +26,15 @@ class Template:
             ('search','Search'),
             ('catalog','Catalog'),
             ('none','None'),
-            ], 'Visibility',
-            states={
-                'required': Eval('esale_available', True),
-            },
-            depends=['esale_available'])
+            ], 'Visibility')
     esale_slug = fields.Char('Slug', translate=True,
             states={
                 'required': Eval('esale_available', True),
             },
             on_change_with=['name'],
             depends=['esale_available'])
-    esale_shortdescription = fields.Text('Short Description', translate=True,
-            states={
-                'required': Eval('esale_available', True),
-            },
-            depends=['esale_available'])
-    esale_description = fields.Text('Sale Description', translate=True,
-            states={
-                'required': Eval('esale_available', True),
-            },
-            depends=['esale_available'])
+    esale_shortdescription = fields.Text('Short Description', translate=True)
+    esale_description = fields.Text('Sale Description', translate=True)
     esale_metadescription = fields.Char('Meta Description', translate=True,
             help='Almost all search engines recommend it to be shorter ' \
             'than 155 characters of plain text')
