@@ -89,21 +89,19 @@ class Template:
         return name
 
     @classmethod
-    def get_slug(cls, id, slug, shops):
+    def get_slug(cls, id, slug):
         """Get another product is same slug
-        Slug is identificator unique by shop
+        Slug is identificator unique
         :param id: int
         :param slug: str
-        :param shop: obj
         :return True or False
         """
-        for shop in shops:
-            records = [t.id for t in cls.search([('esale_websites','in',[shop])])]
-            if id and id in records:
-                records.remove(id)
-            products = cls.search([('esale_slug','=',slug),('id','in',records)])
-            if len(products)>0:
-                cls.raise_user_error('slug_exists', slug)
+        records = [t.id for t in cls.search([('esale_available','=', True)])]
+        if id and id in records:
+            records.remove(id)
+        products = cls.search([('esale_slug','=',slug),('id','in',records)])
+        if products:
+            cls.raise_user_error('slug_exists', slug)
         return True
 
     @classmethod
@@ -111,14 +109,10 @@ class Template:
         for values in vlist:
             values = values.copy()
             if values.get('esale_available'):
-                shops = []
                 slug = values.get('esale_slug')
                 if not slug:
                     cls.raise_user_error('slug_empty')
-                for s in values.get('esale_websites'):
-                    if s[0] == 'add':
-                        shops = s[1]
-                cls.get_slug(None, slug, shops)
+                cls.get_slug(None, slug)
         return super(Template, cls).create(vlist)
 
     @classmethod
@@ -129,16 +123,9 @@ class Template:
             slug = values.get('esale_slug')
             esale_websites = values.get('esale_websites')
             if slug or esale_websites:
-                shops = []
                 if not slug:
                     slug = product.esale_slug
-                if esale_websites:
-                    for s in esale_websites:
-                        if s[0] == 'add':
-                            shops = s[1]
-                else:
-                    shops = [x.id for x in product.esale_websites]
-                cls.get_slug(id, slug, shops)
+                cls.get_slug(id, slug)
         return super(Template, cls).write(products, values)
 
 
