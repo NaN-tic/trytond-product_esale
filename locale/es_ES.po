@@ -1,0 +1,338 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:esale.catalog.menu:"
+msgid "Slug %s exists. Get another slug!"
+msgstr "El slug %s ya existe. Intente con otro nombre"
+
+msgctxt "error:esale.catalog.menu:"
+msgid "Slug field is empty!"
+msgstr "El campo slug está vacio"
+
+msgctxt "error:product.template:"
+msgid "Slug %s exists. Get another slug!"
+msgstr "El slug %s ya existe. Intente con otro nombre"
+
+msgctxt "error:product.template:"
+msgid "Slug field is empty!"
+msgstr "El campo slug está vacio."
+
+msgctxt "field:esale.catalog.menu,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:esale.catalog.menu,childs:"
+msgid "Children"
+msgstr "Hijos"
+
+msgctxt "field:esale.catalog.menu,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:esale.catalog.menu,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:esale.catalog.menu,default_sort_by:"
+msgid "Default Product Listing Sort (Sort By)"
+msgstr "Ordenación productos"
+
+msgctxt "field:esale.catalog.menu,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:esale.catalog.menu,full_slug:"
+msgid "Full Slug"
+msgstr "Slug completo"
+
+msgctxt "field:esale.catalog.menu,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:esale.catalog.menu,metadescription:"
+msgid "MetaDescription"
+msgstr "MetaDescription"
+
+msgctxt "field:esale.catalog.menu,metakeyword:"
+msgid "MetaKeyword"
+msgstr "Metakeyword"
+
+msgctxt "field:esale.catalog.menu,metatitle:"
+msgid "MetaTitle"
+msgstr "MetaTitle"
+
+msgctxt "field:esale.catalog.menu,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:esale.catalog.menu,parent:"
+msgid "Parent"
+msgstr "Padre"
+
+msgctxt "field:esale.catalog.menu,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:esale.catalog.menu,slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:esale.catalog.menu,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:esale.catalog.menu,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template,esale_crosssells:"
+msgid "Cross Sells"
+msgstr "Ventas cruzadas"
+
+msgctxt "field:product.template,esale_description:"
+msgid "Sale Description"
+msgstr "Descripción de venta"
+
+msgctxt "field:product.template,esale_menus:"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "field:product.template,esale_metadescription:"
+msgid "Meta Description"
+msgstr "Meta Description"
+
+msgctxt "field:product.template,esale_metakeyword:"
+msgid "Meta Keyword"
+msgstr "Meta Keyword"
+
+msgctxt "field:product.template,esale_metatitle:"
+msgid "Meta Title"
+msgstr "Meta Title"
+
+msgctxt "field:product.template,esale_relateds:"
+msgid "Relateds"
+msgstr "Relacionados"
+
+msgctxt "field:product.template,esale_sequence:"
+msgid "Sequence"
+msgstr "Secuencia"
+
+msgctxt "field:product.template,esale_shortdescription:"
+msgid "Short Description"
+msgstr "Descripción corta"
+
+msgctxt "field:product.template,esale_slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:product.template,esale_upsells:"
+msgid "Up Sells"
+msgstr "Ventas sugeridas"
+
+msgctxt "field:product.template,esale_visibility:"
+msgid "Visibility"
+msgstr "Visibilidad"
+
+msgctxt "field:product.template-esale.catalog.menu,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:product.template-esale.catalog.menu,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:product.template-esale.catalog.menu,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-esale.catalog.menu,menu:"
+msgid "Menu"
+msgstr "Menús"
+
+msgctxt "field:product.template-esale.catalog.menu,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:product.template-esale.catalog.menu,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-esale.catalog.menu,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:product.template-esale.catalog.menu,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template-product.crosssell,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:product.template-product.crosssell,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:product.template-product.crosssell,crosssell:"
+msgid "Cross Sell"
+msgstr "Ventas cruzadas"
+
+msgctxt "field:product.template-product.crosssell,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-product.crosssell,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:product.template-product.crosssell,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-product.crosssell,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:product.template-product.crosssell,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template-product.related,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:product.template-product.related,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:product.template-product.related,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-product.related,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:product.template-product.related,related:"
+msgid "Related"
+msgstr "Relacionados"
+
+msgctxt "field:product.template-product.related,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-product.related,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:product.template-product.related,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template-product.upsell,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:product.template-product.upsell,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:product.template-product.upsell,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-product.upsell,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:product.template-product.upsell,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-product.upsell,upsell:"
+msgid "Upsell"
+msgstr "Venta sugerida"
+
+msgctxt "field:product.template-product.upsell,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:product.template-product.upsell,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "help:product.template,esale_metadescription:"
+msgid ""
+"Almost all search engines recommend it to be shorter than 155 characters of "
+"plain text"
+msgstr ""
+"La mayoría de los buscadores recomiendan unos 155 carácters de texto plano"
+
+msgctxt "help:product.template,esale_sequence:"
+msgid "Gives the sequence order when displaying category list."
+msgstr "La secuencia de la ordenación en la categoría"
+
+msgctxt "model:esale.catalog.menu,name:"
+msgid "eSale Catalog Menu"
+msgstr "eSale Catalog Menú"
+
+msgctxt "model:ir.action,name:act_menu_list"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:ir.action,name:act_menu_tree"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:ir.ui.menu,name:menu_menu_list"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:ir.ui.menu,name:menu_menu_tree"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:product.template-esale.catalog.menu,name:"
+msgid "Product - Menu"
+msgstr "Producto - Menú"
+
+msgctxt "model:product.template-product.crosssell,name:"
+msgid "Product - Cross Sell"
+msgstr "Producto - Ventas cruzadas"
+
+msgctxt "model:product.template-product.related,name:"
+msgid "Product - Related"
+msgstr "Productos - Relacionados"
+
+msgctxt "model:product.template-product.upsell,name:"
+msgid "Product - Upsell"
+msgstr "Producto - Ventas sugeridas"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid "Position"
+msgstr "Posición"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid "Price"
+msgstr "Precio"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "All"
+msgstr "Todos"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "Catalog"
+msgstr "Catálogo"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "None"
+msgstr "Ninguno"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "Search"
+msgstr "Buscar"

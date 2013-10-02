@@ -1,0 +1,338 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:esale.catalog.menu:"
+msgid "Slug %s exists. Get another slug!"
+msgstr "El slug %s ja existeix. Prova amb un altre."
+
+msgctxt "error:esale.catalog.menu:"
+msgid "Slug field is empty!"
+msgstr "El camp slug no pot ser buit"
+
+msgctxt "error:product.template:"
+msgid "Slug %s exists. Get another slug!"
+msgstr "El slug %s ja existeix. Prova amb un altre."
+
+msgctxt "error:product.template:"
+msgid "Slug field is empty!"
+msgstr "El camp slug no pot ser buit"
+
+msgctxt "field:esale.catalog.menu,active:"
+msgid "Active"
+msgstr "Actiu"
+
+msgctxt "field:esale.catalog.menu,childs:"
+msgid "Children"
+msgstr "Fills"
+
+msgctxt "field:esale.catalog.menu,create_date:"
+msgid "Create Date"
+msgstr "Data creació"
+
+msgctxt "field:esale.catalog.menu,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:esale.catalog.menu,default_sort_by:"
+msgid "Default Product Listing Sort (Sort By)"
+msgstr "Ordenació productes"
+
+msgctxt "field:esale.catalog.menu,description:"
+msgid "Description"
+msgstr "Descripció"
+
+msgctxt "field:esale.catalog.menu,full_slug:"
+msgid "Full Slug"
+msgstr "Slug complet"
+
+msgctxt "field:esale.catalog.menu,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:esale.catalog.menu,metadescription:"
+msgid "MetaDescription"
+msgstr "MetaDescription"
+
+msgctxt "field:esale.catalog.menu,metakeyword:"
+msgid "MetaKeyword"
+msgstr "MetaKeyword"
+
+msgctxt "field:esale.catalog.menu,metatitle:"
+msgid "MetaTitle"
+msgstr "MetaTitle"
+
+msgctxt "field:esale.catalog.menu,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:esale.catalog.menu,parent:"
+msgid "Parent"
+msgstr "Pare"
+
+msgctxt "field:esale.catalog.menu,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:esale.catalog.menu,slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:esale.catalog.menu,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:esale.catalog.menu,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template,esale_crosssells:"
+msgid "Cross Sells"
+msgstr "Vendes creuades"
+
+msgctxt "field:product.template,esale_description:"
+msgid "Sale Description"
+msgstr "Descripció venda"
+
+msgctxt "field:product.template,esale_menus:"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "field:product.template,esale_metadescription:"
+msgid "Meta Description"
+msgstr "Meta Description"
+
+msgctxt "field:product.template,esale_metakeyword:"
+msgid "Meta Keyword"
+msgstr "Meta Keyword"
+
+msgctxt "field:product.template,esale_metatitle:"
+msgid "Meta Title"
+msgstr "Meta Title"
+
+msgctxt "field:product.template,esale_relateds:"
+msgid "Relateds"
+msgstr "Relacionats"
+
+msgctxt "field:product.template,esale_sequence:"
+msgid "Sequence"
+msgstr "Seqüència"
+
+msgctxt "field:product.template,esale_shortdescription:"
+msgid "Short Description"
+msgstr "Descripció curta"
+
+msgctxt "field:product.template,esale_slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:product.template,esale_upsells:"
+msgid "Up Sells"
+msgstr "Vendes sugerides"
+
+msgctxt "field:product.template,esale_visibility:"
+msgid "Visibility"
+msgstr "Visibilitat"
+
+msgctxt "field:product.template-esale.catalog.menu,create_date:"
+msgid "Create Date"
+msgstr "Data creació"
+
+msgctxt "field:product.template-esale.catalog.menu,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:product.template-esale.catalog.menu,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-esale.catalog.menu,menu:"
+msgid "Menu"
+msgstr "Menú"
+
+msgctxt "field:product.template-esale.catalog.menu,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:product.template-esale.catalog.menu,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-esale.catalog.menu,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:product.template-esale.catalog.menu,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template-product.crosssell,create_date:"
+msgid "Create Date"
+msgstr "Data creació"
+
+msgctxt "field:product.template-product.crosssell,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:product.template-product.crosssell,crosssell:"
+msgid "Cross Sell"
+msgstr "Vendes creuades"
+
+msgctxt "field:product.template-product.crosssell,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-product.crosssell,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:product.template-product.crosssell,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-product.crosssell,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:product.template-product.crosssell,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template-product.related,create_date:"
+msgid "Create Date"
+msgstr "Data creació"
+
+msgctxt "field:product.template-product.related,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:product.template-product.related,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-product.related,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:product.template-product.related,related:"
+msgid "Related"
+msgstr "Relacionat"
+
+msgctxt "field:product.template-product.related,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-product.related,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:product.template-product.related,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.template-product.upsell,create_date:"
+msgid "Create Date"
+msgstr "Data creació"
+
+msgctxt "field:product.template-product.upsell,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:product.template-product.upsell,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.template-product.upsell,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:product.template-product.upsell,template:"
+msgid "Template"
+msgstr "Plantilla"
+
+msgctxt "field:product.template-product.upsell,upsell:"
+msgid "Upsell"
+msgstr "Vendes sugerides"
+
+msgctxt "field:product.template-product.upsell,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:product.template-product.upsell,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "help:product.template,esale_metadescription:"
+msgid ""
+"Almost all search engines recommend it to be shorter than 155 characters of "
+"plain text"
+msgstr ""
+"La majoría dels cercadors recomanen un text de 155 caràcters de text pla."
+
+msgctxt "help:product.template,esale_sequence:"
+msgid "Gives the sequence order when displaying category list."
+msgstr "La seqüència d'ordenació en la categoria"
+
+msgctxt "model:esale.catalog.menu,name:"
+msgid "eSale Catalog Menu"
+msgstr "eSale Catàleg Menú"
+
+msgctxt "model:ir.action,name:act_menu_list"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:ir.action,name:act_menu_tree"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:ir.ui.menu,name:menu_menu_list"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:ir.ui.menu,name:menu_menu_tree"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "model:product.template-esale.catalog.menu,name:"
+msgid "Product - Menu"
+msgstr "Producte - Menú"
+
+msgctxt "model:product.template-product.crosssell,name:"
+msgid "Product - Cross Sell"
+msgstr "Producte - Vendes creuades"
+
+msgctxt "model:product.template-product.related,name:"
+msgid "Product - Related"
+msgstr "Producte - Relacionat"
+
+msgctxt "model:product.template-product.upsell,name:"
+msgid "Product - Upsell"
+msgstr "Productes - Vendes sugerides"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid "Position"
+msgstr "Possició"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid "Price"
+msgstr "Preu"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "All"
+msgstr "Tots"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "Catalog"
+msgstr "Catàleg"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "None"
+msgstr "Cap"
+
+msgctxt "selection:product.template,esale_visibility:"
+msgid "Search"
+msgstr "Busca"
