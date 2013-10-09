@@ -25,7 +25,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="ir.action.act_window" id="act_menu_tree">
             <field name="name">Menus</field>
             <field name="res_model">esale.catalog.menu</field>
-            <field name="domain">[('parent', '=', False)]</field>
+            <field name="domain">[('parent', '=', None)]</field>
         </record>
         <record model="ir.action.act_window.view" id="act_menu_tree_view1">
             <field name="sequence" eval="10"/>
