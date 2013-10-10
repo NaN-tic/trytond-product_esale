@@ -132,18 +132,23 @@ class Product:
     __name__ = 'product.product'
 
     @classmethod
-    def get_product_relateds(cls, products):
+    def get_product_relateds(cls, products, exclude=False):
         '''
-        Products Relateds
+        Products Relateds.
+        Exclude option: not return related product if are in products
+        :param products: object list
+        :param exclude: bool
         Return list dict product, price
         '''
         prods = []
+        templates = []
         relateds = []
 
         if not products:
             return None
 
         for product in products:
+            templates.append(product.template)
             if product.esale_relateds:
                 for template in product.esale_relateds:
                     relateds.append(template)
@@ -152,6 +157,8 @@ class Product:
             return None
 
         relateds = list(set(relateds))
+        if exclude:
+            relateds = list(set(relateds) - set(templates))
         prices = cls.get_sale_price(relateds, 1)
         for template in relateds:
             product, = template.products
@@ -162,18 +169,23 @@ class Product:
         return prods
 
     @classmethod
-    def get_product_upsells(cls, products):
+    def get_product_upsells(cls, products, exclude=False):
         '''
         Products Up Sells
+        Exclude option: not return upsell product if are in products
+        :param products: object list
+        :param exclude: bool
         Return list dict product, price
         '''
         prods = []
+        templates = []
         upsells = []
 
         if not products:
             return None
 
         for product in products:
+            templates.append(product.template)
             if product.esale_upsells:
                 for template in product.esale_upsells:
                     upsells.append(template)
@@ -182,6 +194,8 @@ class Product:
             return None
 
         upsells = list(set(upsells))
+        if exclude:
+            upsells = list(set(upsells) - set(templates))
         prices = cls.get_sale_price(upsells, 1)
         for template in upsells:
             product, = template.products
@@ -192,18 +206,23 @@ class Product:
         return prods
 
     @classmethod
-    def get_product_crosssells(cls, products):
+    def get_product_crosssells(cls, products, exclude=False):
         '''
         Products Crosssells
+        Exclude option: not return upsell product if are in products
+        :param products: object list
+        :param exclude: bool
         Return list dict product, price
         '''
         prods = []
+        templates = []
         crosssells = []
 
         if not products:
             return None
 
         for product in products:
+            templates.append(product.template)
             if product.esale_crosssells:
                 for template in product.esale_crosssells:
                     crosssells.append(template)
@@ -212,6 +231,8 @@ class Product:
             return None
 
         crosssells = list(set(crosssells))
+        if exclude:
+            crosssells = list(set(crosssells) - set(templates))
         prices = cls.get_sale_price(crosssells, 1)
         for template in crosssells:
             product, = template.products
