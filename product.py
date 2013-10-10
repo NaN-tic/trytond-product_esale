@@ -6,8 +6,8 @@ from trytond.pool import PoolMeta
 from trytond.pyson import Eval
 from .tools import slugify
 
-__all__ = ['Template', 'ProductMenu', 'ProductRelated', 'ProductUpSell',
-    'ProductCrossSell',]
+__all__ = ['Template', 'Product', 'ProductMenu', 'ProductRelated',
+    'ProductUpSell', 'ProductCrossSell',]
 __metaclass__ = PoolMeta
 
 
@@ -127,6 +127,96 @@ class Template:
                     slug = product.esale_slug
                 cls.get_slug(id, slug)
         return super(Template, cls).write(products, values)
+
+class Product:
+    __name__ = 'product.product'
+
+    @classmethod
+    def get_product_relateds(cls, products):
+        '''
+        Products Relateds
+        Return list dict product, price
+        '''
+        prods = []
+        relateds = []
+
+        if not products:
+            return None
+
+        for product in products:
+            if product.esale_relateds:
+                for product in product.esale_relateds:
+                    relateds.append(product)
+
+        if not relateds:
+            return None
+
+        relateds = list(set(relateds))
+        prices = cls.get_sale_price(relateds, 1)
+        for product in relateds:
+            prods.append({
+                'product': product,
+                'unit_price': prices[product.id],
+                })
+        return prods
+
+    @classmethod
+    def get_product_upsells(cls, products):
+        '''
+        Products Up Sells
+        Return list dict product, price
+        '''
+        prods = []
+        upsells = []
+
+        if not products:
+            return None
+
+        for product in products:
+            if product.esale_upsells:
+                for product in product.esale_upsells:
+                    upsells.append(product)
+
+        if not upsells:
+            return None
+
+        upsells = list(set(upsells))
+        prices = cls.get_sale_price(upsells, 1)
+        for product in upsells:
+            prods.append({
+                'product': product,
+                'unit_price': prices[product.id],
+                })
+        return prods
+
+    @classmethod
+    def get_product_crosssells(cls, products):
+        '''
+        Products Crosssells
+        Return list dict product, price
+        '''
+        prods = []
+        crosssells = []
+
+        if not products:
+            return None
+
+        for product in products:
+            if product.esale_crosssells:
+                for product in product.esale_crosssells:
+                    crosssells.append(product)
+
+        if not crosssells:
+            return None
+
+        crosssells = list(set(crosssells))
+        prices = cls.get_sale_price(crosssells, 1)
+        for product in crosssells:
+            prods.append({
+                'product': product,
+                'unit_price': prices[product.id],
+                })
+        return prods
 
 
 class ProductMenu(ModelSQL):

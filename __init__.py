@@ -9,6 +9,7 @@ def register():
     Pool.register(
         CatalogMenu,
         Template,
+        Product,
         ProductMenu,
         ProductRelated,
         ProductUpSell,
