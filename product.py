@@ -145,15 +145,16 @@ class Product:
 
         for product in products:
             if product.esale_relateds:
-                for product in product.esale_relateds:
-                    relateds.append(product)
+                for template in product.esale_relateds:
+                    relateds.append(template)
 
         if not relateds:
             return None
 
         relateds = list(set(relateds))
         prices = cls.get_sale_price(relateds, 1)
-        for product in relateds:
+        for template in relateds:
+            product, = template.products
             prods.append({
                 'product': product,
                 'unit_price': prices[product.id],
@@ -174,15 +175,16 @@ class Product:
 
         for product in products:
             if product.esale_upsells:
-                for product in product.esale_upsells:
-                    upsells.append(product)
+                for template in product.esale_upsells:
+                    upsells.append(template)
 
         if not upsells:
             return None
 
         upsells = list(set(upsells))
         prices = cls.get_sale_price(upsells, 1)
-        for product in upsells:
+        for template in upsells:
+            product, = template.products
             prods.append({
                 'product': product,
                 'unit_price': prices[product.id],
@@ -203,15 +205,16 @@ class Product:
 
         for product in products:
             if product.esale_crosssells:
-                for product in product.esale_crosssells:
-                    crosssells.append(product)
+                for template in product.esale_crosssells:
+                    crosssells.append(template)
 
         if not crosssells:
             return None
 
         crosssells = list(set(crosssells))
         prices = cls.get_sale_price(crosssells, 1)
-        for product in crosssells:
+        for template in crosssells:
+            product, = template.products
             prods.append({
                 'product': product,
                 'unit_price': prices[product.id],
