@@ -46,9 +46,9 @@ visibilidad,...
 * |esale_saleshops|: Tiendas que tendrán disponible este producto. Por defecto se asignan
   a todas las tiendas activas. Si no desea publicar ese producto en una tienda
   concreta, elimínela de la lista.
-* |product_esale_relateds|: Productos relacionados.
-* |product_esale_upsells|: Productos que le proponen cuando realice una venta.
-* |product_esale_crosssells|: Productos que le proponen para las ventas.
+* |esale_relateds|: Productos relacionados.
+* |esale_upsells|: Productos que le proponen cuando realice una venta.
+* |esale_crosssells|: Productos que le proponen para las ventas.
 
 .. |esale_active| field:: product.template/esale_active
 .. |esale_slug| field:: product.template/esale_slug
@@ -61,9 +61,9 @@ visibilidad,...
 .. |esale_metatitle| field:: product.template/esale_metatitle
 .. |esale_metadescription| field:: product.template/esale_metadescription
 .. |esale_saleshops| field:: product.template/esale_saleshops
-.. |product_esale_relateds| field:: product.template/product_esale_relateds
-.. |product_esale_upsells| field:: product.template/product_esale_upsells
-.. |product_esale_crosssells| field:: product.template/product_esale_crosssells
+.. |esale_relateds| field:: product.template/esale_relateds
+.. |esale_upsells| field:: product.template/esale_upsells
+.. |esale_crosssells| field:: product.template/esale_crosssells
 
 .. figure:: images/tryton-esale-product.png
 
