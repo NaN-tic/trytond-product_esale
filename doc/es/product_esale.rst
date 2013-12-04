@@ -31,8 +31,6 @@ visibilidad,...
   desea vender ese producto.
 * |esale_visibility|: Donde se muestra ese producto.
 * |esale_sequence|: Orden de visualización del producto en listados (opcional)
-* |esale_attribute_group|: Campo que agrupa productos similares. Similar a la categoría
-  principal pero comercio electrónico.
 * |esale_shortdescription|: Descripción de 512 caracteres. Se muestra como textos
   introducción o listados.
 * |esale_description|: Descripción venta (detalles). Puede usar tags HTML aunque
@@ -54,7 +52,6 @@ visibilidad,...
 .. |esale_slug| field:: product.template/esale_slug
 .. |esale_visibility| field:: product.template/esale_visibility
 .. |esale_sequence| field:: product.template/esale_sequence
-.. |esale_attribute_group| field:: product.template/esale_attribute_group
 .. |esale_shortdescription| field:: product.template/esale_shortdescription
 .. |esale_description| field:: product.template/esale_description
 .. |esale_metakeyword| field:: product.template/esale_metakeyword
