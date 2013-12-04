@@ -77,5 +77,3 @@ visibilidad,...
           comercio electrónico, no lo podrá eliminar. Para no vender este
           producto o para ocultar, desactive el campo **Activo** de la pestaña
           **eSale/General** o establezca la **Visibilidad** a **Ninguno**.
-
-.. inheritref:: product_esale/product_esale:section:exportar
