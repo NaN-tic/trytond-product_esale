@@ -86,6 +86,14 @@ msgctxt "field:esale.catalog.menu,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
+msgctxt "field:product.template,esale_active:"
+msgid ""
+msgstr ""
+
+msgctxt "field:product.template,esale_available:"
+msgid ""
+msgstr ""
+
 msgctxt "field:product.template,esale_crosssells:"
 msgid "Cross Sells"
 msgstr "Vendes creuades"
@@ -262,6 +270,10 @@ msgctxt "field:product.template-product.upsell,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
+msgctxt "help:product.template,esale_available:"
+msgid ""
+msgstr ""
+
 msgctxt "help:product.template,esale_metadescription:"
 msgid ""
 "Almost all search engines recommend it to be shorter than 155 characters of "
@@ -336,3 +348,55 @@ msgstr "Cap"
 msgctxt "selection:product.template,esale_visibility:"
 msgid "Search"
 msgstr "Busca"
+
+msgctxt "view:esale.catalog.menu:"
+msgid "Children"
+msgstr "Fills"
+
+msgctxt "view:esale.catalog.menu:"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:esale.catalog.menu:"
+msgid "Menu"
+msgstr "Menú"
+
+msgctxt "view:esale.catalog.menu:"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "view:esale.catalog.menu:"
+msgid "SEO"
+msgstr "SEO"
+
+msgctxt "view:product.template:"
+msgid "Cross Sells"
+msgstr "Vendes creuades"
+
+msgctxt "view:product.template:"
+msgid "Description"
+msgstr "Descripció"
+
+msgctxt "view:product.template:"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:product.template:"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "view:product.template:"
+msgid "Relateds"
+msgstr "Relacionats"
+
+msgctxt "view:product.template:"
+msgid "SEO"
+msgstr "SEO"
+
+msgctxt "view:product.template:"
+msgid "Up Sells"
+msgstr "Vendes sugerides"
+
+msgctxt "view:product.template:"
+msgid "eSale"
+msgstr "eSale"
