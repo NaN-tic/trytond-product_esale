@@ -17,6 +17,7 @@ class CatalogMenu(ModelSQL, ModelView):
             string='Children')
     active = fields.Boolean('Active')
     default_sort_by = fields.Selection([
+            ('', ''),
             ('position', 'Position'),
             ('name', 'Name'),
             ('price', 'Price')

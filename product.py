@@ -125,7 +125,7 @@ class Template:
             if slug or esale_websites:
                 if not slug:
                     slug = product.esale_slug
-                cls.get_slug(id, slug)
+                cls.get_slug(product.id, slug)
         return super(Template, cls).write(products, values)
 
 class Product:
