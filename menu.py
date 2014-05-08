@@ -2,6 +2,7 @@
 #The COPYRIGHT file at the top level of this repository contains 
 #the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, fields
+from trytond.pool import Pool
 from .tools import slugify
 
 __all__ = ['CatalogMenu']
@@ -128,6 +129,11 @@ class CatalogMenu(ModelSQL, ModelView):
         :param slug: str
         :return True or False
         """
+        Config = Pool().get('sale.configuration')
+        config = Config(1)
+        if not config.check_slug:
+            return True
+
         topmenu = cls.get_topmenu(parent)
         if not topmenu:
             return True

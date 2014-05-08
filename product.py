@@ -2,7 +2,7 @@
 #The COPYRIGHT file at the top level of this repository contains 
 #the full copyright notices and license terms.
 from trytond.model import ModelSQL, fields
-from trytond.pool import PoolMeta
+from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from .tools import slugify
 
@@ -96,6 +96,11 @@ class Template:
         :param slug: str
         :return True or False
         """
+        Config = Pool().get('sale.configuration')
+        config = Config(1)
+        if not config.check_slug:
+            return True
+
         records = [t.id for t in cls.search([('esale_available','=', True)])]
         if id and id in records:
             records.remove(id)
