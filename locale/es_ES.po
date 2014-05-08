@@ -270,6 +270,10 @@ msgctxt "field:product.template-product.upsell,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
+msgctxt "field:sale.configuration,check_slug:"
+msgid "Check Slug"
+msgstr "Validar Slug"
+
 msgctxt "help:product.template,esale_available:"
 msgid ""
 msgstr ""
@@ -284,6 +288,10 @@ msgstr ""
 msgctxt "help:product.template,esale_sequence:"
 msgid "Gives the sequence order when displaying category list."
 msgstr "La secuencia de la ordenación en la categoría"
+
+msgctxt "help:sale.configuration,check_slug:"
+msgid "Check slug exist in products and menus"
+msgstr "Valida el slug si existe en los productos y menús"
 
 msgctxt "model:esale.catalog.menu,name:"
 msgid "eSale Catalog Menu"
