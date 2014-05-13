@@ -19,3 +19,9 @@ def slugify(value):
     except:
         name = ''
     return name
+
+def seo_lenght(string):
+    '''Get first 155 characters from string'''
+    if len(string) > 155:
+        return '%s...' % (string[:152])
+    return string
