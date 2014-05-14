@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- This file is part product_esale module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/group[@id=&quot;content&quot;]/field[@name=&quot;link&quot;]" position="after">
+        <label name="esale_available"/>
+        <field name="esale_available"/>
+    </xpath>
+    <xpath expr="/form/notebook/page[@name=&quot;description&quot;]" position="after">
+        <page string="eSale" id="esale" states="{'invisible': Not(Bool(Eval('esale_available')))}">
+            <label name="esale_base_image"/>
+            <field name="esale_base_image"/>
+            <label name="esale_small_image"/>
+            <field name="esale_small_image"/>
+            <label name="esale_thumbnail"/>
+            <field name="esale_thumbnail"/>
+            <label name="esale_exclude"/>
+            <field name="esale_exclude"/>
+            <label name="esale_position"/>
+            <field name="esale_position"/>
+        </page>
+    </xpath>
+</data>
+
