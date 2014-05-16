@@ -25,7 +25,7 @@ class Template:
             ('all','All'),
             ('search','Search'),
             ('catalog','Catalog'),
-            ('none','None'),
+            (None,'None'),
             ], 'Visibility')
     esale_slug = fields.Char('Slug', translate=True,
             states={
