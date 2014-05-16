@@ -30,6 +30,7 @@ class CatalogMenu(ModelSQL, ModelView):
     metadescription = fields.Char('MetaDescription', size=155, translate=True)
     metakeyword = fields.Char('MetaKeyword', size=155, translate=True)
     metatitle = fields.Char('MetaTitle', size=155, translate=True)
+    include_in_menu = fields.Boolean('Included in Menu')
 
     @staticmethod
     def default_active():
@@ -38,6 +39,10 @@ class CatalogMenu(ModelSQL, ModelView):
     @staticmethod
     def default_default_sort_by():
         return 'position'
+
+    @staticmethod
+    def default_include_in_menu():
+        return True
 
     def on_change_with_slug(self):
         """Create slug from name: az09"""
