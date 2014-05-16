@@ -57,6 +57,7 @@ class CatalogMenu(ModelSQL, ModelView):
         cls._error_messages.update({
             'slug_empty': 'Slug field is empty!',
             'slug_exists': 'Slug %s exists. Get another slug!',
+            'not_copy': 'Copy action is dissabled! Create new menu use New',
         })
 
     @classmethod
@@ -64,6 +65,10 @@ class CatalogMenu(ModelSQL, ModelView):
         super(CatalogMenu, cls).validate(menus)
         cls.check_recursion(menus, rec_name='name')
 
+    @classmethod
+    def copy(cls, menus, default=None):
+        cls.raise_user_error('not_copy')
+    
     def get_full_slug(self, name):
         if self.parent:
             return self.parent.get_full_slug(name) + '/' + self.slug
