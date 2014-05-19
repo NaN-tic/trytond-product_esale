@@ -72,6 +72,8 @@ class Template:
         cls._error_messages.update({
             'slug_empty': 'Slug field is empty!',
             'slug_exists': 'Slug %s exists. Get another slug!',
+            'delete_esale_template': 'Product %s is esale active. '
+                'Descheck active field to dissable esale products',
         })
 
     @staticmethod
@@ -132,6 +134,14 @@ class Template:
                     slug = template.esale_slug
                 cls.get_slug(template.id, slug)
         return super(Template, cls).write(templates, values)
+
+    @classmethod
+    def delete(cls, templates):
+        for template in templates:
+            if template.esale_available:
+                cls.raise_user_error('delete_esale_template', (template.rec_name,))
+        super(Template, cls).delete(templates)
+
 
 class Product:
     __name__ = 'product.product'

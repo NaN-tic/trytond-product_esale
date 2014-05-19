@@ -21,6 +21,14 @@ class Attachment:
     esale_position = fields.Integer('Position',
         help='Image file position ')
 
+    @classmethod
+    def __setup__(cls):
+        super(Attachment, cls).__setup__()
+        cls._error_messages.update({
+            'delete_esale_attachment': 'Attachment %s is esale active. '
+                'Descheck exclude field to dissable esale attachments',
+        })
+
     @staticmethod
     def default_esale_base_image():
         return True
@@ -36,3 +44,10 @@ class Attachment:
     @staticmethod
     def default_esale_position():
         return 1
+
+    @classmethod
+    def delete(cls, attachments):
+        for attachment in attachments:
+            if attachment.esale_available:
+                cls.raise_user_error('delete_esale_attachment', (attachment.rec_name,))
+        super(Attachment, cls).delete(attachments)
