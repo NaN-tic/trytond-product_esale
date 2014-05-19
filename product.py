@@ -121,17 +121,17 @@ class Template:
         return super(Template, cls).create(vlist)
 
     @classmethod
-    def write(cls, products, values):
+    def write(cls, templates, values):
         """Get another product slug same shop"""
         values = values.copy()
-        for product in products:
+        for template in templates:
             slug = values.get('esale_slug')
             esale_websites = values.get('esale_websites')
             if slug or esale_websites:
                 if not slug:
-                    slug = product.esale_slug
-                cls.get_slug(product.id, slug)
-        return super(Template, cls).write(products, values)
+                    slug = template.esale_slug
+                cls.get_slug(template.id, slug)
+        return super(Template, cls).write(templates, values)
 
 class Product:
     __name__ = 'product.product'
