@@ -361,6 +361,10 @@ msgctxt "model:ir.action,name:act_menu_tree"
 msgid "Menus"
 msgstr "Menús"
 
+msgctxt "model:ir.action,name:act_template_by_esale_catalog_menu"
+msgid "Products by Menu"
+msgstr "Productes per menú"
+
 msgctxt "model:ir.ui.menu,name:menu_menu_list"
 msgid "Menus"
 msgstr "Menús"
