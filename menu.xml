@@ -74,5 +74,27 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+
+        <!-- Open products by menus -->
+        <record model="ir.action.act_window" id="act_template_by_esale_catalog_menu">
+            <field name="name">Products by Menu</field>
+            <field name="res_model">product.template</field>
+            <field name="domain">[('esale_menus','child_of', [Eval('active_id')], 'parent')]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_template_by_esale_catalog_menu_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="template_view_tree"/>
+            <field name="act_window" ref="act_template_by_esale_catalog_menu"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_template_by_esale_catalog_menu_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="template_view_form"/>
+            <field name="act_window" ref="act_template_by_esale_catalog_menu"/>
+        </record>
+        <record model="ir.action.keyword" id="act_template_by_esale_catalog_menu_keyword1">
+            <field name="keyword">tree_open</field>
+            <field name="model">esale.catalog.menu,-1</field>
+            <field name="action" ref="act_template_by_esale_catalog_menu"/>
+        </record>
     </data>
 </tryton>
