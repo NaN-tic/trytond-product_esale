@@ -33,8 +33,12 @@ class Template:
             },
             on_change_with=['name'],
             depends=['esale_available'])
-    esale_shortdescription = fields.Text('Short Description', translate=True)
-    esale_description = fields.Text('Sale Description', translate=True)
+    esale_shortdescription = fields.Text('Short Description', translate=True,
+        help='You could write wiki markup to create html content. Formats text following '
+        'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+    esale_description = fields.Text('Sale Description', translate=True,
+        help='You could write wiki markup to create html content. Formats text following '
+        'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
     esale_metadescription = fields.Char('Meta Description', translate=True,
             help='Almost all search engines recommend it to be shorter ' \
             'than 155 characters of plain text')
