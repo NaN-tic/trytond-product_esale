@@ -140,6 +140,16 @@ class Template:
         return super(Template, cls).write(templates, values)
 
     @classmethod
+    def copy(cls, templates, default=None):
+        new_templates = []
+        for template in templates:
+            if template.esale_slug:
+                default['esale_slug'] = '%s-copy' % template.esale_slug
+            new_template, = super(Template, cls).copy([template], default=default)
+            new_templates.append(new_template)
+        return new_templates
+
+    @classmethod
     def delete(cls, templates):
         for template in templates:
             if template.esale_available:
