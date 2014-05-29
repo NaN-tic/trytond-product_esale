@@ -31,7 +31,6 @@ class Template:
             states={
                 'required': Eval('esale_available', True),
             },
-            on_change_with=['name'],
             depends=['esale_available'])
     esale_shortdescription = fields.Text('Short Description', translate=True,
         help='You could write wiki markup to create html content. Formats text following '
@@ -89,6 +88,7 @@ class Template:
     def default_esale_visibility():
         return 'all'
 
+    @fields.depends('name')
     def on_change_with_esale_slug(self):
         """Create slug from name: az09"""
         name = self.name or ''

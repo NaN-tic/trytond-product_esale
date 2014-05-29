@@ -23,8 +23,7 @@ class CatalogMenu(ModelSQL, ModelView):
             ('name', 'Name'),
             ('price', 'Price')
             ], 'Default Product Listing Sort (Sort By)')
-    slug = fields.Char('Slug', size=None, translate=True, required=True,
-            on_change_with=['name'])
+    slug = fields.Char('Slug', size=None, translate=True, required=True)
     full_slug = fields.Function(fields.Char('Full Slug'), 'get_full_slug')
     description = fields.Text('Description', translate=True)
     metadescription = fields.Char('MetaDescription', size=155, translate=True)
@@ -44,6 +43,7 @@ class CatalogMenu(ModelSQL, ModelView):
     def default_include_in_menu():
         return True
 
+    @fields.depends('name')
     def on_change_with_slug(self):
         """Create slug from name: az09"""
         name = self.name or ''
