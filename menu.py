@@ -169,13 +169,14 @@ class CatalogMenu(ModelSQL, ModelView):
         return super(CatalogMenu, cls).create(vlist)
 
     @classmethod
-    def write(cls, records, values):
-        values = values.copy()
-        for record in records:
+    def write(cls, *args):
+        actions = iter(args)
+        for records, values in zip(actions, actions):
             slug = values.get('slug')
             parent = values.get('parent')
             if slug:
-                if not parent:
-                    parent = cls(record).parent.id
-                cls.get_slug(record.id, slug, parent)
-        return super(CatalogMenu, cls).write(records, values)
+                for record in records:
+                    if not parent:
+                        parent = cls(record).parent.id
+                    cls.get_slug(record.id, slug, parent)
+        return super(CatalogMenu, cls).write(*args)

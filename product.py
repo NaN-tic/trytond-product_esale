@@ -150,17 +150,18 @@ class Template:
         return super(Template, cls).create(vlist)
 
     @classmethod
-    def write(cls, templates, values):
+    def write(cls, *args):
         """Get another product slug same shop"""
-        values = values.copy()
-        for template in templates:
+        actions = iter(args)
+        for templates, values in zip(actions, actions):
             slug = values.get('esale_slug')
             esale_websites = values.get('esale_websites')
             if slug or esale_websites:
-                if not slug:
-                    slug = template.esale_slug
-                cls.get_slug(template.id, slug)
-        return super(Template, cls).write(templates, values)
+                for template in templates:
+                    if not slug:
+                        slug = template.esale_slug
+                    cls.get_slug(template.id, slug)
+        return super(Template, cls).write(templates, *args)
 
     @classmethod
     def copy(cls, templates, default=None):
