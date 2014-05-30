@@ -161,7 +161,7 @@ class Template:
                     if not slug:
                         slug = template.esale_slug
                     cls.get_slug(template.id, slug)
-        return super(Template, cls).write(templates, *args)
+        return super(Template, cls).write(*args)
 
     @classmethod
     def copy(cls, templates, default=None):
