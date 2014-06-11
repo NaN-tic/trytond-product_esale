@@ -70,6 +70,7 @@ class Template:
     esale_sequence = fields.Integer('Sequence', 
             help='Gives the sequence order when displaying category list.')
     esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
+    esale_digest_images = fields.Function(fields.Char('eSale Digest Images'), 'get_esale_digest_images')
 
     @classmethod
     def __setup__(cls):
@@ -131,6 +132,28 @@ class Template:
                 small = attachment.name
             if attachment.esale_thumbnail and not thumb:
                 thumb = attachment.name
+
+        images['base'] = base
+        images['small'] = small
+        images['thumbnail'] = thumb
+
+        return images
+
+    def get_esale_digest_images(self, name):
+        '''Return dict product digest images: base, small and thumb'''
+        images = {}
+        base = None
+        small = None
+        thumb = None
+        for attachment in self.attachments:
+            if not attachment.esale_available or attachment.esale_exclude:
+                continue 
+            if attachment.esale_base_image and not base:
+                base = attachment.digest
+            if attachment.esale_small_image and not small:
+                small = attachment.digest
+            if attachment.esale_thumbnail and not thumb:
+                thumb = attachment.digest
 
         images['base'] = base
         images['small'] = small
