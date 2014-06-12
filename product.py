@@ -4,6 +4,7 @@
 from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
+from trytond.cache import Cache
 from trytond.pyson import Eval
 from .tools import slugify
 
@@ -74,6 +75,7 @@ class Template:
     esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
     esale_default_images = fields.Function(fields.Char('eSale Default Images'), 'get_esale_default_images')
     esale_all_images = fields.Function(fields.Char('eSale All Images'), 'get_esale_all_images')
+    _esale_slug_langs_cache = Cache('product_template.esale_slug_langs')
 
     @classmethod
     def __setup__(cls):
