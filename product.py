@@ -3,6 +3,7 @@
 #the full copyright notices and license terms.
 from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
+from trytond.transaction import Transaction
 from trytond.pyson import Eval
 from .tools import slugify
 
@@ -33,6 +34,7 @@ class Template:
             },
             on_change_with=['name'],
             depends=['esale_available'])
+    esale_slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_esale_slug_langs')
     esale_shortdescription = fields.Text('Short Description', translate=True,
         help='You could write wiki markup to create html content. Formats text following '
         'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
@@ -174,6 +176,26 @@ class Template:
         images['thumbnail'] = thumb
 
         return images
+
+    def get_esale_slug_langs(self, name):
+        '''Return dict slugs by all languaes actives'''
+        pool = Pool()
+        Lang = pool.get('ir.lang')
+        Template = pool.get('product.template')
+
+        template_id = self.id
+        langs = Lang.search([
+            ('active', '=', True),
+            ('translatable', '=', True),
+            ])
+
+        slugs = {}
+        for lang in langs:
+            with Transaction().set_context(language=lang.code):
+                template, = Template.read([template_id], ['esale_slug'])
+                slugs[lang.code] = template['esale_slug']
+
+        return slugs
 
     @classmethod
     def create(cls, vlist):
