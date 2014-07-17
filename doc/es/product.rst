@@ -3,7 +3,7 @@
 Productos para tiendas virtuales
 ================================
 
-#:inside:product/product:toctree:atributos#
+.. inheritref:: product/product:toctree:esale
 
 .. toctree::
    :maxdepth: 2
