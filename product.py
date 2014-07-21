@@ -146,11 +146,14 @@ class Template:
 
     def get_esale_all_images(self, name):
         '''Return list product images'''
-        images = {}
+        images = []
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
                 continue 
-            images[attachment.name] = attachment.digest
+            images.append({
+                'name': attachment.name,
+                'digest': attachment.digest,
+                })
 
         return images
 
@@ -164,15 +167,20 @@ class Template:
             if not attachment.esale_available or attachment.esale_exclude:
                 continue 
             if attachment.esale_base_image and not base:
-                base = {}
-                base[attachment.name] = attachment.digest
+                base = {
+                    'name': attachment.name,
+                    'digest': attachment.digest,
+                    }
             if attachment.esale_small_image and not small:
-                small = {}
-                small[attachment.name] = attachment.digest
+                small = {
+                    'name': attachment.name,
+                    'digest': attachment.digest,
+                    }
             if attachment.esale_thumbnail and not thumb:
-                thumb = {}
-                thumb[attachment.name] = attachment.digest
-
+                thumb = {
+                    'name': attachment.name,
+                    'digest': attachment.digest,
+                    }
         images['base'] = base
         images['small'] = small
         images['thumbnail'] = thumb
