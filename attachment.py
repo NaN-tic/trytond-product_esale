@@ -24,6 +24,8 @@ class Attachment:
     @classmethod
     def __setup__(cls):
         super(Attachment, cls).__setup__()
+        cls._order.insert(0, ('esale_position', 'ASC'))
+        cls._order.insert(1, ('id', 'ASC'))
         cls._error_messages.update({
             'delete_esale_attachment': 'Attachment %s is esale active. '
                 'Descheck exclude field to dissable esale attachments',
