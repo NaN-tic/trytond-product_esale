@@ -176,7 +176,7 @@ class CatalogMenu(ModelSQL, ModelView):
             parent = values.get('parent')
             if slug:
                 for record in records:
-                    if not parent:
+                    if parent:
                         parent = cls(record).parent.id
                     cls.get_slug(record.id, slug, parent)
         return super(CatalogMenu, cls).write(*args)
