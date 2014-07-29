@@ -319,7 +319,7 @@ msgstr "Valida Slug"
 
 msgctxt "help:ir.attachment,esale_available:"
 msgid "This image are available in your e-commerce."
-msgstr "Aquesta imatge estarà disponible al comerç electrónic."
+msgstr "Aquesta imatge estarà disponible al comerç electrònic."
 
 msgctxt "help:ir.attachment,esale_exclude:"
 msgid ""
