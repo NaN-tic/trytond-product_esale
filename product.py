@@ -94,6 +94,10 @@ class Template:
     def default_esale_visibility():
         return 'all'
 
+    @staticmethod
+    def default_esale_sequence():
+        return 1
+
     @fields.depends('name')
     def on_change_with_esale_slug(self):
         """Create slug from name: az09"""
