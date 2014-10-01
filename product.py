@@ -256,6 +256,24 @@ class Template:
 
 class Product:
     __name__ = 'product.product'
+    esale_available = fields.Function(fields.Boolean('eSale'),
+        'get_esale_available', searcher='search_esale_available')
+    esale_active = fields.Function(fields.Boolean('Active eSale'),
+        'get_esale_active', searcher='search_esale_active')
+
+    def get_esale_available(self, name):
+        return self.template.esale_available if self.template else False
+
+    @classmethod
+    def search_esale_available(cls, name, clause):
+        return [('template.esale_available',) + tuple(clause[1:])]
+
+    def get_esale_active(self, name):
+        return self.template.esale_active if self.template else False
+
+    @classmethod
+    def search_esale_active(cls, name, clause):
+        return [('template.esale_active',) + tuple(clause[1:])]
 
     @classmethod
     def get_product_relateds(cls, products, exclude=False):
