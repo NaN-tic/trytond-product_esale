@@ -3,6 +3,10 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:esale.catalog.menu:"
+msgid "Copy action is dissabled! Create new menu use New"
+msgstr "La acción de exportar está desactivado. Crea un nuevo menú"
+
+msgctxt "error:esale.catalog.menu:"
 msgid "Slug %s exists. Get another slug!"
 msgstr "El slug %s ya existe. Intente con otro nombre"
 
@@ -129,21 +133,41 @@ msgctxt "field:ir.attachment,esale_thumbnail:"
 msgid "Thumbnail Image"
 msgstr "Imagen miniatura"
 
+msgctxt "field:product.product,esale_active:"
+msgid "Active eSale"
+msgstr "Activo eSale"
+
+msgctxt "field:product.product,esale_available:"
+msgid "eSale"
+msgstr "eSale"
+
 msgctxt "field:product.template,esale_active:"
-msgid ""
-msgstr ""
+msgid "Active eSale"
+msgstr "Activo eSale"
+
+msgctxt "field:product.template,esale_all_images:"
+msgid "eSale All Images"
+msgstr "eSale todas imágenes"
 
 msgctxt "field:product.template,esale_available:"
-msgid ""
-msgstr ""
+msgid "eSale"
+msgstr "eSale"
 
 msgctxt "field:product.template,esale_crosssells:"
 msgid "Cross Sells"
 msgstr "Ventas cruzadas"
 
+msgctxt "field:product.template,esale_default_images:"
+msgid "eSale Default Images"
+msgstr "eSale imagen defecto"
+
 msgctxt "field:product.template,esale_description:"
 msgid "Sale Description"
 msgstr "Descripción de venta"
+
+msgctxt "field:product.template,esale_images:"
+msgid "eSale Images"
+msgstr "eSale Imágenes"
 
 msgctxt "field:product.template,esale_menus:"
 msgid "Menus"
@@ -176,6 +200,10 @@ msgstr "Descripción corta"
 msgctxt "field:product.template,esale_slug:"
 msgid "Slug"
 msgstr "Slug"
+
+msgctxt "field:product.template,esale_slug_langs:"
+msgid "Slug Langs"
+msgstr "Slug idiomas"
 
 msgctxt "field:product.template,esale_upsells:"
 msgid "Up Sells"
@@ -332,7 +360,20 @@ msgstr "Posición de la imágen"
 
 msgctxt "help:product.template,esale_available:"
 msgid ""
+"This product are available in your e-commerce. If you need not publish this "
+"product (despublish), unmark Active field in eSale section."
 msgstr ""
+"Este producto estará disponible en su comercio electrónico. Si no lo desea, "
+"desactívelo."
+
+msgctxt "help:product.template,esale_description:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
+msgstr ""
+"Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
+" las etiquetas puede consultar a MediaWiki "
+"(http://meta.wikimedia.org/wiki/Help:Editing)."
 
 msgctxt "help:product.template,esale_metadescription:"
 msgid ""
@@ -345,6 +386,15 @@ msgctxt "help:product.template,esale_sequence:"
 msgid "Gives the sequence order when displaying category list."
 msgstr "La secuencia de la ordenación en la categoría"
 
+msgctxt "help:product.template,esale_shortdescription:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax."
+msgstr ""
+"Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
+" las etiquetas puede consultar a MediaWiki "
+"(http://meta.wikimedia.org/wiki/Help:Editing)."
+
 msgctxt "help:sale.configuration,check_slug:"
 msgid "Check slug exist in products and menus"
 msgstr "Valida el slug si existe en los productos y menús"
@@ -352,6 +402,18 @@ msgstr "Valida el slug si existe en los productos y menús"
 msgctxt "model:esale.catalog.menu,name:"
 msgid "eSale Catalog Menu"
 msgstr "eSale Catalog Menú"
+
+msgctxt "model:ir.action,name:act_esale_product_form"
+msgid "eSale Variants"
+msgstr "eSale Variantes"
+
+msgctxt "model:ir.action,name:act_esale_product_product_form"
+msgid "eSale Variants"
+msgstr "eSale Variantes"
+
+msgctxt "model:ir.action,name:act_esale_template_form"
+msgid "eSale Products"
+msgstr "eSale Productos"
 
 msgctxt "model:ir.action,name:act_menu_list"
 msgid "Menus"
@@ -364,6 +426,14 @@ msgstr "Menús"
 msgctxt "model:ir.action,name:act_template_by_esale_catalog_menu"
 msgid "Products by Menu"
 msgstr "Productos por menú"
+
+msgctxt "model:ir.ui.menu,name:menu_esale_product"
+msgid "eSale Variants"
+msgstr "eSale Variantes"
+
+msgctxt "model:ir.ui.menu,name:menu_esale_template"
+msgid "eSale Products"
+msgstr "eSale Productos"
 
 msgctxt "model:ir.ui.menu,name:menu_menu_list"
 msgid "Menus"
@@ -388,6 +458,10 @@ msgstr "Productos - Relacionados"
 msgctxt "model:product.template-product.upsell,name:"
 msgid "Product - Upsell"
 msgstr "Producto - Ventas sugeridas"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid "Name"
@@ -441,6 +515,22 @@ msgctxt "view:ir.attachment:"
 msgid "eSale"
 msgstr "eSale"
 
+msgctxt "view:product.product:"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:product.product:"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt "view:product.product:"
+msgid "Products"
+msgstr "Productos"
+
+msgctxt "view:product.product:"
+msgid "eSale"
+msgstr "eSale"
+
 msgctxt "view:product.template:"
 msgid "Cross Sells"
 msgstr "Ventas cruzadas"
@@ -456,6 +546,14 @@ msgstr "General"
 msgctxt "view:product.template:"
 msgid "Menus"
 msgstr "Menús"
+
+msgctxt "view:product.template:"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt "view:product.template:"
+msgid "Products"
+msgstr "Productos"
 
 msgctxt "view:product.template:"
 msgid "Relateds"
