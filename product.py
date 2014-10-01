@@ -15,14 +15,14 @@ __metaclass__ = PoolMeta
 
 class Template:
     __name__ = 'product.template'
-    esale_available = fields.Boolean('Available eSale',
+    esale_available = fields.Boolean('eSale',
             states={
                 'readonly': Eval('esale_available', True),
             },
             help='This product are available in your e-commerce. ' \
             'If you need not publish this product (despublish), ' \
             'unmark Active field in eSale section.')
-    esale_active = fields.Boolean('Active')
+    esale_active = fields.Boolean('Active eSale')
     esale_visibility = fields.Selection([
             ('all','All'),
             ('search','Search'),
