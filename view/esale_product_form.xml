@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- This file is part product_esale module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<form string="Product" col="6">
+  <label name="template"/>
+  <field name="template"/>
+  <notebook colspan="6">
+      <page string="eSale" id="esale">
+      </page>
+      <page string="General" id="general">
+        <label name="code"/>
+        <field name="code"/>
+        <label name="active"/>
+        <field name="active" xexpand="0" width="100"/>
+      </page>
+  </notebook>
+</form>

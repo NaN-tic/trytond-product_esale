@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- This file is part product_esale module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<form string="Product" col="6">
+  <label name="name"/>
+  <field name="name" xexpand="1"/>
+  <label name="active"/>
+  <field name="active" xexpand="0" width="100"/>
+  <notebook colspan="6">
+    <page string="eSale" col="4" id="esale">
+        <label name="esale_available"/>
+        <field name="esale_available"/>
+        <notebook colspan="6">
+            <page string="General" id="esale-general">
+                <label name="esale_active"/>
+                <field name="esale_active"/>
+                <label name="esale_visibility"/>
+                <field name="esale_visibility"/>
+                <label name="esale_slug"/>
+                <field name="esale_slug"/>
+                <label name="esale_sequence"/>
+                <field name="esale_sequence"/>
+            </page>
+            <page string="SEO" id="seo">
+                <label name="esale_metadescription"/>
+                <field name="esale_metadescription"/>
+                <label name="esale_metakeyword"/>
+                <field name="esale_metakeyword"/>
+                <label name="esale_metatitle"/>
+                <field name="esale_metatitle"/>
+            </page>
+            <page string="Description" id="description">
+                <separator name="esale_shortdescription" colspan="4"/>
+                <field name="esale_shortdescription" colspan="4"/>
+                <separator name="esale_description" colspan="4"/>
+                <field name="esale_description" colspan="4"/>
+            </page>
+            <page string="Menus" id="menus">
+                <field name="esale_menus"/>
+            </page>
+            <page string="Relateds" id="relateds">
+                <field name="esale_relateds"/>
+            </page>
+            <page string="Up Sells" id="upsells">
+                <field name="esale_upsells"/>
+            </page>
+            <page string="Cross Sells" id="crosssells">
+                <field name="esale_crosssells"/>
+            </page>
+        </notebook>
+    </page>
+    <page string="General" id="general">
+      <label name="type"/>
+      <field name="type"/>
+      <label name="consumable"/>
+      <field name="consumable"/>
+      <label name="category"/>
+      <field name="category"/>
+      <label name="default_uom"/>
+      <field name="default_uom"/>
+      <label name="list_price"/>
+      <field name="list_price"/>
+      <newline/>
+      <label name="cost_price"/>
+      <field name="cost_price"/>
+      <label name="cost_price_method"/>
+      <field name="cost_price_method"/>
+      <field name="products" colspan="4"
+            view_ids="product_esale.esale_product_view_tree,product_esale.esale_product_view_form"/>
+    </page>
+  </notebook>
+</form>

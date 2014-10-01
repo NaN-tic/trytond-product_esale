@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- This file is part product_esale_view module for Tryton.
+<!-- This file is part product_esale module for Tryton.
 The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
@@ -15,5 +15,91 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="inherit" ref="product.template_view_form"/>
             <field name="name">template_form</field>
         </record>
+
+        <!-- Product eSale -->
+        <!-- product.template -->
+        <record model="ir.ui.view" id="esale_template_view_tree">
+            <field name="model">product.template</field>
+            <field name="type">tree</field>
+            <field name="name">esale_template_tree</field>
+        </record>
+        <record model="ir.ui.view" id="esale_template_view_form">
+            <field name="model">product.template</field>
+            <field name="type">form</field>
+            <field name="name">esale_template_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_esale_template_form">
+            <field name="name">eSale Products</field>
+            <field name="res_model">product.template</field>
+            <field name="domain">[('esale_available', '=', True)]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_esale_template_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="esale_template_view_tree"/>
+            <field name="act_window" ref="act_esale_template_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_esale_template_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="esale_template_view_form"/>
+            <field name="act_window" ref="act_esale_template_form"/>
+        </record>
+
+        <menuitem parent="product.menu_main_product" sequence="1" id="menu_esale_template"
+            action="act_esale_template_form"/>
+
+        <record model="ir.action.act_window" id="act_esale_product_product_form">
+            <field name="name">eSale Variants</field>
+            <field name="res_model">product.product</field>
+            <field name="domain">[("template", "=", Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_esale_product_product_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="esale_product_view_tree"/>
+            <field name="act_window" ref="act_esale_product_product_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_esale_product_product_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="esale_product_view_form"/>
+            <field name="act_window" ref="act_esale_product_product_form"/>
+        </record>
+        <record model="ir.action.keyword" id="act_open_esale_product_product_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">product.template,-1</field>
+            <field name="action" ref="act_esale_product_product_form"/>
+        </record>
+
+        <!-- product.product -->
+        <record model="ir.ui.view" id="esale_product_view_tree">
+            <field name="model">product.product</field>
+            <field name="type">tree</field>
+            <field name="inherit" eval="None"/>
+            <field name="name">esale_product_tree</field>
+        </record>
+        <record model="ir.ui.view" id="esale_product_view_form">
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit" eval="None"/>
+            <field name="name">esale_product_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_esale_product_form">
+            <field name="name">eSale Variants</field>
+            <field name="res_model">product.product</field>
+            <field name="domain">[('esale_available', '=', True)]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_esale_product_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="esale_product_view_tree"/>
+            <field name="act_window" ref="act_esale_product_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_esale_product_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="esale_product_view_form"/>
+            <field name="act_window" ref="act_esale_product_form"/>
+        </record>
+
+        <menuitem parent="menu_esale_template" sequence="1" id="menu_esale_product"
+            action="act_esale_product_form"/>
     </data>
 </tryton>
