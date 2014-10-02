@@ -8,6 +8,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
   <field name="active" xexpand="0" width="100"/>
   <notebook colspan="6">
     <page string="eSale" col="4" id="esale">
+        <label name="salable"/>
+        <field name="salable"/>
         <label name="esale_available"/>
         <field name="esale_available"/>
         <notebook colspan="6">
@@ -49,24 +51,48 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             </page>
         </notebook>
     </page>
-    <page string="General" id="general">
-      <label name="type"/>
-      <field name="type"/>
-      <label name="consumable"/>
-      <field name="consumable"/>
-      <label name="category"/>
-      <field name="category"/>
-      <label name="default_uom"/>
-      <field name="default_uom"/>
-      <label name="list_price"/>
-      <field name="list_price"/>
-      <newline/>
-      <label name="cost_price"/>
-      <field name="cost_price"/>
-      <label name="cost_price_method"/>
-      <field name="cost_price_method"/>
-      <field name="products" colspan="4"
+    <page string="Variants" id="products">
+          <field name="products" colspan="4"
             view_ids="product_esale.esale_product_view_tree,product_esale.esale_product_view_form"/>
+    </page>
+    <page string="Images" id="images">
+        <field name="attachments" colspan="6"/>
+    </page>
+    <page string="Prices" id="prices">
+        <label name="list_price"/>
+        <field name="list_price"/>
+        <label name="cost_price"/>
+        <field name="cost_price"/>
+    </page>
+    <page string="General" id="general">
+        <label name="type"/>
+        <field name="type"/>
+        <label name="consumable"/>
+        <field name="consumable"/>
+        <label name="category"/>
+        <field name="category"/>
+        <label name="default_uom"/>
+        <field name="default_uom"/>
+        <label name="sale_uom"/>
+        <field name="sale_uom"/>
+        <label name="cost_price_method"/>
+        <field name="cost_price_method"/>
+    </page>
+    <page string="Accounting" col="4" id="accounting">
+        <separator string="Accounts" id="accounts" colspan="4"/>
+        <label name="account_category"/>
+        <field name="account_category"/>
+        <newline/>
+        <label name="account_revenue"/>
+        <field name="account_revenue"/>
+        <label name="account_expense"/>
+        <field name="account_expense"/>
+        <separator string="Taxes" id="taxes" colspan="4"/>
+        <label name="taxes_category"/>
+        <field name="taxes_category"/>
+        <newline/>
+        <field name="customer_taxes" colspan="2"/>
+        <field name="supplier_taxes" colspan="2"/>
     </page>
   </notebook>
 </form>
