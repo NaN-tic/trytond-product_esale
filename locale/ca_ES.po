@@ -532,6 +532,14 @@ msgid "eSale"
 msgstr "eSale"
 
 msgctxt "view:product.template:"
+msgid "Accounting"
+msgstr "Comptabilitat"
+
+msgctxt "view:product.template:"
+msgid "Accounts"
+msgstr "Comptes"
+
+msgctxt "view:product.template:"
 msgid "Cross Sells"
 msgstr "Vendes creuades"
 
@@ -544,8 +552,16 @@ msgid "General"
 msgstr "General"
 
 msgctxt "view:product.template:"
+msgid "Images"
+msgstr "Imatges"
+
+msgctxt "view:product.template:"
 msgid "Menus"
 msgstr "Menús"
+
+msgctxt "view:product.template:"
+msgid "Prices"
+msgstr "Preus"
 
 msgctxt "view:product.template:"
 msgid "Product"
@@ -564,8 +580,16 @@ msgid "SEO"
 msgstr "SEO"
 
 msgctxt "view:product.template:"
+msgid "Taxes"
+msgstr "Impostos"
+
+msgctxt "view:product.template:"
 msgid "Up Sells"
 msgstr "Vendes sugerides"
+
+msgctxt "view:product.template:"
+msgid "Variants"
+msgstr "Variants"
 
 msgctxt "view:product.template:"
 msgid "eSale"
