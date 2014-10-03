@@ -10,8 +10,38 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                 <page string="General" id="esale-general" states="{'invisible': Not(Bool(Eval('esale_available')))}">
                     <label name="esale_active"/>
                     <field name="esale_active"/>
+                    <label name="esale_visibility"/>
+                    <field name="esale_visibility"/>
                     <label name="esale_slug"/>
                     <field name="esale_slug"/>
+                    <label name="esale_sequence"/>
+                    <field name="esale_sequence"/>
+                </page>
+                <page string="SEO" id="seo" states="{'invisible': Not(Bool(Eval('esale_available')))}">
+                    <label name="esale_metadescription"/>
+                    <field name="esale_metadescription"/>
+                    <label name="esale_metakeyword"/>
+                    <field name="esale_metakeyword"/>
+                    <label name="esale_metatitle"/>
+                    <field name="esale_metatitle"/>
+                </page>
+                <page string="Description" id="description" states="{'invisible': Not(Bool(Eval('esale_available')))}">
+                    <separator name="esale_shortdescription" colspan="4"/>
+                    <field name="esale_shortdescription" colspan="4"/>
+                    <separator name="esale_description" colspan="4"/>
+                    <field name="esale_description" colspan="4"/>
+                </page>
+                <page string="Menus" id="menus" states="{'invisible': Not(Bool(Eval('esale_available')))}">
+                    <field name="esale_menus"/>
+                </page>
+                <page string="Relateds" id="relateds" states="{'invisible': Not(Bool(Eval('esale_available')))}">
+                    <field name="esale_relateds"/>
+                </page>
+                <page string="Up Sells" id="upsells" states="{'invisible': Not(Bool(Eval('esale_available')))}">
+                    <field name="esale_upsells"/>
+                </page>
+                <page string="Cross Sells" id="crosssells" states="{'invisible': Not(Bool(Eval('esale_available')))}">
+                    <field name="esale_crosssells"/>
                 </page>
             </notebook>
         </page>
