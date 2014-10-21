@@ -98,6 +98,22 @@ class Template:
     def default_esale_sequence():
         return 1
 
+    @staticmethod
+    def default_template_attribute_set():
+        '''Product Template Attribute'''
+        Config = Pool().get('product.configuration')
+        config = Config(1)
+        if config.template_attribute_set:
+            return config.template_attribute_set.id
+
+    @staticmethod
+    def default_attribute_set():
+        '''Product Attribute'''
+        Config = Pool().get('product.configuration')
+        config = Config(1)
+        if config.product_attribute_set:
+            return config.product_attribute_set.id
+
     @fields.depends('name')
     def on_change_with_esale_slug(self):
         """Create slug from name: az09"""
@@ -113,7 +129,7 @@ class Template:
         :param slug: str
         :return True or False
         """
-        Config = Pool().get('sale.configuration')
+        Config = Pool().get('product.configuration')
         config = Config(1)
         if not config.check_slug:
             return True

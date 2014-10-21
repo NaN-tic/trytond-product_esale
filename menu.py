@@ -139,7 +139,7 @@ class CatalogMenu(ModelSQL, ModelView):
         :param slug: str
         :return True or False
         """
-        Config = Pool().get('sale.configuration')
+        Config = Pool().get('product.configuration')
         config = Config(1)
         if not config.check_slug:
             return True

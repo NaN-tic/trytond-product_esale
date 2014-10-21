@@ -9,7 +9,11 @@ __metaclass__ = PoolMeta
 
 
 class Configuration:
-    __name__ = 'sale.configuration'
+    __name__ = 'product.configuration'
+    template_attribute_set = fields.Property(fields.Many2One('product.attribute.set',
+            'Template Attribute Set'))
+    product_attribute_set = fields.Property(fields.Many2One('product.attribute.set',
+            'Product Attribute Set'))
     check_slug = fields.Boolean('Check Slug',
         help='Check slug exist in products and menus')
 
