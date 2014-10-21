@@ -7,6 +7,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
   <notebook colspan="6">
       <page string="eSale" id="esale">
       </page>
+      <page string="Attributes" id="attributes">
+        <field name="attributes" colspan="6"/>
+      </page>
       <page string="General" id="general">
         <label name="code"/>
         <field name="code"/>
