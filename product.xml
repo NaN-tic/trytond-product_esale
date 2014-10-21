@@ -52,13 +52,11 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="ir.ui.view" id="esale_product_view_tree">
             <field name="model">product.product</field>
             <field name="type">tree</field>
-            <field name="inherit" eval="None"/>
             <field name="name">esale_product_tree</field>
         </record>
         <record model="ir.ui.view" id="esale_product_view_form">
             <field name="model">product.product</field>
             <field name="type">form</field>
-            <field name="inherit" eval="None"/>
             <field name="name">esale_product_form</field>
         </record>
 
