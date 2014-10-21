@@ -8,11 +8,11 @@ msgstr "La acción de exportar está desactivado. Crea un nuevo menú"
 
 msgctxt "error:esale.catalog.menu:"
 msgid "Slug %s exists. Get another slug!"
-msgstr "El slug %s ya existe. Intente con otro nombre"
+msgstr "El slug %s ya existe. Intente con otro nombre."
 
 msgctxt "error:esale.catalog.menu:"
 msgid "Slug field is empty!"
-msgstr "El campo slug está vacio"
+msgstr "El campo slug está vacio."
 
 msgctxt "error:ir.attachment:"
 msgid ""
@@ -31,7 +31,7 @@ msgstr ""
 
 msgctxt "error:product.template:"
 msgid "Slug %s exists. Get another slug!"
-msgstr "El slug %s ya existe. Intente con otro nombre"
+msgstr "El slug %s ya existe. Intente con otro nombre."
 
 msgctxt "error:product.template:"
 msgid "Slug field is empty!"
@@ -47,11 +47,11 @@ msgstr "Hijos"
 
 msgctxt "field:esale.catalog.menu,create_date:"
 msgid "Create Date"
-msgstr "Fecha de creación"
+msgstr "Fecha creación"
 
 msgctxt "field:esale.catalog.menu,create_uid:"
 msgid "Create User"
-msgstr "Usuario de creación"
+msgstr "Usuario creación"
 
 msgctxt "field:esale.catalog.menu,default_sort_by:"
 msgid "Default Product Listing Sort (Sort By)"
@@ -132,6 +132,18 @@ msgstr "Imagen pequeña"
 msgctxt "field:ir.attachment,esale_thumbnail:"
 msgid "Thumbnail Image"
 msgstr "Imagen miniatura"
+
+msgctxt "field:product.configuration,check_slug:"
+msgid "Check Slug"
+msgstr "Validar Slug"
+
+msgctxt "field:product.configuration,product_attribute_set:"
+msgid "Product Attribute Set"
+msgstr "Grupo atributos variante"
+
+msgctxt "field:product.configuration,template_attribute_set:"
+msgid "Template Attribute Set"
+msgstr "Grupo atributos producto"
 
 msgctxt "field:product.product,esale_active:"
 msgid "Active eSale"
@@ -247,11 +259,11 @@ msgstr "Usuario modificación"
 
 msgctxt "field:product.template-product.crosssell,create_date:"
 msgid "Create Date"
-msgstr "Fecha de creación"
+msgstr "Fecha creación"
 
 msgctxt "field:product.template-product.crosssell,create_uid:"
 msgid "Create User"
-msgstr "Usuario de creación"
+msgstr "Usuario creación"
 
 msgctxt "field:product.template-product.crosssell,crosssell:"
 msgid "Cross Sell"
@@ -279,11 +291,11 @@ msgstr "Usuario modificación"
 
 msgctxt "field:product.template-product.related,create_date:"
 msgid "Create Date"
-msgstr "Fecha de creación"
+msgstr "Fecha creación"
 
 msgctxt "field:product.template-product.related,create_uid:"
 msgid "Create User"
-msgstr "Usuario de creación"
+msgstr "Usuario creación"
 
 msgctxt "field:product.template-product.related,id:"
 msgid "ID"
@@ -311,11 +323,11 @@ msgstr "Usuario modificación"
 
 msgctxt "field:product.template-product.upsell,create_date:"
 msgid "Create Date"
-msgstr "Fecha de creación"
+msgstr "Fecha creación"
 
 msgctxt "field:product.template-product.upsell,create_uid:"
 msgid "Create User"
-msgstr "Usuario de creación"
+msgstr "Usuario creación"
 
 msgctxt "field:product.template-product.upsell,id:"
 msgid "ID"
@@ -341,10 +353,6 @@ msgctxt "field:product.template-product.upsell,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
-msgctxt "field:sale.configuration,check_slug:"
-msgid "Check Slug"
-msgstr "Validar Slug"
-
 msgctxt "help:ir.attachment,esale_available:"
 msgid "This image are available in your e-commerce."
 msgstr "Esta imagen esta disponible en el comercio electrónico."
@@ -356,7 +364,11 @@ msgstr "La imagen será excluida y no se mostrará."
 
 msgctxt "help:ir.attachment,esale_position:"
 msgid "Image file position "
-msgstr "Posición de la imágen"
+msgstr "Posición de la imagen."
+
+msgctxt "help:product.configuration,check_slug:"
+msgid "Check slug exist in products and menus"
+msgstr "Validar Slugs en productos y menús."
 
 msgctxt "help:product.template,esale_available:"
 msgid ""
@@ -384,7 +396,7 @@ msgstr ""
 
 msgctxt "help:product.template,esale_sequence:"
 msgid "Gives the sequence order when displaying category list."
-msgstr "La secuencia de la ordenación en la categoría"
+msgstr "La secuencia de la ordenación en la categoría."
 
 msgctxt "help:product.template,esale_shortdescription:"
 msgid ""
@@ -394,10 +406,6 @@ msgstr ""
 "Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
 " las etiquetas puede consultar a MediaWiki "
 "(http://meta.wikimedia.org/wiki/Help:Editing)."
-
-msgctxt "help:sale.configuration,check_slug:"
-msgid "Check slug exist in products and menus"
-msgstr "Valida el slug si existe en los productos y menús"
 
 msgctxt "model:esale.catalog.menu,name:"
 msgid "eSale Catalog Menu"
