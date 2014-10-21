@@ -524,6 +524,10 @@ msgid "eSale"
 msgstr "eSale"
 
 msgctxt "view:product.product:"
+msgid "Attributes"
+msgstr "Atributs"
+
+msgctxt "view:product.product:"
 msgid "General"
 msgstr "General"
 
@@ -546,6 +550,10 @@ msgstr "Comptabilitat"
 msgctxt "view:product.template:"
 msgid "Accounts"
 msgstr "Comptes"
+
+msgctxt "view:product.template:"
+msgid "Attributes"
+msgstr "Atributs"
 
 msgctxt "view:product.template:"
 msgid "Cross Sells"
@@ -574,6 +582,10 @@ msgstr "Preus"
 msgctxt "view:product.template:"
 msgid "Product"
 msgstr "Producte"
+
+msgctxt "view:product.template:"
+msgid "Product Set"
+msgstr "Grup atributs variant"
 
 msgctxt "view:product.template:"
 msgid "Products"
