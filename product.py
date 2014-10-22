@@ -114,6 +114,14 @@ class Template:
         if config.product_attribute_set:
             return config.product_attribute_set.id
 
+    @staticmethod
+    def default_default_uom():
+        '''Default UOM'''
+        Config = Pool().get('product.configuration')
+        config = Config(1)
+        if config.default_uom:
+            return config.default_uom.id
+
     @fields.depends('name')
     def on_change_with_esale_slug(self):
         """Create slug from name: az09"""

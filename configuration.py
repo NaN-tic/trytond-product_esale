@@ -14,6 +14,8 @@ class Configuration:
             'Template Attribute Set'))
     product_attribute_set = fields.Property(fields.Many2One('product.attribute.set',
             'Product Attribute Set'))
+    default_uom = fields.Property(fields.Many2One('product.uom',
+            'Default UOM'))
     check_slug = fields.Boolean('Check Slug',
         help='Check slug exist in products and menus')
 
