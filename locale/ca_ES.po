@@ -137,6 +137,10 @@ msgctxt "field:product.configuration,check_slug:"
 msgid "Check Slug"
 msgstr "Valida Slug"
 
+msgctxt "field:product.configuration,default_uom:"
+msgid "Default UOM"
+msgstr "UdM predeterminada"
+
 msgctxt "field:product.configuration,product_attribute_set:"
 msgid "Product Attribute Set"
 msgstr "Grup atribut variant"
