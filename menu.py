@@ -150,7 +150,7 @@ class CatalogMenu(ModelSQL, ModelView):
             
         childs = cls.get_allchild(topmenu)
         records = [c.id for c in childs]
-        if id:
+        if id and id in records:
             records.remove(id)
         menus = cls.search([('slug','=',slug),('id','in',records)])
         if len(menus)>0:
