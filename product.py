@@ -72,6 +72,8 @@ class Template:
     esale_sequence = fields.Integer('Sequence', 
             help='Gives the sequence order when displaying category list.')
     esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
+    esale_default_image = fields.Function(fields.Binary('Thumb', filename='name'),
+        'get_esale_default_image', 'set_esale_default_image')
     esale_default_images = fields.Function(fields.Char('eSale Default Images'), 'get_esale_default_images')
     esale_all_images = fields.Function(fields.Char('eSale All Images'), 'get_esale_all_images')
     _esale_slug_langs_cache = Cache('product_template.esale_slug_langs')
@@ -234,6 +236,16 @@ class Template:
                 slugs[lang.code] = template['esale_slug']
 
         return slugs
+
+    @classmethod
+    def set_esale_default_image(cls, products, name, value):
+        return None
+
+    def get_esale_default_image(self, name):
+        for attachment in self.attachments:
+            if attachment.esale_base_image:
+                return attachment.data
+        return None
 
     @classmethod
     def create(cls, vlist):
