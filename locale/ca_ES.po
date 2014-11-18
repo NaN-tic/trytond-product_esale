@@ -173,6 +173,10 @@ msgctxt "field:product.template,esale_crosssells:"
 msgid "Cross Sells"
 msgstr "Vendes creuades"
 
+msgctxt "field:product.template,esale_default_image:"
+msgid "Thumb"
+msgstr "Miniatura"
+
 msgctxt "field:product.template,esale_default_images:"
 msgid "eSale Default Images"
 msgstr "eSale Imatge defecte"
