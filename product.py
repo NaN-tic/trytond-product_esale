@@ -262,6 +262,7 @@ class Template:
     def write(cls, *args):
         """Get another product slug same shop"""
         actions = iter(args)
+        args = []
         for templates, values in zip(actions, actions):
             slug = values.get('esale_slug')
             esale_websites = values.get('esale_websites')
@@ -270,6 +271,10 @@ class Template:
                     if not slug:
                         slug = template.esale_slug
                     cls.get_slug(template.id, slug)
+            salable = values.get('salable')
+            if salable == False:
+                values['esale_active'] = False
+            args.extend((templates, values))
         return super(Template, cls).write(*args)
 
     @classmethod
