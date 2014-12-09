@@ -2,7 +2,6 @@
 <!-- This file is part product_esale module for Tryton.
 The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
 <tree string="Menus" keyword_open="1">
-    <field name="name"/>
     <field name="rec_name"/>
     <field name="slug"/>
     <field name="default_sort_by"/>
