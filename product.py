@@ -294,6 +294,24 @@ class Template:
                 cls.raise_user_error('delete_esale_template', (template.rec_name,))
         super(Template, cls).delete(templates)
 
+    @staticmethod
+    def attribute_options(name):
+        '''Return attribute options convert to dict by code'''
+        options = {}
+
+        cursor = Transaction().cursor
+
+        query = "SELECT selection from product_attribute " \
+            "where name = '%s' and type_ = 'selection' LIMIT 1" % name
+        cursor.execute(query)
+        vals = cursor.dictfetchall()
+        if vals:
+            val = vals[0]['selection'] # [{'selection': ''}]
+            for o in val.split('\n'):
+                opt = o.split(':')
+                options[opt[0]] = opt[1]
+        return options
+
 
 class Product:
     __name__ = 'product.product'
