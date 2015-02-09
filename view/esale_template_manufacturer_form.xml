@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- This file is part product_esale module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<data>
+     <xpath expr="/form/notebook" position="inside">
+          <page string="Manufacturer" col="4" id="manufacturer">
+               <label name="manufacturer"/>
+               <field name="manufacturer"/>
+               <label name="manufacturer_name"/>
+               <field name="manufacturer_name"/>
+          </page>
+     </xpath>
+</data>
