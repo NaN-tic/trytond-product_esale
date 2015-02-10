@@ -295,21 +295,25 @@ class Template:
         super(Template, cls).delete(templates)
 
     @staticmethod
-    def attribute_options(name):
-        '''Return attribute options convert to dict by code'''
+    def attribute_options(codes):
+        '''Return attribute options convert to dict by code
+        @param: names: list
+        return dict {'attrname': {options}}
+        '''
         options = {}
-
         cursor = Transaction().cursor
-
-        query = "SELECT selection from product_attribute " \
-            "where name = '%s' and type_ = 'selection' LIMIT 1" % name
+        names = ["'"+c+"'" for c in codes]
+        query = "SELECT name, selection from product_attribute " \
+            "where name in (%s) and type_ = 'selection'" % ','.join(names)
         cursor.execute(query)
         vals = cursor.dictfetchall()
-        if vals:
-            val = vals[0]['selection'] # [{'selection': ''}]
-            for o in val.split('\n'):
+
+        for val in vals:
+            opts = {}
+            for o in val['selection'].split('\n'):
                 opt = o.split(':')
-                options[opt[0]] = opt[1]
+                opts[opt[0]] = opt[1]
+            options[val['name']] = opts
         return options
 
 
