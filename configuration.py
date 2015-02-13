@@ -18,7 +18,13 @@ class Configuration:
             'Default UOM'))
     check_slug = fields.Boolean('Check Slug',
         help='Check slug exist in products and menus')
+    thumb_size = fields.Integer('Thumb Size',
+        help='Thumbnail Product Image Size (width and height)')
 
     @staticmethod
     def default_check_slug():
         return True
+
+    @staticmethod
+    def default_thumb_size():
+        return 150

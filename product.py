@@ -1,16 +1,22 @@
 # This file is part product_esale module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
+import os
+import hashlib
+from mimetypes import guess_type
+from PIL import Image
 from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pyson import Eval, Bool, Or
+from trytond.config import config
 from .tools import slugify
 
 __all__ = ['Template', 'Product', 'ProductMenu', 'ProductRelated',
     'ProductUpSell', 'ProductCrossSell',]
 __metaclass__ = PoolMeta
+IMAGE_TYPES = ['image/jpeg', 'image/png',  'image/gif']
 
 
 class Template:
@@ -71,9 +77,12 @@ class Template:
             ], depends=['id'])
     esale_sequence = fields.Integer('Sequence', 
             help='Gives the sequence order when displaying category list.')
+    esale_thumb = fields.Function(fields.Binary('Thumb', filename='esale_thumb_filename',
+        help='Thumbnail Product Image)'), 'get_esale_thumb', setter='set_esale_thumb')
+    esale_thumb_filename = fields.Char('File Name',
+        help='Thumbnail Product File Name')
+    esale_thumb_path = fields.Function(fields.Char('Thumb Path'), 'get_esale_thumbpath')
     esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
-    esale_default_image = fields.Function(fields.Binary('Thumb', filename='name'),
-        'get_esale_default_image', 'set_esale_default_image')
     esale_default_images = fields.Function(fields.Char('eSale Default Images'), 'get_esale_default_images')
     esale_all_images = fields.Function(fields.Char('eSale All Images'), 'get_esale_all_images')
     _esale_slug_langs_cache = Cache('product_template.esale_slug_langs')
@@ -86,6 +95,10 @@ class Template:
             'slug_exists': 'Slug %s exists. Get another slug!',
             'delete_esale_template': 'Product %s is esale active. '
                 'Descheck active field to dissable esale products',
+            'not_file_mime': ('Not know file mime "%(file_name)s"'),
+            'not_file_mime_image': ('"%(file_name)s" file mime is not an image ' \
+                '(jpg, png or gif)'),
+            'image_size': ('Thumb "%(file_name)s" size is larger than "%(size)s"Kb'),
         })
 
     @staticmethod
@@ -238,16 +251,6 @@ class Template:
         return slugs
 
     @classmethod
-    def set_esale_default_image(cls, products, name, value):
-        return None
-
-    def get_esale_default_image(self, name):
-        for attachment in self.attachments:
-            if attachment.esale_base_image:
-                return attachment.data
-        return None
-
-    @classmethod
     def create(cls, vlist):
         for values in vlist:
             values = values.copy()
@@ -315,6 +318,100 @@ class Template:
                 opts[opt[0]] = opt[1]
             options[val['name']] = opts
         return options
+
+    def get_esale_thumb(self, name):
+        db_name = Transaction().cursor.dbname
+        filename = self.esale_thumb_filename
+        if not filename:
+            return None
+        filename = os.path.join(config.get('database', 'path'), db_name,
+            'esale', 'thumb', filename[0:2], filename[2:4], self.esale_thumb_filename)
+
+        value = None
+        try:
+            with open(filename, 'rb') as file_p:
+                value = buffer(file_p.read())
+        except IOError:
+            pass
+        return value
+
+    def get_esale_thumbpath(self, name):
+        filename = self.esale_thumb_filename
+        if not filename:
+            return None
+        return '%s/%s/%s' % (filename[:2], filename[2:4], filename)
+
+    @classmethod
+    def set_esale_thumb(cls, templates, name, value):
+        if value is None:
+            return
+
+        Config = Pool().get('product.configuration')
+        product_config = Config(1)
+        size = product_config.thumb_size or 150
+
+        db_name = Transaction().cursor.dbname
+        esaledir = os.path.join(
+            config.get('database', 'path'), db_name, 'esale', 'thumb')
+
+        for template in templates:
+            file_name = template['esale_thumb_filename']
+
+            file_mime, _ = guess_type(file_name)
+            if not file_mime:
+                cls.raise_user_error('not_file_mime', {
+                        'file_name': file_name,
+                        })
+            if file_mime not in IMAGE_TYPES:
+                cls.raise_user_error('not_file_mime_image', {
+                        'file_name': file_name,
+                        })
+
+            _, ext = file_mime.split('/')
+            digest = '%s.%s' % (hashlib.md5(value).hexdigest(), ext)
+            subdir1 = digest[0:2]
+            subdir2 = digest[2:4]
+            directory = os.path.join(esaledir, subdir1, subdir2)
+            filename = os.path.join(directory, digest)
+
+            if not os.path.isdir(directory):
+                os.makedirs(directory, 0775)
+            os.umask(0022)
+            with open(filename, 'wb') as file_p:
+                file_p.write(value)
+
+            # square and thumbnail thumb image
+            thumb_size = size, size
+            try:
+                im = Image.open(filename)
+            except:
+                if os.path.exists(filename):
+                    os.remove(filename)
+                cls.raise_user_error('not_file_mime_image', {
+                        'file_name': file_name,
+                        })
+
+            width, height = im.size
+            if width > height:
+               delta = width - height
+               left = int(delta/2)
+               upper = 0
+               right = height + left
+               lower = height
+            else:
+               delta = height - width
+               left = 0
+               upper = int(delta/2)
+               right = width
+               lower = width + upper
+
+            im = im.crop((left, upper, right, lower))
+            im.thumbnail(thumb_size, Image.ANTIALIAS)
+            im.save(filename)
+
+            cls.write([template], {
+                'esale_thumb_filename': digest,
+                })
 
 
 class Product:
