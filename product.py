@@ -5,7 +5,7 @@ from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.transaction import Transaction
 from trytond.cache import Cache
-from trytond.pyson import Eval
+from trytond.pyson import Eval, Bool, Or
 from .tools import slugify
 
 __all__ = ['Template', 'Product', 'ProductMenu', 'ProductRelated',
@@ -323,6 +323,19 @@ class Product:
         'get_esale_available', searcher='search_esale_available')
     esale_active = fields.Function(fields.Boolean('Active eSale'),
         'get_esale_active', searcher='search_esale_active')
+
+    @classmethod
+    def __setup__(cls):
+        super(Product, cls).__setup__()
+        # Add code require attribute
+        for fname in ('code',):
+            fstates = getattr(cls, fname).states
+            if fstates.get('required'):
+                fstates['required'] = Or(fstates['required'],
+                    Bool(Eval('_parent_template', {}).get('esale_available', False)))
+            else:
+                fstates['required'] = Bool(Eval('_parent_template', {}).get('esale_available', False))
+            getattr(cls, fname).depends.append('_parent_template.esale_available')
 
     def get_esale_available(self, name):
         return self.template.esale_available if self.template else False
