@@ -78,7 +78,7 @@ class Template:
     esale_sequence = fields.Integer('Sequence', 
             help='Gives the sequence order when displaying category list.')
     esale_thumb = fields.Function(fields.Binary('Thumb', filename='esale_thumb_filename',
-        help='Thumbnail Product Image)'), 'get_esale_thumb', setter='set_esale_thumb')
+        help='Thumbnail Product Image'), 'get_esale_thumb', setter='set_esale_thumb')
     esale_thumb_filename = fields.Char('File Name',
         help='Thumbnail Product File Name')
     esale_thumb_path = fields.Function(fields.Char('Thumb Path'), 'get_esale_thumbpath')

@@ -23,6 +23,14 @@ msgstr ""
 "\"Activo eSale\" para desactivar el adjunto."
 
 msgctxt "error:product.template:"
+msgid "\"%(file_name)s\" file mime is not an image (jpg, png or gif)"
+msgstr "El tipo de fichero \"%(file_name)s\" no es una imagen (jpg, png o gif)"
+
+msgctxt "error:product.template:"
+msgid "Not know file mime \"%(file_name)s\""
+msgstr "No se conoze el tipo de fichero \"%(file_name)s\""
+
+msgctxt "error:product.template:"
 msgid ""
 "Product %s is esale active. Descheck active field to dissable esale products"
 msgstr ""
@@ -36,6 +44,10 @@ msgstr "El slug %s ya existe. Intente con otro nombre."
 msgctxt "error:product.template:"
 msgid "Slug field is empty!"
 msgstr "El campo slug está vacio."
+
+msgctxt "error:product.template:"
+msgid "Thumb \"%(file_name)s\" size is larger than \"%(size)s\"Kb"
+msgstr "El tamaño de la miniatura \"%(file_name)s\" es más grande que \"%(size)s\"Kb"
 
 msgctxt "field:esale.catalog.menu,active:"
 msgid "Active"
@@ -149,6 +161,10 @@ msgctxt "field:product.configuration,template_attribute_set:"
 msgid "Template Attribute Set"
 msgstr "Grupo atributos producto"
 
+msgctxt "field:product.configuration,thumb_size:"
+msgid "Thumb Size"
+msgstr "Miniatura tamaño"
+
 msgctxt "field:product.product,esale_active:"
 msgid "Active eSale"
 msgstr "Activo eSale"
@@ -172,10 +188,6 @@ msgstr "eSale"
 msgctxt "field:product.template,esale_crosssells:"
 msgid "Cross Sells"
 msgstr "Ventas cruzadas"
-
-msgctxt "field:product.template,esale_default_image:"
-msgid "Thumb"
-msgstr "Miniatura"
 
 msgctxt "field:product.template,esale_default_images:"
 msgid "eSale Default Images"
@@ -224,6 +236,18 @@ msgstr "Slug"
 msgctxt "field:product.template,esale_slug_langs:"
 msgid "Slug Langs"
 msgstr "Slug idiomas"
+
+msgctxt "field:product.template,esale_thumb:"
+msgid "Thumb"
+msgstr "Miniatura"
+
+msgctxt "field:product.template,esale_thumb_filename:"
+msgid "File Name"
+msgstr "Nombre fichero"
+
+msgctxt "field:product.template,esale_thumb_path:"
+msgid "Thumb Path"
+msgstr "Ruta miniatura"
 
 msgctxt "field:product.template,esale_upsells:"
 msgid "Up Sells"
@@ -378,6 +402,10 @@ msgctxt "help:product.configuration,check_slug:"
 msgid "Check slug exist in products and menus"
 msgstr "Validar Slugs en productos y menús."
 
+msgctxt "help:product.configuration,thumb_size:"
+msgid "Thumbnail Product Image Size (width and height)"
+msgstr "Tamaño imagen miniatura (ancho y alto)"
+
 msgctxt "help:product.template,esale_available:"
 msgid ""
 "This product are available in your e-commerce. If you need not publish this "
@@ -414,6 +442,14 @@ msgstr ""
 "Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
 " las etiquetas puede consultar a MediaWiki "
 "(http://meta.wikimedia.org/wiki/Help:Editing)."
+
+msgctxt "help:product.template,esale_thumb:"
+msgid "Thumbnail Product Image"
+msgstr "Imagen miniatura"
+
+msgctxt "help:product.template,esale_thumb_filename:"
+msgid "Thumbnail Product File Name"
+msgstr "Nombre miniatura"
 
 msgctxt "model:esale.catalog.menu,name:"
 msgid "eSale Catalog Menu"
