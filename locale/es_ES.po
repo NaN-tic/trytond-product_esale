@@ -572,6 +572,10 @@ msgid "Attributes"
 msgstr "Atributos"
 
 msgctxt "view:product.product:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "view:product.product:"
 msgid "General"
 msgstr "General"
 
