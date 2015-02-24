@@ -16,5 +16,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <label name="active"/>
         <field name="active" xexpand="0" width="100"/>
       </page>
+      <page string="Description" id="description">
+        <field name="description" colspan="6"/>
+      </page>
   </notebook>
 </form>
