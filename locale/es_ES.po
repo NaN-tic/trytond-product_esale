@@ -173,17 +173,9 @@ msgctxt "field:product.product,esale_available:"
 msgid "eSale"
 msgstr "eSale"
 
-msgctxt "field:product.template,esale_active:"
-msgid "Active eSale"
-msgstr "Activo eSale"
-
 msgctxt "field:product.template,esale_all_images:"
 msgid "eSale All Images"
 msgstr "eSale todas imágenes"
-
-msgctxt "field:product.template,esale_available:"
-msgid "eSale"
-msgstr "eSale"
 
 msgctxt "field:product.template,esale_crosssells:"
 msgid "Cross Sells"
@@ -406,14 +398,6 @@ msgctxt "help:product.configuration,thumb_size:"
 msgid "Thumbnail Product Image Size (width and height)"
 msgstr "Tamaño imagen miniatura (ancho y alto)"
 
-msgctxt "help:product.template,esale_available:"
-msgid ""
-"This product are available in your e-commerce. If you need not publish this "
-"product (despublish), unmark Active field in eSale section."
-msgstr ""
-"Este producto estará disponible en su comercio electrónico. Si no lo desea, "
-"desactívelo."
-
 msgctxt "help:product.template,esale_description:"
 msgid ""
 "You could write wiki markup to create html content. Formats text following "
@@ -510,6 +494,10 @@ msgstr "Productos - Relacionados"
 msgctxt "model:product.template-product.upsell,name:"
 msgid "Product - Upsell"
 msgstr "Producto - Ventas sugeridas"
+
+msgctxt "model:res.group,name:group_product_esale"
+msgid "Product eSale"
+msgstr "eSale Producto"
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid ""
