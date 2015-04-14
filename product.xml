@@ -3,6 +3,15 @@
 The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
+        <!-- Groups -->
+        <record model="res.group" id="group_product_esale">
+            <field name="name">Product eSale</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_product_esale">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_product_esale"/>
+        </record>
+
         <!-- product.template -->
         <record model="ir.ui.view" id="esale_template_view_tree">
             <field name="model">product.template</field>
@@ -33,6 +42,10 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
 
         <menuitem parent="product.menu_main_product" sequence="1" id="menu_esale_template"
             action="act_esale_template_form"/>
+        <record model="ir.ui.menu-res.group" id="menu_product_esale_group_product_esale">
+            <field name="menu" ref="menu_esale_template"/>
+            <field name="group" ref="group_product_esale"/>
+        </record>
 
         <!-- product.product -->
         <record model="ir.ui.view" id="esale_product_view_tree">
