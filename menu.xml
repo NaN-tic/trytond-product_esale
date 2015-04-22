@@ -40,6 +40,10 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
 
         <menuitem parent="product.menu_main_product" sequence="2"
             action="act_menu_tree" id="menu_menu_tree"/>
+        <record model="ir.ui.menu-res.group" id="menu_menu_tree_group_product_esale">
+            <field name="menu" ref="menu_menu_tree"/>
+            <field name="group" ref="group_product_esale"/>
+        </record>
 
         <record model="ir.action.act_window" id="act_menu_list">
             <field name="name">Menus</field>
