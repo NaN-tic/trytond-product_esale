@@ -41,7 +41,7 @@ visibilidad,...
   * |esale_metatitle|
   * |esale_metadescription|
 
-* |esale_saleshops|: Tiendas que tendrán disponible este producto. Por defecto se asignan
+* |shops|: Tiendas que tendrán disponible este producto. Por defecto se asignan
   a todas las tiendas activas. Si no desea publicar ese producto en una tienda
   concreta, elimínela de la lista.
 * |esale_relateds|: Productos relacionados.
@@ -57,7 +57,7 @@ visibilidad,...
 .. |esale_metakeyword| field:: product.template/esale_metakeyword
 .. |esale_metatitle| field:: product.template/esale_metatitle
 .. |esale_metadescription| field:: product.template/esale_metadescription
-.. |esale_saleshops| field:: product.template/esale_saleshops
+.. |shops| field:: product.template/shops
 .. |esale_relateds| field:: product.template/esale_relateds
 .. |esale_upsells| field:: product.template/esale_upsells
 .. |esale_crosssells| field:: product.template/esale_crosssells
