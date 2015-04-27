@@ -6,6 +6,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
   <field name="template"/>
   <notebook colspan="6">
       <page string="eSale" id="esale">
+        <field name="attachments" colspan="6"/>
       </page>
       <page string="Attributes" id="attributes">
         <field name="attributes" colspan="6"/>
