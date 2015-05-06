@@ -333,6 +333,11 @@ class Template:
     def set_esale_thumb(cls, templates, name, value):
         if value is None:
             return
+        if not value:
+            cls.write(templates, {
+                'esale_thumb_filename': None,
+                })
+            return
 
         Config = Pool().get('product.configuration')
         product_config = Config(1)
