@@ -125,9 +125,11 @@ class Template:
         if config.default_uom:
             return config.default_uom.id
 
-    @fields.depends('name')
+    @fields.depends('name', 'esale_slug')
     def on_change_with_esale_slug(self):
         """Create slug from name: az09"""
+        if self.esale_slug:
+            return self.esale_slug
         name = self.name or ''
         name = slugify(name)
         return name
