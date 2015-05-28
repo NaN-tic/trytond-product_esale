@@ -16,7 +16,16 @@ from .tools import slugify
 __all__ = ['Template', 'Product', 'ProductMenu', 'ProductRelated',
     'ProductUpSell', 'ProductCrossSell',]
 __metaclass__ = PoolMeta
+
 IMAGE_TYPES = ['image/jpeg', 'image/png',  'image/gif']
+STATES = {
+    'readonly': ~Eval('active', True),
+    'invisible': (~Eval('unique_variant', False) & Eval(
+        '_parent_template', {}).get('unique_variant', False)),
+    'required': ~(Eval('unique_variant', False) | Eval(
+        '_parent_template', {}).get('unique_variant', False)),
+    }
+DEPENDS = ['active', 'unique_variant']
 
 
 class Template:
@@ -415,6 +424,16 @@ class Product:
         'get_esale_available', searcher='search_esale_available')
     esale_active = fields.Function(fields.Boolean('Active eSale'),
         'get_esale_active', searcher='search_esale_active')
+    esale_slug = fields.Char('Slug', translate=True, states=STATES,
+        depends=DEPENDS)
+    unique_variant = fields.Function(fields.Boolean('Unique Variant'),
+        'on_change_with_unique_variant')
+
+    def __getattr__(self, name):
+        result = super(Product, self).__getattr__(name)
+        if not result and name == 'esale_slug':
+            return getattr(self.template, name)
+        return result
 
     @classmethod
     def __setup__(cls):
@@ -428,6 +447,22 @@ class Product:
             else:
                 fstates['required'] = Bool(Eval('_parent_template', {}).get('esale_available', False))
             getattr(cls, fname).depends.append('_parent_template.esale_available')
+
+    @classmethod
+    def search(cls, domain, offset=0, limit=None, order=None, count=False,
+            query=False):
+        for d in domain:
+            if d and d[0] == 'esale_slug':
+                domain = ['OR', domain[:], ('template.esale_slug', 'ilike', d[2])]
+                break
+        return super(Product, cls).search(domain, offset=offset, limit=limit,
+            order=order, count=count, query=query)
+
+    @fields.depends('template')
+    def on_change_with_unique_variant(self, name=None):
+        if self.template:
+            return self.template.unique_variant
+        return False
 
     def get_esale_available(self, name):
         return self.template.esale_available if self.template else False

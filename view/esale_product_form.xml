@@ -4,9 +4,11 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
 <form string="Product" col="6">
   <label name="template"/>
   <field name="template"/>
+  <field name="unique_variant" invisible="1"/>
   <notebook colspan="6">
       <page string="eSale" id="esale">
-        <field name="attachments" colspan="6"/>
+        <label name="esale_slug"/>
+        <field name="esale_slug"/>
       </page>
       <page string="Attributes" id="attributes">
         <field name="attributes" colspan="6"/>
@@ -19,6 +21,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
       </page>
       <page string="Description" id="description">
         <field name="description" colspan="6"/>
+      </page>
+      <page string="Attachments" id="attachments" states="{'invisible': Bool(Eval('unique_variant', True))}">
+        <field name="attachments" colspan="6"/>
       </page>
   </notebook>
 </form>

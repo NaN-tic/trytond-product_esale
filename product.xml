@@ -101,18 +101,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         </record>
     </data>
 
-    <data depends="product_variant_unique">
-        <record model="ir.ui.view" id="esale_template_code_view_tree">
-            <field name="model">product.template</field>
-            <field name="inherit" ref="esale_template_view_tree"/>
-            <field name="name">esale_template_code_tree</field>
-        </record>
-        <record model="ir.ui.view" id="esale_template_variant_unique_view_form">
-            <field name="model">product.template</field>
-            <field name="inherit" ref="esale_template_view_form"/>
-            <field name="name">esale_template_variant_unique_form</field>
-        </record>
-    </data>
     <data depends="product_base_code">
         <record model="ir.ui.view" id="esale_template_base_code_view_form">
             <field name="model">product.template</field>

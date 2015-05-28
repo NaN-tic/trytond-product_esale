@@ -52,6 +52,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         </notebook>
     </page>
     <page string="Variants" id="products">
+          <label name="unique_variant"/>
+          <field name="unique_variant"/>
           <field name="products" colspan="4"
             view_ids="product_esale.esale_product_view_tree,product_esale.esale_product_view_form"/>
     </page>
