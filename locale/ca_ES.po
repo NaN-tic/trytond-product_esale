@@ -173,6 +173,14 @@ msgctxt "field:product.product,esale_available:"
 msgid "eSale"
 msgstr "eSale"
 
+msgctxt "field:product.product,esale_slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:product.product,unique_variant:"
+msgid "Unique Variant"
+msgstr "Variant única"
+
 msgctxt "field:product.template,esale_all_images:"
 msgid "eSale All Images"
 msgstr "eSale Totes les imatges"
@@ -554,6 +562,10 @@ msgstr "SEO"
 msgctxt "view:ir.attachment:"
 msgid "eSale"
 msgstr "eSale"
+
+msgctxt "view:product.product:"
+msgid "Attachments"
+msgstr "Adjunts"
 
 msgctxt "view:product.product:"
 msgid "Attributes"
