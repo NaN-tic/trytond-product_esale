@@ -429,11 +429,11 @@ class Product:
     unique_variant = fields.Function(fields.Boolean('Unique Variant'),
         'on_change_with_unique_variant')
 
-    def __getattr__(self, name):
-        result = super(Product, self).__getattr__(name)
-        if not result and name == 'esale_slug':
-            return getattr(self.template, name)
-        return result
+#     def __getattr__(self, name):
+#         result = super(Product, self).__getattr__(name)
+#         if not result and name == 'esale_slug':
+#             return getattr(self.template, name)
+#         return result
 
     @classmethod
     def __setup__(cls):
