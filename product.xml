@@ -144,11 +144,11 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="name">esale_template_purchase_form</field>
         </record>
     </data>
-    <data depends="product_name">
-        <record model="ir.ui.view" id="esale_product_name_view_form">
+    <data depends="product_variant_name">
+        <record model="ir.ui.view" id="esale_product_variant_name_view_form">
             <field name="model">product.product</field>
             <field name="inherit" ref="esale_product_view_form"/>
-            <field name="name">esale_product_name_form</field>
+            <field name="name">esale_product_variant_name_form</field>
         </record>
     </data>
 </tryton>
