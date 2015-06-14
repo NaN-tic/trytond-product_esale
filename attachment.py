@@ -3,22 +3,31 @@
 # the full copyright notices and license terms.
 from trytond.model import fields
 from trytond.pool import PoolMeta
+from trytond.pyson import Eval
 
 __all__ = ['Attachment']
 __metaclass__ = PoolMeta
-
+STATES = {
+    'invisible': ~Eval('esale_available', True),
+    }
+DEPENDS = ['esale_available']
 
 class Attachment:
     __name__ = 'ir.attachment'
     esale_available  = fields.Boolean('Available eSale',
         help='This image are available in your e-commerce.')
-    esale_base_image = fields.Boolean('Base Image')
-    esale_small_image = fields.Boolean('Small Image')
-    esale_thumbnail = fields.Boolean('Thumbnail Image')
-    esale_exclude = fields.Boolean('Exclude',
+    esale_base_image = fields.Boolean('Base Image', states=STATES,
+        depends=DEPENDS)
+    esale_small_image = fields.Boolean('Small Image', states=STATES,
+        depends=DEPENDS)
+    esale_thumbnail = fields.Boolean('Thumbnail Image', states=STATES,
+        depends=DEPENDS)
+    esale_exclude = fields.Boolean('Exclude', states=STATES,
+        depends=DEPENDS,
         help='Defines whether the image will associate only to one of '
             'three image types ')
-    esale_position = fields.Integer('Position',
+    esale_position = fields.Integer('Position', states=STATES,
+        depends=DEPENDS,
         help='Image file position ')
 
     @classmethod
