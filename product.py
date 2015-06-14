@@ -22,8 +22,6 @@ STATES = {
     'readonly': ~Eval('active', True),
     'invisible': (~Eval('unique_variant', False) & Eval(
         '_parent_template', {}).get('unique_variant', False)),
-    'required': ~(Eval('unique_variant', False) | Eval(
-        '_parent_template', {}).get('unique_variant', False)),
     }
 DEPENDS = ['active', 'unique_variant']
 
