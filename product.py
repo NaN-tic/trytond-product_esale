@@ -90,7 +90,7 @@ class Template:
     def __setup__(cls):
         super(Template, cls).__setup__()
         cls._error_messages.update({
-            'slug_empty': 'Slug field is empty!',
+            'slug_empty': 'Slug field of product %s is empty!',
             'slug_exists': 'Slug %s exists. Get another slug!',
             'delete_esale_template': 'Product %s is esale active. '
                 'Descheck active field to dissable esale products',
@@ -254,7 +254,11 @@ class Template:
             if values.get('esale_available'):
                 slug = values.get('esale_slug')
                 if not slug:
-                    cls.raise_user_error('slug_empty')
+                    product = ((values.get('products', False)
+                            and values['products'][0][1][0]['code'])
+                        or values.get('name', False))
+                    cls.raise_user_error('slug_empty',
+                        error_args=(product,))
                 cls.get_slug(None, slug)
         return super(Template, cls).create(vlist)
 
