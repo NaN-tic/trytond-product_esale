@@ -252,13 +252,7 @@ class Template:
         for values in vlist:
             values = values.copy()
             if values.get('esale_available'):
-                slug = values.get('esale_slug')
-                if not slug:
-                    product = ((values.get('products', False)
-                            and values['products'][0][1][0]['code'])
-                        or values.get('name', False))
-                    cls.raise_user_error('slug_empty',
-                        error_args=(product,))
+                slug = values.get('esale_slug') or slugify(values.get('name'))
                 cls.get_slug(None, slug)
         return super(Template, cls).create(vlist)
 
