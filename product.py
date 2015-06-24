@@ -90,7 +90,6 @@ class Template:
     def __setup__(cls):
         super(Template, cls).__setup__()
         cls._error_messages.update({
-            'slug_empty': 'Slug field of product %s is empty!',
             'slug_exists': 'Slug %s exists. Get another slug!',
             'delete_esale_template': 'Product %s is esale active. '
                 'Descheck active field to dissable esale products',

@@ -42,10 +42,6 @@ msgid "Slug %s exists. Get another slug!"
 msgstr "El slug %s ja existeix. Prova amb un altre."
 
 msgctxt "error:product.template:"
-msgid "Slug field is empty!"
-msgstr "El camp slug no pot ser buit"
-
-msgctxt "error:product.template:"
 msgid "Thumb \"%(file_name)s\" size is larger than \"%(size)s\"Kb"
 msgstr "El tamany de la miniatura \"%(file_name)s\" és mes gran que \"%(size)s\"Kb"
 

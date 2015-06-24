@@ -42,10 +42,6 @@ msgid "Slug %s exists. Get another slug!"
 msgstr "El slug %s ya existe. Intente con otro nombre."
 
 msgctxt "error:product.template:"
-msgid "Slug field is empty!"
-msgstr "El campo slug está vacio."
-
-msgctxt "error:product.template:"
 msgid "Thumb \"%(file_name)s\" size is larger than \"%(size)s\"Kb"
 msgstr "El tamaño de la miniatura \"%(file_name)s\" es más grande que \"%(size)s\"Kb"
 
