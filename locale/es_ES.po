@@ -233,18 +233,6 @@ msgctxt "field:product.template,esale_slug_langs:"
 msgid "Slug Langs"
 msgstr "Slug idiomas"
 
-msgctxt "field:product.template,esale_thumb:"
-msgid "Thumb"
-msgstr "Miniatura"
-
-msgctxt "field:product.template,esale_thumb_filename:"
-msgid "File Name"
-msgstr "Nombre fichero"
-
-msgctxt "field:product.template,esale_thumb_path:"
-msgid "Thumb Path"
-msgstr "Ruta miniatura"
-
 msgctxt "field:product.template,esale_upsells:"
 msgid "Up Sells"
 msgstr "Ventas sugeridas"
@@ -430,14 +418,6 @@ msgstr ""
 "Puede escribir etiquetas wiki para el formateo del texto. Para la chuleta de"
 " las etiquetas puede consultar a MediaWiki "
 "(http://meta.wikimedia.org/wiki/Help:Editing)."
-
-msgctxt "help:product.template,esale_thumb:"
-msgid "Thumbnail Product Image"
-msgstr "Imagen miniatura"
-
-msgctxt "help:product.template,esale_thumb_filename:"
-msgid "Thumbnail Product File Name"
-msgstr "Nombre miniatura"
 
 msgctxt "model:esale.catalog.menu,name:"
 msgid "eSale Catalog Menu"

@@ -233,18 +233,6 @@ msgctxt "field:product.template,esale_slug_langs:"
 msgid "Slug Langs"
 msgstr "Slug idiomes"
 
-msgctxt "field:product.template,esale_thumb:"
-msgid "Thumb"
-msgstr "Miniatura"
-
-msgctxt "field:product.template,esale_thumb_filename:"
-msgid "File Name"
-msgstr "Nom fitxer"
-
-msgctxt "field:product.template,esale_thumb_path:"
-msgid "Thumb Path"
-msgstr "Ruta miniatura"
-
 msgctxt "field:product.template,esale_upsells:"
 msgid "Up Sells"
 msgstr "Vendes sugerides"
@@ -431,14 +419,6 @@ msgstr ""
 "consultar la xuleta a MediaWiki "
 "(http://meta.wikimedia.org/wiki/Help:Editing)."
 
-msgctxt "help:product.template,esale_thumb:"
-msgid "Thumbnail Product Image"
-msgstr "Imatge miniatura"
-
-msgctxt "help:product.template,esale_thumb_filename:"
-msgid "Thumbnail Product File Name"
-msgstr "Nom miniatura"
-
 msgctxt "model:esale.catalog.menu,name:"
 msgid "eSale Catalog Menu"
 msgstr "eSale Catàleg Menú"
@@ -505,7 +485,7 @@ msgstr "eSale Producte"
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid ""
-msgstr ""
+msgstr " "
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid "Name"
