@@ -58,9 +58,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             view_ids="product_esale.esale_product_view_tree,product_esale.esale_product_view_form"/>
     </page>
     <page string="Images" id="images">
-        <label name="esale_thumb"/>
-        <field name="esale_thumb"/>
-        <field name="esale_thumb_filename" invisible="1"/>
+        <label name="thumb"/>
+        <field name="thumb"/>
+        <field name="thumb_filename" invisible="1"/>
         <separator name="attachments" colspan="6"/>
         <field name="attachments" colspan="6"/>
     </page>
