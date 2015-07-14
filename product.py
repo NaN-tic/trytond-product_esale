@@ -20,6 +20,13 @@ STATES = {
     }
 DEPENDS = ['active', 'unique_variant']
 
+def attribute2dict(s):
+    d = {}
+    for v in s.split('|'):
+        k, v = v.split(':')
+        d[k] = v
+    return d
+    
 
 class Template:
     __name__ = 'product.template'
@@ -100,6 +107,14 @@ class Template:
         pconfig = Config(1)
         if pconfig.template_attribute_set:
             return pconfig.template_attribute_set.id
+
+    @staticmethod
+    def default_template_attributes():
+        '''Product Template Attribute Options'''
+        Config = Pool().get('product.configuration')
+        pconfig = Config(1)
+        if pconfig.template_attribute_set_options:
+            return attribute2dict(pconfig.template_attribute_set_options)
 
     @staticmethod
     def default_attribute_set():
@@ -329,6 +344,14 @@ class Product:
             else:
                 fstates['required'] = Bool(Eval('_parent_template', {}).get('esale_available', False))
             getattr(cls, fname).depends.append('_parent_template.esale_available')
+
+    @staticmethod
+    def default_attributes():
+        '''Product Attribute Options'''
+        Config = Pool().get('product.configuration')
+        pconfig = Config(1)
+        if pconfig.product_attribute_set_options:
+            return attribute2dict(pconfig.product_attribute_set_options)
 
     @classmethod
     def search(cls, domain, offset=0, limit=None, order=None, count=False,

@@ -5,8 +5,12 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <xpath expr="/form" position="inside">
         <label name="template_attribute_set"/>
         <field name="template_attribute_set"/>
+        <label name="template_attribute_set_options"/>
+        <field name="template_attribute_set_options"/>
         <label name="product_attribute_set"/>
         <field name="product_attribute_set"/>
+        <label name="product_attribute_set_options"/>
+        <field name="product_attribute_set_options"/>
         <label name="default_uom"/>
         <field name="default_uom"/>
         <label name="check_slug"/>
