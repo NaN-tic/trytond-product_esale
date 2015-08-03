@@ -21,7 +21,8 @@ class CatalogMenu(ModelSQL, ModelView):
             ('', ''),
             ('position', 'Position'),
             ('name', 'Name'),
-            ('price', 'Price')
+            ('price', 'Price'),
+            ('date', 'Date'),
             ], 'Default Product Listing Sort (Sort By)')
     slug = fields.Char('Slug', size=None, translate=True, required=True)
     full_slug = fields.Function(fields.Char('Full Slug'), 'get_full_slug')
