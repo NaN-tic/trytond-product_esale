@@ -512,6 +512,10 @@ msgid ""
 msgstr " "
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid "Name"
 msgstr "Nom"
 
