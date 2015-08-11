@@ -12,6 +12,7 @@ STATES = {
     }
 DEPENDS = ['esale_available']
 
+
 class Attachment:
     __name__ = 'ir.attachment'
     esale_available  = fields.Boolean('Available eSale',
