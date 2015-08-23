@@ -142,6 +142,13 @@ class Template:
         return name
 
     @classmethod
+    def view_attributes(cls):
+        return super(Template, cls).view_attributes() + [
+            ('//page[@id="attachments"]', 'states', {
+                    'invisible': Bool(Eval('unique_variant', True)),
+                    })]
+
+    @classmethod
     def get_slug(cls, id, slug):
         """Get another product is same slug
         Slug is identificator unique

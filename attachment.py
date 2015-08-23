@@ -3,7 +3,7 @@
 # the full copyright notices and license terms.
 from trytond.model import fields
 from trytond.pool import PoolMeta
-from trytond.pyson import Eval
+from trytond.pyson import Eval, Not, Bool
 
 __all__ = ['Attachment']
 __metaclass__ = PoolMeta
@@ -63,3 +63,10 @@ class Attachment:
             if attachment.esale_available:
                 cls.raise_user_error('delete_esale_attachment', (attachment.rec_name,))
         super(Attachment, cls).delete(attachments)
+
+    @classmethod
+    def view_attributes(cls):
+        return super(Attachment, cls).view_attributes() + [
+            ('//page[@id="esale"]', 'states', {
+                    'invisible': Not(Bool(Eval('esale_available'))),
+                    })]

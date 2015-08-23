@@ -25,7 +25,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="ir.action.act_window" id="act_menu_tree">
             <field name="name">Menus</field>
             <field name="res_model">esale.catalog.menu</field>
-            <field name="domain">[('parent', '=', None)]</field>
+            <field name="domain"
+                eval="[('parent', '=', None)]"
+                pyson="1"/>
         </record>
         <record model="ir.action.act_window.view" id="act_menu_tree_view1">
             <field name="sequence" eval="10"/>
@@ -87,7 +89,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="ir.action.act_window" id="act_template_by_esale_catalog_menu">
             <field name="name">Products by Menu</field>
             <field name="res_model">product.template</field>
-            <field name="domain">[('esale_menus','child_of', [Eval('active_id')], 'parent')]</field>
+            <field name="domain"
+                eval="[('esale_menus','child_of', [Eval('active_id')], 'parent')]"
+                pyson="1"/>
         </record>
         <record model="ir.action.act_window.view" id="act_template_by_esale_catalog_menu_view1">
             <field name="sequence" eval="10"/>
