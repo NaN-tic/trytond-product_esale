@@ -509,7 +509,7 @@ msgstr "eSale Producte"
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid ""
-msgstr " "
+msgstr ""
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid "Date"
