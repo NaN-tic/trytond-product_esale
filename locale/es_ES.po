@@ -624,6 +624,10 @@ msgid "Images"
 msgstr "Imágenes"
 
 msgctxt "view:product.template:"
+msgid "Manufacturer"
+msgstr "Fabricante"
+
+msgctxt "view:product.template:"
 msgid "Menus"
 msgstr "Menús"
 
@@ -646,6 +650,10 @@ msgstr "Productos"
 msgctxt "view:product.template:"
 msgid "Relateds"
 msgstr "Relacionados"
+
+msgctxt "view:product.template:"
+msgid "Review"
+msgstr "Revisión"
 
 msgctxt "view:product.template:"
 msgid "SEO"
