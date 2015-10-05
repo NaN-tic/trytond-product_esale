@@ -9,6 +9,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
       <page string="eSale" id="esale">
         <label name="esale_slug"/>
         <field name="esale_slug"/>
+        <label name="esale_sequence"/>
+        <field name="esale_sequence"/>
       </page>
       <page string="Attributes" id="attributes">
         <field name="attributes" colspan="6"/>

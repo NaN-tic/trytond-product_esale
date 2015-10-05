@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <!-- This file is part product_esale module for Tryton.
 The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
-<tree string="Products">
+<tree string="Products" sequence="esale_sequence">
     <field name="code"/>
     <field name="rec_name"/>
+    <field name="esale_sequence"/>
     <field name="active" tree_invisible="1"/>
 </tree>
