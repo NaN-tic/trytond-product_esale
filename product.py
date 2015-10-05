@@ -323,6 +323,8 @@ class Product:
         'get_esale_active', searcher='search_esale_active')
     esale_slug = fields.Char('Slug', translate=True, states=STATES,
         depends=DEPENDS)
+    esale_sequence = fields.Integer('Sequence', 
+            help='Gives the sequence order when displaying variants list.')
     unique_variant = fields.Function(fields.Boolean('Unique Variant'),
         'on_change_with_unique_variant')
 
@@ -335,6 +337,8 @@ class Product:
     @classmethod
     def __setup__(cls):
         super(Product, cls).__setup__()
+        cls._order.insert(0, ('esale_sequence', 'ASC'))
+        cls._order.insert(1, ('id', 'ASC'))
         # Add code require attribute
         for fname in ('code',):
             fstates = getattr(cls, fname).states
@@ -344,6 +348,10 @@ class Product:
             else:
                 fstates['required'] = Bool(Eval('_parent_template', {}).get('esale_available', False))
             getattr(cls, fname).depends.append('_parent_template.esale_available')
+
+    @staticmethod
+    def default_esale_sequence():
+        return 1
 
     @staticmethod
     def default_attributes():
