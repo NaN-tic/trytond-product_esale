@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -176,6 +176,10 @@ msgstr "Actiu eSale"
 msgctxt "field:product.product,esale_available:"
 msgid "eSale"
 msgstr "eSale"
+
+msgctxt "field:product.product,esale_sequence:"
+msgid "Sequence"
+msgstr "Seqüència"
 
 msgctxt "field:product.product,esale_slug:"
 msgid "Slug"
@@ -414,6 +418,10 @@ msgctxt "help:product.configuration,thumb_size:"
 msgid "Thumbnail Product Image Size (width and height)"
 msgstr "Tamany miniatura imatge (amplada i alçada)"
 
+msgctxt "help:product.product,esale_sequence:"
+msgid "Gives the sequence order when displaying variants list."
+msgstr "La seqüència d'ordenació de les variants."
+
 msgctxt "help:product.template,esale_description:"
 msgid ""
 "You could write wiki markup to create html content. Formats text following "
@@ -432,7 +440,7 @@ msgstr ""
 
 msgctxt "help:product.template,esale_sequence:"
 msgid "Gives the sequence order when displaying category list."
-msgstr "La seqüència d'ordenació en la categoria"
+msgstr "La seqüència d'ordenació en la categoria."
 
 msgctxt "help:product.template,esale_shortdescription:"
 msgid ""
@@ -624,10 +632,6 @@ msgid "Images"
 msgstr "Imatges"
 
 msgctxt "view:product.template:"
-msgid "Manufacturer"
-msgstr "Fabricant"
-
-msgctxt "view:product.template:"
 msgid "Menus"
 msgstr "Menús"
 
@@ -650,10 +654,6 @@ msgstr "Productes"
 msgctxt "view:product.template:"
 msgid "Relateds"
 msgstr "Relacionats"
-
-msgctxt "view:product.template:"
-msgid "Review"
-msgstr "Revisió"
 
 msgctxt "view:product.template:"
 msgid "SEO"

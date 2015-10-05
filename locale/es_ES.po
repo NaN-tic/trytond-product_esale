@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -176,6 +176,10 @@ msgstr "Activo eSale"
 msgctxt "field:product.product,esale_available:"
 msgid "eSale"
 msgstr "eSale"
+
+msgctxt "field:product.product,esale_sequence:"
+msgid "Sequence"
+msgstr "Secuencia"
 
 msgctxt "field:product.product,esale_slug:"
 msgid "Slug"
@@ -414,6 +418,10 @@ msgctxt "help:product.configuration,thumb_size:"
 msgid "Thumbnail Product Image Size (width and height)"
 msgstr "Tamaño imagen miniatura (ancho y alto)"
 
+msgctxt "help:product.product,esale_sequence:"
+msgid "Gives the sequence order when displaying variants list."
+msgstr "La secuencia de la ordenación en las variantes."
+
 msgctxt "help:product.template,esale_description:"
 msgid ""
 "You could write wiki markup to create html content. Formats text following "
@@ -624,10 +632,6 @@ msgid "Images"
 msgstr "Imágenes"
 
 msgctxt "view:product.template:"
-msgid "Manufacturer"
-msgstr "Fabricante"
-
-msgctxt "view:product.template:"
 msgid "Menus"
 msgstr "Menús"
 
@@ -650,10 +654,6 @@ msgstr "Productos"
 msgctxt "view:product.template:"
 msgid "Relateds"
 msgstr "Relacionados"
-
-msgctxt "view:product.template:"
-msgid "Review"
-msgstr "Revisión"
 
 msgctxt "view:product.template:"
 msgid "SEO"
