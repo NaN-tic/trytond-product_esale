@@ -351,10 +351,10 @@ class Product:
             fstates = getattr(cls, fname).states
             if fstates.get('required'):
                 fstates['required'] = Or(fstates['required'],
-                    Bool(Eval('_parent_template', {}).get('esale_available', False)))
+                    Bool(Eval('esale_available', False)))
             else:
-                fstates['required'] = Bool(Eval('_parent_template', {}).get('esale_available', False))
-            getattr(cls, fname).depends.append('_parent_template.esale_available')
+                fstates['required'] = Bool(Eval('esale_available', False))
+            getattr(cls, fname).depends.append('esale_available')
 
     @staticmethod
     def default_esale_sequence():
