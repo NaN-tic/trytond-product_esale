@@ -133,13 +133,13 @@ class Template:
             return config.default_uom.id
 
     @fields.depends('name', 'esale_slug')
-    def on_change_with_esale_slug(self):
-        """Create slug from name: az09"""
-        if self.esale_slug:
-            return self.esale_slug
-        name = self.name or ''
-        name = slugify(name)
-        return name
+    def on_change_name(self):
+        try:
+            super(Template, self).on_change_name()
+        except AttributeError:
+            pass
+        if self.name and not self.esale_slug:
+            self.esale_slug = slugify(self.name)
 
     @classmethod
     def view_attributes(cls):

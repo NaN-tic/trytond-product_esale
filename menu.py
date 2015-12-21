@@ -44,12 +44,10 @@ class CatalogMenu(ModelSQL, ModelView):
     def default_include_in_menu():
         return True
 
-    @fields.depends('name')
-    def on_change_with_slug(self):
-        """Create slug from name: az09"""
-        name = self.name or ''
-        name = slugify(name)
-        return name
+    @fields.depends('name', 'slug')
+    def on_change_name(self):
+        if self.name and not self.slug:
+            self.slug = slugify(self.name)
 
     @classmethod
     def __setup__(cls):
