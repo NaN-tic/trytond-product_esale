@@ -133,6 +133,15 @@ class Template:
             return config.default_uom.id
 
     @fields.depends('name', 'esale_slug')
+    def on_change_esale_available(self):
+        try:
+            super(Template, self).on_change_esale_available()
+        except AttributeError:
+            pass
+        if self.name and not self.esale_slug:
+            self.esale_slug = slugify(self.name)
+
+    @fields.depends('name', 'esale_slug')
     def on_change_name(self):
         try:
             super(Template, self).on_change_name()
