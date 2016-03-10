@@ -3,6 +3,7 @@
 # the full copyright notices and license terms.
 from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
+from trytond.tools import cursor_dict
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pyson import Eval, Bool, Or
@@ -315,12 +316,12 @@ class Template:
         return dict {'attrname': {options}}
         '''
         options = {}
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         names = ["'"+c+"'" for c in codes]
         query = "SELECT name, selection from product_attribute " \
             "where name in (%s) and type_ = 'selection'" % ','.join(names)
         cursor.execute(query)
-        vals = cursor.dictfetchall()
+        vals = cursor_dict(cursor)
 
         for val in vals:
             opts = {}
