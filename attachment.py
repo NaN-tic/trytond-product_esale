@@ -6,7 +6,6 @@ from trytond.pool import PoolMeta
 from trytond.pyson import Eval, Not, Bool
 
 __all__ = ['Attachment']
-__metaclass__ = PoolMeta
 STATES = {
     'invisible': ~Eval('esale_available', True),
     }
@@ -14,6 +13,7 @@ DEPENDS = ['esale_available']
 
 
 class Attachment:
+    __metaclass__ = PoolMeta
     __name__ = 'ir.attachment'
     esale_available  = fields.Boolean('Available eSale',
         help='This image are available in your e-commerce.')

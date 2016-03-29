@@ -11,7 +11,6 @@ from .tools import slugify
 
 __all__ = ['Template', 'Product', 'ProductMenu', 'ProductRelated',
     'ProductUpSell', 'ProductCrossSell',]
-__metaclass__ = PoolMeta
 
 IMAGE_TYPES = ['image/jpeg', 'image/png',  'image/gif']
 STATES = {
@@ -30,6 +29,7 @@ def attribute2dict(s):
     
 
 class Template:
+    __metaclass__ = PoolMeta
     __name__ = 'product.template'
     esale_visibility = fields.Selection([
             ('all','All'),
@@ -333,6 +333,7 @@ class Template:
 
 
 class Product:
+    __metaclass__ = PoolMeta
     __name__ = 'product.product'
     esale_available = fields.Function(fields.Boolean('eSale'),
         'get_esale_available', searcher='search_esale_available')
