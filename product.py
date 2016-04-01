@@ -45,10 +45,10 @@ class Template:
     esale_slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_esale_slug_langs')
     esale_shortdescription = fields.Text('Short Description', translate=True,
         help='You could write wiki markup to create html content. Formats text following '
-        'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+        'the Creole syntax https://en.wikipedia.org/wiki/Creole_(markup)')
     esale_description = fields.Text('Sale Description', translate=True,
         help='You could write wiki markup to create html content. Formats text following '
-        'the MediaWiki (http://meta.wikimedia.org/wiki/Help:Editing) syntax.')
+        'the Creole syntax https://en.wikipedia.org/wiki/Creole_(markup).')
     esale_metadescription = fields.Char('Meta Description', translate=True,
             help='Almost all search engines recommend it to be shorter ' \
             'than 155 characters of plain text')
