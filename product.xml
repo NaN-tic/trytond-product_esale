@@ -140,6 +140,18 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="name">esale_template_manufacturer_form</field>
         </record>
     </data>
+    <data depends="product_rivals">
+        <record model="ir.ui.view" id="esale_template_rivals_view_form">
+            <field name="model">product.template</field>
+            <field name="inherit" ref="esale_template_view_form"/>
+            <field name="name">esale_template_rivals_form</field>
+        </record>
+        <record model="ir.ui.view" id="esale_product_rivals_view_form">
+            <field name="model">product.product</field>
+            <field name="inherit" ref="esale_product_view_form"/>
+            <field name="name">esale_product_rivals_form</field>
+        </record>
+    </data>
     <data depends="purchase">
         <record model="ir.ui.view" id="esale_template_purchase_view_tree">
             <field name="model">product.template</field>
