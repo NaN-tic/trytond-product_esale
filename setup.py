@@ -48,6 +48,10 @@ for dep in info.get('depends', []):
         prefix = MODULE2PREFIX.get(dep, 'trytond')
         requires.append(get_require_version('%s_%s' % (prefix, dep)))
 requires.append(get_require_version('trytond'))
+requires.append('simpleeval')
+requires.append('Genshi')
+requires.append('Jinja2')
+requires.append('slug')
 
 tests_require = []
 dependency_links = []
