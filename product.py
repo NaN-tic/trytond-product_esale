@@ -26,7 +26,7 @@ def attribute2dict(s):
         k, v = v.split(':')
         d[k] = v
     return d
-    
+
 
 class Template:
     __metaclass__ = PoolMeta
