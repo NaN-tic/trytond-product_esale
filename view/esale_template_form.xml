@@ -49,6 +49,9 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <page string="Cross Sells" id="crosssells">
                 <field name="esale_crosssells"/>
             </page>
+            <page string="Websites" id="websites">
+                <field name="shops" colspan="2"/>
+            </page>
         </notebook>
     </page>
     <page string="Variants" id="products">
@@ -65,6 +68,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <field name="attachments" colspan="6"/>
     </page>
     <page string="Prices" id="prices">
+        <label name="esale_price"/>
+        <field name="esale_price"/>
         <label name="list_price"/>
         <field name="list_price"/>
         <label name="cost_price"/>
