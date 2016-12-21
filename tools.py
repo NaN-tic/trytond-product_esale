@@ -1,13 +1,18 @@
+# encoding: utf-8
 # This file is part product_esale module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 import slug
+import unicodedata
 from simpleeval import simple_eval
 from genshi.template import NewTextTemplate as TextTemplate
 from jinja2 import Template as Jinja2Template
 from trytond.config import config as config_
 
 template_engine = config_.get('product', 'template_engine', default='genshi')
+
+SRC_CHARS = u""" .'"()/*-+?¿!&$[]{}@#`'^:;<>=~%,|\\"""
+DST_CHARS = u"""                                  """
 
 def slugify(value):
     """Convert value to slug: az09 and replace spaces by -"""
@@ -19,6 +24,17 @@ def slugify(value):
     except:
         name = ''
     return name
+
+def unaccent(text):
+    if not (isinstance(text, str) or isinstance(text, unicode)):
+        return str(text)
+    if isinstance(text, str):
+        text = unicode(text, 'utf-8')
+    for c in xrange(len(SRC_CHARS)):
+        if c >= len(DST_CHARS):
+            break
+        text = text.replace(SRC_CHARS[c], DST_CHARS[c])
+    return unicodedata.normalize('NFKD', text).encode('ASCII', 'ignore')
 
 def seo_lenght(string):
     '''Get first 155 characters from string'''
