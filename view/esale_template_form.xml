@@ -88,14 +88,13 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <field name="type"/>
         <label name="consumable"/>
         <field name="consumable"/>
-        <label name="category"/>
-        <field name="category"/>
         <label name="default_uom"/>
         <field name="default_uom"/>
         <label name="sale_uom"/>
         <field name="sale_uom"/>
         <label name="cost_price_method"/>
         <field name="cost_price_method"/>
+        <field name="categories" colspan="4"/>
     </page>
     <page string="Accounting" col="4" id="accounting">
         <separator string="Accounts" id="accounts" colspan="4"/>
