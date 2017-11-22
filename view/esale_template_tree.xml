@@ -8,7 +8,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <field name="list_price"/>
     <field name="cost_price"/>
     <field name="type"/>
-    <field name="categories"/>
     <field name="esale_visibility"/>
     <field name="esale_sequence"/>
     <field name="esale_menus" tree_invisible="1"/>
