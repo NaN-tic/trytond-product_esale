@@ -114,6 +114,22 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="model">product.template,-1</field>
             <field name="action" ref="act_esale_product_product_form"/>
         </record>
+
+        <record model="ir.model.access" id="access_product_esale__catalog_menu">
+            <field name="model" search="[('model', '=', 'product.template-esale.catalog.menu')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_product_esale_menu_catalog_admin">
+            <field name="model" search="[('model', '=', 'product.template-esale.catalog.menu')]"/>
+            <field name="group" ref="group_product_esale"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
     </data>
 
     <data depends="product_base_code">
