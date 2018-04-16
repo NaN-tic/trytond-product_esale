@@ -8,5 +8,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <field name="esale_small_image"/>
         <field name="esale_thumbnail"/>
         <field name="esale_exclude"/>
+        <field name="esale_label"/>
     </xpath>
 </data>

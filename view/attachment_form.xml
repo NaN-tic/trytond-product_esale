@@ -18,7 +18,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="esale_exclude"/>
             <label name="esale_position"/>
             <field name="esale_position"/>
+            <label name="esale_label"/>
+            <field name="esale_label"/>
         </page>
     </xpath>
 </data>
-
