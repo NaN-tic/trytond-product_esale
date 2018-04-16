@@ -129,6 +129,10 @@ msgctxt "field:ir.attachment,esale_exclude:"
 msgid "Exclude"
 msgstr "Excluir"
 
+msgctxt "field:ir.attachment,esale_label:"
+msgid "eSale Label"
+msgstr "Etiqueta eSale"
+
 msgctxt "field:ir.attachment,esale_position:"
 msgid "Position"
 msgstr "Posición"

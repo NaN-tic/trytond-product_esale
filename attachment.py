@@ -30,6 +30,7 @@ class Attachment:
     esale_position = fields.Integer('Position', states=STATES,
         depends=DEPENDS,
         help='Image file position ')
+    esale_label = fields.Char('eSale Label', translate=True)
 
     @classmethod
     def __setup__(cls):
