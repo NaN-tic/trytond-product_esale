@@ -10,6 +10,7 @@ from .product import *
 def register():
     Pool.register(
         Configuration,
+        ConfigurationProductESale,
         Attachment,
         CatalogMenu,
         Template,

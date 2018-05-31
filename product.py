@@ -206,10 +206,10 @@ class Template:
         images = []
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
-                continue 
+                continue
             images.append({
                 'name': attachment.name,
-                'digest': attachment.digest,
+                'digest': attachment.file_id,
                 })
 
         return images
@@ -222,21 +222,21 @@ class Template:
         thumb = None
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
-                continue 
+                continue
             if attachment.esale_base_image and not base:
                 base = {
                     'name': attachment.name,
-                    'digest': attachment.digest,
+                    'digest': attachment.file_id,
                     }
             if attachment.esale_small_image and not small:
                 small = {
                     'name': attachment.name,
-                    'digest': attachment.digest,
+                    'digest': attachment.file_id,
                     }
             if attachment.esale_thumbnail and not thumb:
                 thumb = {
                     'name': attachment.name,
-                    'digest': attachment.digest,
+                    'digest': attachment.file_id,
                     }
         images['base'] = base
         images['small'] = small
@@ -389,7 +389,7 @@ class Product:
         return super(Product, cls).search(domain, offset=offset, limit=limit,
             order=order, count=count, query=query)
 
-    @fields.depends('template')
+    @fields.depends('template', 'sale')
     def on_change_with_unique_variant(self, name=None):
         if self.template:
             return self.template.unique_variant
