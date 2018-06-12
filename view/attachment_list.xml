@@ -9,5 +9,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <field name="esale_thumbnail"/>
         <field name="esale_exclude"/>
         <field name="esale_label"/>
+        <field name="data" widget="image" width="50" height="50"/>
     </xpath>
 </data>
