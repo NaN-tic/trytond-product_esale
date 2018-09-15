@@ -11,30 +11,22 @@ from trytond.config import config as config_
 
 template_engine = config_.get('product', 'template_engine', default='genshi')
 
-SRC_CHARS = u""" .'"()/*-+?¿!&$[]{}@#`'^:;<>=~%,|\\"""
-DST_CHARS = u"""                                  """
+SRC_CHARS = u"""/*+?¿!&$[]{}`^<>=~%|\\"""
+
+def unaccent(text):
+    if not text:
+        return ''
+    for c in range(len(SRC_CHARS)):
+        text = text.replace(SRC_CHARS[c], '')
+    text = text.replace('º', '. ')
+    text = text.replace('ª', '. ')
+    text = text.replace('  ', ' ')
+    output = unicodedata.normalize('NFKD', text).encode('ASCII', 'ignore')
+    return output.decode('utf-8')
 
 def slugify(value):
     """Convert value to slug: az09 and replace spaces by -"""
-    try:
-        if isinstance(value, unicode):
-            name = slug.slug(value)
-        else:
-            name = slug.slug(unicode(value, 'UTF-8'))
-    except:
-        name = ''
-    return name
-
-def unaccent(text):
-    if not (isinstance(text, str) or isinstance(text, unicode)):
-        return str(text)
-    if isinstance(text, str):
-        text = unicode(text, 'utf-8')
-    for c in xrange(len(SRC_CHARS)):
-        if c >= len(DST_CHARS):
-            break
-        text = text.replace(SRC_CHARS[c], DST_CHARS[c])
-    return unicodedata.normalize('NFKD', text).encode('ASCII', 'ignore')
+    return slug.slug(value)
 
 def seo_lenght(string):
     '''Get first 155 characters from string'''
@@ -65,7 +57,7 @@ def _engine_python(expression, record):
     '''Evaluate the pythonic expression and return its value
     '''
     if expression is None:
-        return u''
+        return ''
     tpl_context = template_context(record)
     return simple_eval(expression, tpl_context)
 
@@ -75,7 +67,7 @@ def _engine_genshi(expression, record):
     :param record: Browse record
     '''
     if not expression:
-        return u''
+        return ''
     template = TextTemplate(expression)
     tpl_context = template_context(record)
     return template.generate(**tpl_context).render(encoding='UTF-8')
@@ -86,7 +78,7 @@ def _engine_jinja2(expression, record):
     :param record: Browse record
     '''
     if not expression:
-        return u''
+        return ''
     template = Jinja2Template(expression)
     tpl_context = template_context(record)
     return template.render(tpl_context).encode('utf-8')

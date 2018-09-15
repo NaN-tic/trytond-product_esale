@@ -21,8 +21,8 @@ product_attribute_set_options = fields.Char('Product Attribute Set Options',
         'key:value|key2:value2'))
 default_uom = fields.Many2One('product.uom', 'Default UOM')
 
-class Configuration:
-    __metaclass__ = PoolMeta
+
+class Configuration(metaclass=PoolMeta):
     __name__ = 'product.configuration'
     template_attribute_set = fields.MultiValue(template_attribute_set)
     template_attribute_set_options = fields.MultiValue(

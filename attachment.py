@@ -12,8 +12,7 @@ STATES = {
 DEPENDS = ['esale_available']
 
 
-class Attachment:
-    __metaclass__ = PoolMeta
+class Attachment(metaclass=PoolMeta):
     __name__ = 'ir.attachment'
     esale_available  = fields.Boolean('Available eSale',
         help='This image are available in your e-commerce.')

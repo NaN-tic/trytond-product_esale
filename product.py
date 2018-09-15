@@ -28,8 +28,7 @@ def attribute2dict(s):
     return d
 
 
-class Template:
-    __metaclass__ = PoolMeta
+class Template(metaclass=PoolMeta):
     __name__ = 'product.template'
     esale_visibility = fields.Selection([
             ('all','All'),
@@ -56,7 +55,7 @@ class Template:
     esale_metatitle = fields.Char('Meta Title', translate=True)
     esale_menus = fields.Many2Many('product.template-esale.catalog.menu',
             'template', 'menu', 'Menus')
-    esale_relateds = fields.Many2Many('product.template-product.related', 
+    esale_relateds = fields.Many2Many('product.template-product.related',
             'template', 'related', 'Relateds',
             domain=[
                 ('id', '!=', Eval('id')),
@@ -77,7 +76,7 @@ class Template:
                 ('esale_available', '=', True),
                 ('salable', '=', True),
             ], depends=['id'])
-    esale_sequence = fields.Integer('Sequence', 
+    esale_sequence = fields.Integer('Sequence',
             help='Gives the sequence order when displaying category list.')
     esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
     esale_default_images = fields.Function(fields.Char('eSale Default Images'), 'get_esale_default_images')
@@ -187,7 +186,7 @@ class Template:
         thumb = None
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
-                continue 
+                continue
             if attachment.esale_base_image and not base:
                 base = attachment.name
             if attachment.esale_small_image and not small:
@@ -332,8 +331,7 @@ class Template:
         return options
 
 
-class Product:
-    __metaclass__ = PoolMeta
+class Product(metaclass=PoolMeta):
     __name__ = 'product.product'
     esale_available = fields.Function(fields.Boolean('eSale'),
         'get_esale_available', searcher='search_esale_available')
@@ -341,7 +339,7 @@ class Product:
         'get_esale_active', searcher='search_esale_active')
     esale_slug = fields.Char('Slug', translate=True, states=STATES,
         depends=DEPENDS)
-    esale_sequence = fields.Integer('Sequence', 
+    esale_sequence = fields.Integer('Sequence',
             help='Gives the sequence order when displaying variants list.')
     unique_variant = fields.Function(fields.Boolean('Unique Variant'),
         'on_change_with_unique_variant')
