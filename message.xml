@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data group="1">
+    <record model="ir.message" id="slug_exists">
+        <field name="text">Slug %(slug)s exists. Get another slug!</field>
+    </record>
+    <record model="ir.message" id="delete_esale_template">
+        <field name="text">Product %(product)s is esale active. Descheck active field to dissable esale products.</field>
+    </record>
+    <record model="ir.message" id="delete_esale_attachment">
+        <field name="text">Attachment %(attachment)s is esale active. Descheck exclude field to dissable esale attachments</field>
+    </record>
+    <record model="ir.message" id="slug_empty">
+        <field name="text">Slug field is empty!</field>
+    </record>
+    <record model="ir.message" id="slug_exists">
+        <field name="text">Slug %(slug)s exists. Get another slug!</field>
+    </record>
+    <record model="ir.message" id="not_copy">
+        <field name="text">Copy action is dissabled! Create new menu use New</field>
+    </record>
+    </data>
+</tryton>

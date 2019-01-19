@@ -8,6 +8,8 @@ from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pyson import Eval, Bool, Or
 from .tools import slugify
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['Template', 'Product', 'ProductMenu', 'ProductRelated',
     'ProductUpSell', 'ProductCrossSell',]
@@ -83,14 +85,6 @@ class Template(metaclass=PoolMeta):
     esale_all_images = fields.Function(fields.Char('eSale All Images'), 'get_esale_all_images')
     _esale_slug_langs_cache = Cache('product_template.esale_slug_langs')
 
-    @classmethod
-    def __setup__(cls):
-        super(Template, cls).__setup__()
-        cls._error_messages.update({
-            'slug_exists': 'Slug %s exists. Get another slug!',
-            'delete_esale_template': 'Product %s is esale active. '
-                'Descheck active field to dissable esale products',
-        })
 
     @staticmethod
     def default_esale_visibility():
@@ -175,7 +169,7 @@ class Template(metaclass=PoolMeta):
             records.remove(id)
         products = cls.search([('esale_slug','=',slug),('id','in',records)])
         if products:
-            cls.raise_user_error('slug_exists', slug)
+            raise UserError(gettext('product_esale.eslug_exists', slug=slug))
         return True
 
     def get_esale_images(self, name):
@@ -305,7 +299,10 @@ class Template(metaclass=PoolMeta):
     def delete(cls, templates):
         for template in templates:
             if template.esale_available:
-                cls.raise_user_error('delete_esale_template', (template.rec_name,))
+                raise UserError(gettext(
+                    'product_esale.delete_esale_template',
+                        template=template.rec_name))
+
         super(Template, cls).delete(templates)
 
     @staticmethod

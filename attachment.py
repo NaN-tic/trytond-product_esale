@@ -4,6 +4,8 @@
 from trytond.model import fields
 from trytond.pool import PoolMeta
 from trytond.pyson import Eval, Not, Bool
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['Attachment']
 STATES = {
@@ -36,10 +38,6 @@ class Attachment(metaclass=PoolMeta):
         super(Attachment, cls).__setup__()
         cls._order.insert(0, ('esale_position', 'ASC'))
         cls._order.insert(1, ('id', 'ASC'))
-        cls._error_messages.update({
-            'delete_esale_attachment': 'Attachment %s is esale active. '
-                'Descheck exclude field to dissable esale attachments',
-        })
 
     @staticmethod
     def default_esale_base_image():
@@ -61,7 +59,9 @@ class Attachment(metaclass=PoolMeta):
     def delete(cls, attachments):
         for attachment in attachments:
             if attachment.esale_available:
-                cls.raise_user_error('delete_esale_attachment', (attachment.rec_name,))
+                raise UserError(gettext(
+                    'product_esale.delete_esale_attachment',
+                        attachment=attachment.rec_name))
         super(Attachment, cls).delete(attachments)
 
     @classmethod

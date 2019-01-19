@@ -4,6 +4,9 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from .tools import slugify
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
+
 
 __all__ = ['CatalogMenu']
 
@@ -53,11 +56,6 @@ class CatalogMenu(ModelSQL, ModelView):
     def __setup__(cls):
         super(CatalogMenu, cls).__setup__()
         cls._order.insert(0, ('name', 'ASC'))
-        cls._error_messages.update({
-            'slug_empty': 'Slug field is empty!',
-            'slug_exists': 'Slug %s exists. Get another slug!',
-            'not_copy': 'Copy action is dissabled! Create new menu use New',
-        })
 
     @classmethod
     def validate(cls, menus):
@@ -66,8 +64,8 @@ class CatalogMenu(ModelSQL, ModelView):
 
     @classmethod
     def copy(cls, menus, default=None):
-        cls.raise_user_error('not_copy')
-    
+        raise UserError(gettext('product_esale.not_copy'))
+
     def get_full_slug(self, name):
         if self.parent:
             return self.parent.get_full_slug(name) + '/' + self.slug
@@ -146,14 +144,14 @@ class CatalogMenu(ModelSQL, ModelView):
         topmenu = cls.get_topmenu(parent)
         if not topmenu:
             return True
-            
+
         childs = cls.get_allchild(topmenu)
         records = [c.id for c in childs]
         if id and id in records:
             records.remove(id)
         menus = cls.search([('slug','=',slug),('id','in',records)])
         if len(menus)>0:
-            cls.raise_user_error('slug_exists', slug)
+            raise UserError(gettext('product_esale.slug_exists', slug=slug))
         return True
 
     @classmethod
@@ -163,7 +161,7 @@ class CatalogMenu(ModelSQL, ModelView):
             slug = values.get('slug')
             parent = values.get('parent')
             if not slug:
-                cls.raise_user_error('slug_empty')
+                raise UserError(gettext('product_esale.slug_empty'))
             cls.get_slug(None, slug, parent)
         return super(CatalogMenu, cls).create(vlist)
 
