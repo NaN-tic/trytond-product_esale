@@ -1,14 +1,14 @@
 # This file is part product_esale module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, tree
 from trytond.pool import Pool
 from .tools import slugify
 
 __all__ = ['CatalogMenu']
 
 
-class CatalogMenu(ModelSQL, ModelView):
+class CatalogMenu(tree(separator=' / '), ModelSQL, ModelView):
     "eSale Catalog Menu"
     __name__ = 'esale.catalog.menu'
 
@@ -60,11 +60,6 @@ class CatalogMenu(ModelSQL, ModelView):
         })
 
     @classmethod
-    def validate(cls, menus):
-        super(CatalogMenu, cls).validate(menus)
-        cls.check_recursion(menus, rec_name='name')
-
-    @classmethod
     def copy(cls, menus, default=None):
         cls.raise_user_error('not_copy')
     
@@ -73,27 +68,6 @@ class CatalogMenu(ModelSQL, ModelView):
             return self.parent.get_full_slug(name) + '/' + self.slug
         else:
             return self.slug
-
-    def get_rec_name(self, name):
-        if self.parent:
-            return self.parent.get_rec_name(name) + ' / ' + self.name
-        else:
-            return self.name
-
-    @classmethod
-    def search_rec_name(cls, name, clause):
-        if isinstance(clause[2], basestring):
-            values = clause[2].split('/')
-            values.reverse()
-            domain = []
-            field = 'name'
-            for name in values:
-                domain.append((field, clause[1], name.strip()))
-                field = 'parent.' + field
-        else:
-            domain = [('name',) + tuple(clause[1:])]
-        ids = [w.id for w in cls.search(domain, order=[])]
-        return [('parent', 'child_of', ids)]
 
     @classmethod
     def get_topmenu(cls, parent):
@@ -146,7 +120,7 @@ class CatalogMenu(ModelSQL, ModelView):
         topmenu = cls.get_topmenu(parent)
         if not topmenu:
             return True
-            
+
         childs = cls.get_allchild(topmenu)
         records = [c.id for c in childs]
         if id and id in records:
