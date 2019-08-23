@@ -150,6 +150,11 @@ class Template(metaclass=PoolMeta):
         if self.name and not self.esale_slug:
             self.esale_slug = slugify(self.name)
 
+    @fields.depends('esale_slug')
+    def on_change_esale_slug(self):
+        if self.esale_slug:
+            self.esale_slug = slugify(self.esale_slug)
+
     @classmethod
     def view_attributes(cls):
         return super(Template, cls).view_attributes() + [
@@ -268,8 +273,10 @@ class Template(metaclass=PoolMeta):
         for values in vlist:
             values = values.copy()
             if values.get('esale_available'):
-                slug = values.get('esale_slug') or slugify(values.get('name'))
+                name = values.get('name')
+                slug = slugify(values.get('esale_slug', name))
                 cls.get_slug(None, slug)
+                values['esale_slug'] = slug
         return super(Template, cls).create(vlist)
 
     @classmethod
@@ -278,13 +285,11 @@ class Template(metaclass=PoolMeta):
         actions = iter(args)
         args = []
         for templates, values in zip(actions, actions):
-            slug = values.get('esale_slug')
-            esale_websites = values.get('esale_websites')
-            if slug or esale_websites:
+            if values.get('esale_slug'):
+                slug = slugify(values.get('esale_slug'))
                 for template in templates:
-                    if not slug:
-                        slug = template.esale_slug
                     cls.get_slug(template.id, slug)
+                values['esale_slug'] = slug
             salable = values.get('salable')
             if salable == False:
                 values['esale_active'] = False
