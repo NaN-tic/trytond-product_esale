@@ -56,7 +56,7 @@ class Template:
     esale_metatitle = fields.Char('Meta Title', translate=True)
     esale_menus = fields.Many2Many('product.template-esale.catalog.menu',
             'template', 'menu', 'Menus')
-    esale_relateds = fields.Many2Many('product.template-product.related', 
+    esale_relateds = fields.Many2Many('product.template-product.related',
             'template', 'related', 'Relateds',
             domain=[
                 ('id', '!=', Eval('id')),
@@ -77,7 +77,7 @@ class Template:
                 ('esale_available', '=', True),
                 ('salable', '=', True),
             ], depends=['id'])
-    esale_sequence = fields.Integer('Sequence', 
+    esale_sequence = fields.Integer('Sequence',
             help='Gives the sequence order when displaying category list.')
     esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
     esale_default_images = fields.Function(fields.Char('eSale Default Images'), 'get_esale_default_images')
@@ -151,6 +151,11 @@ class Template:
         if self.name and not self.esale_slug:
             self.esale_slug = slugify(self.name)
 
+    @fields.depends('esale_slug')
+    def on_change_esale_slug(self):
+        if self.esale_slug:
+            self.esale_slug = slugify(self.esale_slug)
+
     @classmethod
     def view_attributes(cls):
         return super(Template, cls).view_attributes() + [
@@ -187,7 +192,7 @@ class Template:
         thumb = None
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
-                continue 
+                continue
             if attachment.esale_base_image and not base:
                 base = attachment.name
             if attachment.esale_small_image and not small:
@@ -206,7 +211,7 @@ class Template:
         images = []
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
-                continue 
+                continue
             images.append({
                 'name': attachment.name,
                 'digest': attachment.digest,
@@ -222,7 +227,7 @@ class Template:
         thumb = None
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
-                continue 
+                continue
             if attachment.esale_base_image and not base:
                 base = {
                     'name': attachment.name,
@@ -269,8 +274,10 @@ class Template:
         for values in vlist:
             values = values.copy()
             if values.get('esale_available'):
-                slug = values.get('esale_slug') or slugify(values.get('name'))
+                name = values.get('name')
+                slug = slugify(values.get('esale_slug', name))
                 cls.get_slug(None, slug)
+                values['esale_slug'] = slug
         return super(Template, cls).create(vlist)
 
     @classmethod
@@ -279,13 +286,11 @@ class Template:
         actions = iter(args)
         args = []
         for templates, values in zip(actions, actions):
-            slug = values.get('esale_slug')
-            esale_websites = values.get('esale_websites')
-            if slug or esale_websites:
+            if values.get('esale_slug'):
+                slug = slugify(values.get('esale_slug'))
                 for template in templates:
-                    if not slug:
-                        slug = template.esale_slug
                     cls.get_slug(template.id, slug)
+                values['esale_slug'] = slug
             salable = values.get('salable')
             if salable == False:
                 values['esale_active'] = False
@@ -341,7 +346,7 @@ class Product:
         'get_esale_active', searcher='search_esale_active')
     esale_slug = fields.Char('Slug', translate=True, states=STATES,
         depends=DEPENDS)
-    esale_sequence = fields.Integer('Sequence', 
+    esale_sequence = fields.Integer('Sequence',
             help='Gives the sequence order when displaying variants list.')
     unique_variant = fields.Function(fields.Boolean('Unique Variant'),
         'on_change_with_unique_variant')
