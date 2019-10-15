@@ -2,49 +2,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "error:esale.catalog.menu:"
-msgid "Copy action is dissabled! Create new menu use New"
-msgstr "L'acció de copiar no es permesa. Crea un nou menú."
-
-msgctxt "error:esale.catalog.menu:"
-msgid "Slug %s exists. Get another slug!"
-msgstr "El slug %s ja existeix. Prova amb un altre."
-
-msgctxt "error:esale.catalog.menu:"
-msgid "Slug field is empty!"
-msgstr "El camp slug no pot ser buit"
-
-msgctxt "error:ir.attachment:"
-msgid ""
-"Attachment %s is esale active. Descheck exclude field to dissable esale "
-"attachments"
-msgstr ""
-"L'adjunt \"%s\" és un adjunt disponible en eSale. Desactiva l'opció \"Actiu "
-"eSale\" per deshabilitar l'adjunt."
-
-msgctxt "error:product.template:"
-msgid "\"%(file_name)s\" file mime is not an image (jpg, png or gif)"
-msgstr "El tipus de fitcher \"%(file_name)s\" no és una imatge (jpg, png o gif)"
-
-msgctxt "error:product.template:"
-msgid "Not know file mime \"%(file_name)s\""
-msgstr "No es coneix el tipus de fitxer \"%(file_name)s\""
-
-msgctxt "error:product.template:"
-msgid ""
-"Product %s is esale active. Descheck active field to dissable esale products"
-msgstr ""
-"El producte \"%s\" és un producto disponible en eSale. Desactive la opció "
-"\"Actiu eSale\" per deshabilitar el producte."
-
-msgctxt "error:product.template:"
-msgid "Slug %s exists. Get another slug!"
-msgstr "El slug %s ja existeix. Prova amb un altre."
-
-msgctxt "error:product.template:"
-msgid "Thumb \"%(file_name)s\" size is larger than \"%(size)s\"Kb"
-msgstr "El tamany de la miniatura \"%(file_name)s\" és mes gran que \"%(size)s\"Kb"
-
 msgctxt "field:esale.catalog.menu,active:"
 msgid "Active"
 msgstr "Actiu"
@@ -55,11 +12,11 @@ msgstr "Fills"
 
 msgctxt "field:esale.catalog.menu,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:esale.catalog.menu,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:esale.catalog.menu,default_sort_by:"
 msgid "Default Product Listing Sort (Sort By)"
@@ -102,8 +59,8 @@ msgid "Parent"
 msgstr "Pare"
 
 msgctxt "field:esale.catalog.menu,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:esale.catalog.menu,slug:"
 msgid "Slug"
@@ -111,11 +68,11 @@ msgstr "Slug"
 
 msgctxt "field:esale.catalog.menu,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:esale.catalog.menu,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:ir.attachment,esale_available:"
 msgid "Available eSale"
@@ -177,17 +134,73 @@ msgctxt "field:product.product,esale_active:"
 msgid "Active eSale"
 msgstr "Actiu eSale"
 
+msgctxt "field:product.product,esale_all_images:"
+msgid "eSale All Images"
+msgstr "eSale Totes les imatges"
+
 msgctxt "field:product.product,esale_available:"
 msgid "eSale"
 msgstr "eSale"
+
+msgctxt "field:product.product,esale_crosssells:"
+msgid "Cross Sells"
+msgstr "Vendes creuades"
+
+msgctxt "field:product.product,esale_default_images:"
+msgid "eSale Default Images"
+msgstr "eSale Imatge defecte"
+
+msgctxt "field:product.product,esale_description:"
+msgid "Sale Description"
+msgstr "Descripció venda"
+
+msgctxt "field:product.product,esale_images:"
+msgid "eSale Images"
+msgstr "eSale Imatges"
+
+msgctxt "field:product.product,esale_menus:"
+msgid "Menus"
+msgstr "Menús"
+
+msgctxt "field:product.product,esale_metadescription:"
+msgid "Meta Description"
+msgstr "Meta Description"
+
+msgctxt "field:product.product,esale_metakeyword:"
+msgid "Meta Keyword"
+msgstr "Meta Keyword"
+
+msgctxt "field:product.product,esale_metatitle:"
+msgid "Meta Title"
+msgstr "Meta Title"
+
+msgctxt "field:product.product,esale_relateds:"
+msgid "Relateds"
+msgstr "Relacionats"
 
 msgctxt "field:product.product,esale_sequence:"
 msgid "Sequence"
 msgstr "Seqüència"
 
+msgctxt "field:product.product,esale_shortdescription:"
+msgid "Short Description"
+msgstr "Descripció curta"
+
 msgctxt "field:product.product,esale_slug:"
 msgid "Slug"
 msgstr "Slug"
+
+msgctxt "field:product.product,esale_slug_langs:"
+msgid "Slug Langs"
+msgstr "Slug idiomes"
+
+msgctxt "field:product.product,esale_upsells:"
+msgid "Up Sells"
+msgstr "Vendes sugerides"
+
+msgctxt "field:product.product,esale_visibility:"
+msgid "Visibility"
+msgstr "Visibilitat"
 
 msgctxt "field:product.product,unique_variant:"
 msgid "Unique Variant"
@@ -259,11 +272,11 @@ msgstr "Visibilitat"
 
 msgctxt "field:product.template-esale.catalog.menu,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:product.template-esale.catalog.menu,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:product.template-esale.catalog.menu,id:"
 msgid "ID"
@@ -274,8 +287,8 @@ msgid "Menu"
 msgstr "Menú"
 
 msgctxt "field:product.template-esale.catalog.menu,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:product.template-esale.catalog.menu,template:"
 msgid "Template"
@@ -283,19 +296,19 @@ msgstr "Plantilla"
 
 msgctxt "field:product.template-esale.catalog.menu,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:product.template-esale.catalog.menu,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:product.template-product.crosssell,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:product.template-product.crosssell,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:product.template-product.crosssell,crosssell:"
 msgid "Cross Sell"
@@ -306,8 +319,8 @@ msgid "ID"
 msgstr "ID"
 
 msgctxt "field:product.template-product.crosssell,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:product.template-product.crosssell,template:"
 msgid "Template"
@@ -315,27 +328,27 @@ msgstr "Plantilla"
 
 msgctxt "field:product.template-product.crosssell,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:product.template-product.crosssell,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:product.template-product.related,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:product.template-product.related,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:product.template-product.related,id:"
 msgid "ID"
 msgstr "ID"
 
 msgctxt "field:product.template-product.related,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:product.template-product.related,related:"
 msgid "Related"
@@ -347,27 +360,27 @@ msgstr "Plantilla"
 
 msgctxt "field:product.template-product.related,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:product.template-product.related,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
 
 msgctxt "field:product.template-product.upsell,create_date:"
 msgid "Create Date"
-msgstr "Data creació"
+msgstr "Data de creació"
 
 msgctxt "field:product.template-product.upsell,create_uid:"
 msgid "Create User"
-msgstr "Usuari creació"
+msgstr "Usuari de creació"
 
 msgctxt "field:product.template-product.upsell,id:"
 msgid "ID"
 msgstr "ID"
 
 msgctxt "field:product.template-product.upsell,rec_name:"
-msgid "Name"
-msgstr "Nom"
+msgid "Record Name"
+msgstr "Nom del registre"
 
 msgctxt "field:product.template-product.upsell,template:"
 msgid "Template"
@@ -379,11 +392,61 @@ msgstr "Vendes sugerides"
 
 msgctxt "field:product.template-product.upsell,write_date:"
 msgid "Write Date"
-msgstr "Data modificació"
+msgstr "Data de modificació"
 
 msgctxt "field:product.template-product.upsell,write_uid:"
 msgid "Write User"
-msgstr "Usuari modificació"
+msgstr "Usuari de modificació"
+
+msgctxt "field:sale.configuration.product.esale,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sale.configuration.product.esale,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:sale.configuration.product.esale,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:sale.configuration.product.esale,default_uom:"
+msgid "Default UOM"
+msgstr "UdM predeterminada"
+
+msgctxt "field:sale.configuration.product.esale,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:sale.configuration.product.esale,product_attribute_set:"
+msgid "Product Attribute Set"
+msgstr "Grup atribut variant"
+
+msgctxt ""
+"field:sale.configuration.product.esale,product_attribute_set_options:"
+msgid "Product Attribute Set Options"
+msgstr "Opcions grup atribut variant"
+
+msgctxt "field:sale.configuration.product.esale,rec_name:"
+msgid "Record Name"
+msgstr "Nom del registre"
+
+msgctxt "field:sale.configuration.product.esale,template_attribute_set:"
+msgid "Template Attribute Set"
+msgstr "Grup atributs productes"
+
+msgctxt ""
+"field:sale.configuration.product.esale,template_attribute_set_options:"
+msgid "Template Attribute Set Options"
+msgstr "Opcions grup atributs productes"
+
+msgctxt "field:sale.configuration.product.esale,write_date:"
+msgid "Write Date"
+msgstr "Data de modificació"
+
+msgctxt "field:sale.configuration.product.esale,write_uid:"
+msgid "Write User"
+msgstr "Usuari de modificació"
 
 msgctxt "help:ir.attachment,esale_available:"
 msgid "This image are available in your e-commerce."
@@ -422,18 +485,40 @@ msgctxt "help:product.configuration,thumb_size:"
 msgid "Thumbnail Product Image Size (width and height)"
 msgstr "Tamany miniatura imatge (amplada i alçada)"
 
+msgctxt "help:product.product,esale_description:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the Creole syntax https://en.wikipedia.org/wiki/Creole_(markup)."
+msgstr ""
+"Pot escriure amb els tags de wiki per formatejar contingut HTML. Pot "
+"consultar la sintaxis Creole https://en.wikipedia.org/wiki/Creole_(markup)."
+
+msgctxt "help:product.product,esale_metadescription:"
+msgid ""
+"Almost all search engines recommend it to be shorter than 155 characters of "
+"plain text"
+msgstr ""
+"La majoria dels cercadors recomanen un text de 155 caràcters de text pla."
+
 msgctxt "help:product.product,esale_sequence:"
 msgid "Gives the sequence order when displaying variants list."
 msgstr "La seqüència d'ordenació de les variants."
 
-msgctxt "help:product.template,esale_description:"
+msgctxt "help:product.product,esale_shortdescription:"
 msgid ""
 "You could write wiki markup to create html content. Formats text following "
 "the Creole syntax https://en.wikipedia.org/wiki/Creole_(markup)"
 msgstr ""
 "Pot escriure amb els tags de wiki per formatejar contingut HTML. Pot "
-"consultar la sintaxis Creole "
-"https://en.wikipedia.org/wiki/Creole_(markup)."
+"consultar la sintaxis Creole https://en.wikipedia.org/wiki/Creole_(markup)."
+
+msgctxt "help:product.template,esale_description:"
+msgid ""
+"You could write wiki markup to create html content. Formats text following "
+"the Creole syntax https://en.wikipedia.org/wiki/Creole_(markup)."
+msgstr ""
+"Pot escriure amb els tags de wiki per formatejar contingut HTML. Pot "
+"consultar la sintaxis Creole https://en.wikipedia.org/wiki/Creole_(markup)."
 
 msgctxt "help:product.template,esale_metadescription:"
 msgid ""
@@ -452,8 +537,24 @@ msgid ""
 "the Creole syntax https://en.wikipedia.org/wiki/Creole_(markup)"
 msgstr ""
 "Pot escriure amb els tags de wiki per formatejar contingut HTML. Pot "
-"consultar la sintaxis Creole "
-"https://en.wikipedia.org/wiki/Creole_(markup)."
+"consultar la sintaxis Creole https://en.wikipedia.org/wiki/Creole_(markup)."
+
+msgctxt "help:sale.configuration.product.esale,product_attribute_set_options:"
+msgid ""
+"Default attribute options when create new product:\n"
+"key:value|key2:value2"
+msgstr ""
+"Opcions per defecte dels atributs quan es crea un producte:\n"
+"key:value|key2:value2"
+
+msgctxt ""
+"help:sale.configuration.product.esale,template_attribute_set_options:"
+msgid ""
+"Default attribute options when create new product:\n"
+"key:value|key2:value2"
+msgstr ""
+"Opcions per defecte dels atributs quan es crea un producte:\n"
+"key:value|key2:value2"
 
 msgctxt "model:esale.catalog.menu,name:"
 msgid "eSale Catalog Menu"
@@ -519,9 +620,9 @@ msgctxt "model:res.group,name:group_product_esale"
 msgid "Product eSale"
 msgstr "eSale Producte"
 
-msgctxt "selection:esale.catalog.menu,default_sort_by:"
-msgid ""
-msgstr ""
+msgctxt "model:sale.configuration.product.esale,name:"
+msgid "Product eSale Configuration Company Values"
+msgstr "Configuració de productes per empresa"
 
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid "Date"
@@ -538,6 +639,22 @@ msgstr "Possició"
 msgctxt "selection:esale.catalog.menu,default_sort_by:"
 msgid "Price"
 msgstr "Preu"
+
+msgctxt "selection:product.product,esale_visibility:"
+msgid "All"
+msgstr "Tots"
+
+msgctxt "selection:product.product,esale_visibility:"
+msgid "Catalog"
+msgstr "Catàleg"
+
+msgctxt "selection:product.product,esale_visibility:"
+msgid "None"
+msgstr "Cap"
+
+msgctxt "selection:product.product,esale_visibility:"
+msgid "Search"
+msgstr "Cerca"
 
 msgctxt "selection:product.template,esale_visibility:"
 msgid "All"
@@ -564,14 +681,6 @@ msgid "General"
 msgstr "General"
 
 msgctxt "view:esale.catalog.menu:"
-msgid "Menu"
-msgstr "Menú"
-
-msgctxt "view:esale.catalog.menu:"
-msgid "Menus"
-msgstr "Menús"
-
-msgctxt "view:esale.catalog.menu:"
 msgid "SEO"
 msgstr "SEO"
 
@@ -596,24 +705,12 @@ msgid "General"
 msgstr "General"
 
 msgctxt "view:product.product:"
-msgid "Product"
-msgstr "Producte"
-
-msgctxt "view:product.product:"
-msgid "Products"
-msgstr "Productes"
-
-msgctxt "view:product.product:"
 msgid "eSale"
 msgstr "eSale"
 
 msgctxt "view:product.template:"
 msgid "Accounting"
 msgstr "Comptabilitat"
-
-msgctxt "view:product.template:"
-msgid "Accounts"
-msgstr "Comptes"
 
 msgctxt "view:product.template:"
 msgid "Attributes"
@@ -644,16 +741,8 @@ msgid "Prices"
 msgstr "Preus"
 
 msgctxt "view:product.template:"
-msgid "Product"
-msgstr "Producte"
-
-msgctxt "view:product.template:"
 msgid "Product Set"
 msgstr "Grup atributs variant"
-
-msgctxt "view:product.template:"
-msgid "Products"
-msgstr "Productes"
 
 msgctxt "view:product.template:"
 msgid "Relateds"
@@ -664,16 +753,16 @@ msgid "SEO"
 msgstr "SEO"
 
 msgctxt "view:product.template:"
-msgid "Taxes"
-msgstr "Impostos"
-
-msgctxt "view:product.template:"
 msgid "Up Sells"
 msgstr "Vendes sugerides"
 
 msgctxt "view:product.template:"
 msgid "Variants"
 msgstr "Variants"
+
+msgctxt "view:product.template:"
+msgid "Websites"
+msgstr "Llocs web"
 
 msgctxt "view:product.template:"
 msgid "eSale"
