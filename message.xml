@@ -15,9 +15,6 @@ this repository contains the full copyright notices and license terms. -->
     <record model="ir.message" id="slug_empty">
         <field name="text">Slug field is empty!</field>
     </record>
-    <record model="ir.message" id="slug_exists">
-        <field name="text">Slug %(slug)s exists. Get another slug!</field>
-    </record>
     <record model="ir.message" id="not_copy">
         <field name="text">Copy action is dissabled! Create new menu use New</field>
     </record>
