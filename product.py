@@ -356,7 +356,6 @@ class Product(metaclass=PoolMeta):
     def __setup__(cls):
         super(Product, cls).__setup__()
         cls._order.insert(0, ('esale_sequence', 'ASC'))
-        cls._order.insert(1, ('id', 'ASC'))
         # Add code require attribute
         for fname in ('code',):
             fstates = getattr(cls, fname).states
