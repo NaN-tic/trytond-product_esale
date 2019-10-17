@@ -388,7 +388,7 @@ class Product(metaclass=PoolMeta):
         return super(Product, cls).search(domain, offset=offset, limit=limit,
             order=order, count=count, query=query)
 
-    @fields.depends('template', 'sale')
+    @fields.depends('template')
     def on_change_with_unique_variant(self, name=None):
         if self.template:
             return self.template.unique_variant
