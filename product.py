@@ -95,20 +95,20 @@ class Template(metaclass=PoolMeta):
         return 1
 
     @staticmethod
-    def default_template_attribute_set():
+    def default_attribute_set():
         '''Product Template Attribute'''
         Config = Pool().get('product.configuration')
         pconfig = Config(1)
-        if pconfig.template_attribute_set:
-            return pconfig.template_attribute_set.id
+        if pconfig.attribute_set:
+            return pconfig.attribute_set.id
 
     @staticmethod
     def default_template_attributes():
         '''Product Template Attribute Options'''
         Config = Pool().get('product.configuration')
         pconfig = Config(1)
-        if pconfig.template_attribute_set_options:
-            return attribute2dict(pconfig.template_attribute_set_options)
+        if pconfig.attribute_set_options:
+            return attribute2dict(pconfig.attribute_set_options)
 
     @staticmethod
     def default_attribute_set():
