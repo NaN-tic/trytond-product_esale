@@ -12,9 +12,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <label name="esale_sequence"/>
         <field name="esale_sequence"/>
       </page>
-      <page string="Attributes" id="attributes">
-        <field name="attributes" colspan="6"/>
-      </page>
       <page string="General" id="general">
         <label name="code"/>
         <field name="code"/>

@@ -9,14 +9,9 @@ from trytond.modules.company.model import CompanyValueMixin
 
 __all__ = ['Configuration', 'ConfigurationProductESale']
 
-template_attribute_set = fields.Many2One('product.attribute.set',
+attribute_set = fields.Many2One('product.attribute.set',
     'Template Attribute Set')
-template_attribute_set_options = fields.Char('Template Attribute Set Options',
-    help=('Default attribute options when create new product:\n'
-        'key:value|key2:value2'))
-product_attribute_set = fields.Many2One('product.attribute.set',
-    'Product Attribute Set')
-product_attribute_set_options = fields.Char('Product Attribute Set Options',
+attribute_set_options = fields.Char('Template Attribute Set Options',
     help=('Default attribute options when create new product:\n'
         'key:value|key2:value2'))
 default_uom = fields.Many2One('product.uom', 'Default UOM')
@@ -24,12 +19,9 @@ default_uom = fields.Many2One('product.uom', 'Default UOM')
 
 class Configuration(metaclass=PoolMeta):
     __name__ = 'product.configuration'
-    template_attribute_set = fields.MultiValue(template_attribute_set)
-    template_attribute_set_options = fields.MultiValue(
-            template_attribute_set_options)
-    product_attribute_set = fields.MultiValue(product_attribute_set)
-    product_attribute_set_options = fields.MultiValue(
-                        product_attribute_set_options)
+    attribute_set = fields.MultiValue(attribute_set)
+    attribute_set_options = fields.MultiValue(
+            attribute_set_options)
     default_uom = fields.MultiValue(default_uom)
     check_slug = fields.Boolean('Check Slug',
         help='Check slug exist in products and menus')
@@ -41,10 +33,8 @@ class Configuration(metaclass=PoolMeta):
     @classmethod
     def multivalue_model(cls, field):
         if field in [
-                'template_attribute_set',
-                'template_attribute_set_options',
-                'product_attribute_set',
-                'product_attribute_set_options',
+                'attribute_set',
+                'attribute_set_options',
                 'default_uom',
                 ]:
             return Pool().get('sale.configuration.product.esale')
@@ -54,10 +44,8 @@ class Configuration(metaclass=PoolMeta):
 class ConfigurationProductESale(ModelSQL, CompanyValueMixin):
     "Product eSale Configuration Company Values"
     __name__ = 'sale.configuration.product.esale'
-    template_attribute_set = template_attribute_set
-    template_attribute_set_options = template_attribute_set_options
-    product_attribute_set = product_attribute_set
-    product_attribute_set_options = product_attribute_set_options
+    attribute_set = attribute_set
+    attribute_set_options = attribute_set_options
     default_uom = default_uom
 
     @classmethod
@@ -72,17 +60,13 @@ class ConfigurationProductESale(ModelSQL, CompanyValueMixin):
     @classmethod
     def _migrate_property(cls, field_names, value_names, fields):
         field_names.extend([
-                'template_attribute_set',
-                'template_attribute_set_options',
-                'product_attribute_set',
-                'product_attribute_set_options',
+                'attribute_set',
+                'attribute_set_options',
                 'default_uom',
                 ])
         value_names.extend([
-                'template_attribute_set',
-                'template_attribute_set_options',
-                'product_attribute_set',
-                'product_attribute_set_options',
+                'attribute_set',
+                'attribute_set_options',
                 'default_uom',
                 ])
         migrate_property('sale.configuration', field_names, cls, value_names,
