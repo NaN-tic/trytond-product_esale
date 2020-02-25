@@ -34,7 +34,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="ir.action.act_window" id="act_esale_template_form">
             <field name="name">eSale Products</field>
             <field name="res_model">product.template</field>
-            <field name="domain"></field>
             <field name="domain"
                 eval="[('esale_available', '=', True), ('salable', '=', True)]"
                 pyson="1"/>
@@ -72,7 +71,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <record model="ir.action.act_window" id="act_esale_product_form">
             <field name="name">eSale Variants</field>
             <field name="res_model">product.product</field>
-            <field name="domain"></field>
             <field name="domain"
                 eval="[('esale_available', '=', True)]"
                 pyson="1"/>
