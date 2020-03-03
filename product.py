@@ -103,22 +103,6 @@ class Template(metaclass=PoolMeta):
             return pconfig.attribute_set.id
 
     @staticmethod
-    def default_template_attributes():
-        '''Product Template Attribute Options'''
-        Config = Pool().get('product.configuration')
-        pconfig = Config(1)
-        if pconfig.attribute_set_options:
-            return attribute2dict(pconfig.attribute_set_options)
-
-    @staticmethod
-    def default_attribute_set():
-        '''Product Attribute'''
-        Config = Pool().get('product.configuration')
-        pconfig = Config(1)
-        if pconfig.product_attribute_set:
-            return pconfig.product_attribute_set.id
-
-    @staticmethod
     def default_default_uom():
         '''Default UOM'''
         Config = Pool().get('product.configuration')
@@ -375,8 +359,8 @@ class Product(metaclass=PoolMeta):
         '''Product Attribute Options'''
         Config = Pool().get('product.configuration')
         pconfig = Config(1)
-        if pconfig.product_attribute_set_options:
-            return attribute2dict(pconfig.product_attribute_set_options)
+        if pconfig.attribute_set_options:
+            return attribute2dict(pconfig.attribute_set_options)
 
     @classmethod
     def search(cls, domain, offset=0, limit=None, order=None, count=False,
