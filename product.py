@@ -340,8 +340,8 @@ class Product(metaclass=PoolMeta):
     def __setup__(cls):
         super(Product, cls).__setup__()
         cls._order.insert(0, ('esale_sequence', 'ASC'))
-        # Add code require attribute
-        for fname in ('code',):
+        # Add suffix_code required attribute
+        for fname in ('suffix_code',):
             fstates = getattr(cls, fname).states
             if fstates.get('required'):
                 fstates['required'] = Or(fstates['required'],
