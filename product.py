@@ -248,8 +248,8 @@ class Template(metaclass=PoolMeta):
 
     @classmethod
     def create(cls, vlist):
+        vlist = [v.copy() for v in vlist]
         for values in vlist:
-            values = values.copy()
             if values.get('esale_available'):
                 name = values.get('name')
                 slug = slugify(values.get('esale_slug', name))
