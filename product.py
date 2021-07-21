@@ -276,6 +276,13 @@ class Template(metaclass=PoolMeta):
 
     @classmethod
     def copy(cls, templates, default=None):
+        if default is None:
+            default = {}
+        else:
+            default = default.copy()
+        # by default desactive esale product
+        default.setdefault('esale_available', None)
+        default.setdefault('esale_active', None)
         new_templates = []
         for template in templates:
             if template.esale_slug:
