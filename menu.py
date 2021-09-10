@@ -1,7 +1,7 @@
 # This file is part product_esale module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
-from trytond.model import ModelView, ModelSQL, fields, tree
+from trytond.model import ModelView, ModelSQL, DeactivableMixin, fields, tree
 from trytond.pool import Pool
 from .tools import slugify
 from trytond.i18n import gettext
@@ -10,7 +10,7 @@ from trytond.exceptions import UserError
 __all__ = ['CatalogMenu']
 
 
-class CatalogMenu(tree(separator=' / '), ModelSQL, ModelView):
+class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
     "eSale Catalog Menu"
     __name__ = 'esale.catalog.menu'
 
@@ -18,7 +18,6 @@ class CatalogMenu(tree(separator=' / '), ModelSQL, ModelView):
     parent = fields.Many2One('esale.catalog.menu', 'Parent', select=True)
     childs = fields.One2Many('esale.catalog.menu', 'parent',
             string='Children')
-    active = fields.Boolean('Active')
     default_sort_by = fields.Selection([
             ('', ''),
             ('position', 'Position'),
@@ -33,10 +32,6 @@ class CatalogMenu(tree(separator=' / '), ModelSQL, ModelView):
     metakeyword = fields.Char('MetaKeyword', size=155, translate=True)
     metatitle = fields.Char('MetaTitle', size=155, translate=True)
     include_in_menu = fields.Boolean('Included in Menu')
-
-    @staticmethod
-    def default_active():
-        return True
 
     @staticmethod
     def default_default_sort_by():
