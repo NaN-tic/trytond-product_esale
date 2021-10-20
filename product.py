@@ -60,21 +60,21 @@ class Template(metaclass=PoolMeta):
     esale_relateds = fields.Many2Many('product.template-product.related',
             'template', 'related', 'Relateds',
             domain=[
-                ('id', '!=', Eval('id')),
+                ('id', '!=', Eval('id', -1)),
                 ('esale_available', '=', True),
                 ('salable', '=', True),
             ], depends=['id'])
     esale_upsells = fields.Many2Many('product.template-product.upsell',
             'template', 'upsell', 'Up Sells',
             domain=[
-                ('id', '!=', Eval('id')),
+                ('id', '!=', Eval('id', -1)),
                 ('esale_available', '=', True),
                 ('salable', '=', True),
             ], depends=['id'])
     esale_crosssells = fields.Many2Many('product.template-product.crosssell',
             'template', 'crosssell', 'Cross Sells',
             domain=[
-                ('id', '!=', Eval('id')),
+                ('id', '!=', Eval('id', -1)),
                 ('esale_available', '=', True),
                 ('salable', '=', True),
             ], depends=['id'])
