@@ -355,7 +355,7 @@ class Product(metaclass=PoolMeta):
                     Bool(Eval('esale_available', False)))
             else:
                 fstates['required'] = Bool(Eval('esale_available', False))
-            getattr(cls, fname).depends.append('esale_available')
+            getattr(cls, fname).depends.add('esale_available')
 
     @staticmethod
     def default_esale_sequence():
