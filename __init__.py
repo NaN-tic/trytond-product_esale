@@ -21,5 +21,7 @@ def register():
     Pool.register(
         configuration.Configuration,
         configuration.ConfigurationProductESale,
+        product.TemplateAttribute,
+        product.ProductAttribute,
         module='product_esale', type_='model',
         depends=['product_template_attribute'])
