@@ -99,7 +99,7 @@ class Template(metaclass=PoolMeta):
         '''Product Template Attribute'''
         Config = Pool().get('product.configuration')
         pconfig = Config(1)
-        if pconfig.attribute_set:
+        if hasattr(pconfig, 'attribute_set') and pconfig.attribute_set:
             return pconfig.attribute_set.id
 
     @staticmethod
@@ -107,7 +107,7 @@ class Template(metaclass=PoolMeta):
         '''Default UOM'''
         Config = Pool().get('product.configuration')
         config = Config(1)
-        if config.default_uom:
+        if hasattr(config, 'default_uom') and config.default_uom:
             return config.default_uom.id
 
     @fields.depends('name', 'esale_slug')
@@ -361,7 +361,8 @@ class Product(metaclass=PoolMeta):
         '''Product Attribute Options'''
         Config = Pool().get('product.configuration')
         pconfig = Config(1)
-        if pconfig.attribute_set_options:
+        if (hasattr(pconfig, 'attribute_set_options') and
+                pconfig.attribute_set_options):
             return attribute2dict(pconfig.attribute_set_options)
 
     @classmethod
