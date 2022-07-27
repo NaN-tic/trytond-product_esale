@@ -75,10 +75,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <label name="cost_price"/>
         <field name="cost_price"/>
     </page>
-    <page string="Attributes" id="attributes">
-        <label name="attribute_set"/>
-        <field name="attribute_set"/>
-    </page>
     <page string="General" id="general">
         <label name="type"/>
         <field name="type"/>
