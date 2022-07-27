@@ -94,22 +94,6 @@ class Template(metaclass=PoolMeta):
     def default_esale_sequence():
         return 1
 
-    @staticmethod
-    def default_attribute_set():
-        '''Product Template Attribute'''
-        Config = Pool().get('product.configuration')
-        pconfig = Config(1)
-        if hasattr(pconfig, 'attribute_set') and pconfig.attribute_set:
-            return pconfig.attribute_set.id
-
-    @staticmethod
-    def default_default_uom():
-        '''Default UOM'''
-        Config = Pool().get('product.configuration')
-        config = Config(1)
-        if hasattr(config, 'default_uom') and config.default_uom:
-            return config.default_uom.id
-
     @fields.depends('name', 'esale_slug')
     def on_change_esale_available(self):
         try:
@@ -319,6 +303,26 @@ class Template(metaclass=PoolMeta):
         return options
 
 
+class TemplateAttribute(metaclass=PoolMeta):
+    __name__ = 'product.template'
+    @staticmethod
+    def default_attribute_set():
+        '''Product Template Attribute'''
+        Config = Pool().get('product.configuration')
+        pconfig = Config(1)
+        if hasattr(pconfig, 'attribute_set') and pconfig.attribute_set:
+            return pconfig.attribute_set.id
+
+
+    @staticmethod
+    def default_default_uom():
+        '''Default UOM'''
+        Config = Pool().get('product.configuration')
+        config = Config(1)
+        if hasattr(config, 'default_uom') and config.default_uom:
+            return config.default_uom.id
+
+
 class Product(metaclass=PoolMeta):
     __name__ = 'product.product'
     esale_available = fields.Function(fields.Boolean('eSale'),
@@ -355,15 +359,6 @@ class Product(metaclass=PoolMeta):
     @staticmethod
     def default_esale_sequence():
         return 1
-
-    @staticmethod
-    def default_attributes():
-        '''Product Attribute Options'''
-        Config = Pool().get('product.configuration')
-        pconfig = Config(1)
-        if (hasattr(pconfig, 'attribute_set_options') and
-                pconfig.attribute_set_options):
-            return attribute2dict(pconfig.attribute_set_options)
 
     @classmethod
     def search(cls, domain, offset=0, limit=None, order=None, count=False,
@@ -505,6 +500,19 @@ class Product(metaclass=PoolMeta):
                 'unit_price': prices[product.id],
                 })
         return prods
+
+
+class ProductAttribute(metaclass=PoolMeta):
+    __name__ = 'product.product'
+
+    @staticmethod
+    def default_attributes():
+        '''Product Attribute Options'''
+        Config = Pool().get('product.configuration')
+        pconfig = Config(1)
+        if (hasattr(pconfig, 'attribute_set_options') and
+                pconfig.attribute_set_options):
+            return attribute2dict(pconfig.attribute_set_options)
 
 
 class ProductMenu(ModelSQL):
