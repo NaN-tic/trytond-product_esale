@@ -9,8 +9,6 @@ from . import product
 
 def register():
     Pool.register(
-        configuration.Configuration,
-        configuration.ConfigurationProductESale,
         attachment.Attachment,
         menu.CatalogMenu,
         product.Template,
@@ -20,3 +18,8 @@ def register():
         product.ProductUpSell,
         product.ProductCrossSell,
         module='product_esale', type_='model')
+    Pool.register(
+        configuration.Configuration,
+        configuration.ConfigurationProductESale,
+        module='product_esale', type_='model',
+        depends=['product_template_attribute'])
