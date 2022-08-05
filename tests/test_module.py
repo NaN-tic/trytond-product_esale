@@ -9,7 +9,8 @@ from trytond.tests.test_tryton import ModuleTestCase
 class ProductEsaleTestCase(CompanyTestMixin, ModuleTestCase):
     'Test ProductEsale module'
     module = 'product_esale'
-    extras = ['product_manufacturer', 'product_review']
+    extras = ['product_manufacturer', 'product_review',
+        'product_template_attribute']
 
 
 del ModuleTestCase
