@@ -15,7 +15,7 @@ class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
     __name__ = 'esale.catalog.menu'
 
     name = fields.Char('Name', required=True, translate=True)
-    parent = fields.Many2One('esale.catalog.menu', 'Parent', select=True)
+    parent = fields.Many2One('esale.catalog.menu', 'Parent')
     childs = fields.One2Many('esale.catalog.menu', 'parent',
             string='Children')
     default_sort_by = fields.Selection([

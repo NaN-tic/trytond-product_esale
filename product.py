@@ -521,9 +521,9 @@ class ProductMenu(ModelSQL):
     _table = 'product_template_esale_catalog_menu'
 
     template = fields.Many2One('product.template', 'Template', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
     menu = fields.Many2One('esale.catalog.menu', 'Menu', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
 
 
 class ProductRelated(ModelSQL):
@@ -532,9 +532,9 @@ class ProductRelated(ModelSQL):
     _table = 'product_template_product_related'
 
     template = fields.Many2One('product.template', 'Template', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
     related = fields.Many2One('product.template', 'Related', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
 
 
 class ProductUpSell(ModelSQL):
@@ -543,9 +543,9 @@ class ProductUpSell(ModelSQL):
     _table = 'product_template_product_upsell'
 
     template = fields.Many2One('product.template', 'Template', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
     upsell = fields.Many2One('product.template', 'Upsell', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
 
 
 class ProductCrossSell(ModelSQL):
@@ -553,6 +553,6 @@ class ProductCrossSell(ModelSQL):
     __name__ = 'product.template-product.crosssell'
     _table = 'product_template_product_crosssell'
     template = fields.Many2One('product.template', 'Template', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
     crosssell = fields.Many2One('product.template', 'Cross Sell', ondelete='CASCADE',
-            select=True, required=True)
+        required=True)
