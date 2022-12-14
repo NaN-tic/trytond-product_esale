@@ -336,26 +336,6 @@ class Product(metaclass=PoolMeta):
     unique_variant = fields.Function(fields.Boolean('Unique Variant'),
         'on_change_with_unique_variant')
 
-#     def __getattr__(self, name):
-#         result = super(Product, self).__getattr__(name)
-#         if not result and name == 'esale_slug':
-#             return getattr(self.template, name)
-#         return result
-
-    @classmethod
-    def __setup__(cls):
-        super(Product, cls).__setup__()
-        cls._order.insert(0, ('esale_sequence', 'ASC'))
-        # Add suffix_code required attribute
-        for fname in ('suffix_code',):
-            fstates = getattr(cls, fname).states
-            if fstates.get('required'):
-                fstates['required'] = Or(fstates['required'],
-                    Bool(Eval('esale_available', False)))
-            else:
-                fstates['required'] = Bool(Eval('esale_available', False))
-            getattr(cls, fname).depends.append('esale_available')
-
     @staticmethod
     def default_esale_sequence():
         return 1
