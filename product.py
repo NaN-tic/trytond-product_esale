@@ -346,15 +346,6 @@ class Product(metaclass=PoolMeta):
     def __setup__(cls):
         super(Product, cls).__setup__()
         cls._order.insert(0, ('esale_sequence', 'ASC'))
-        # Add suffix_code required attribute
-        for fname in ('suffix_code',):
-            fstates = getattr(cls, fname).states
-            if fstates.get('required'):
-                fstates['required'] = Or(fstates['required'],
-                    Bool(Eval('esale_available', False)))
-            else:
-                fstates['required'] = Bool(Eval('esale_available', False))
-            getattr(cls, fname).depends.add('esale_available')
 
     @staticmethod
     def default_esale_sequence():
