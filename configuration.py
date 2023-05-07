@@ -4,7 +4,6 @@
 from trytond import backend
 from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
-from trytond.tools.multivalue import migrate_property
 from trytond.modules.company.model import CompanyValueMixin
 
 __all__ = ['Configuration', 'ConfigurationProductESale']
@@ -47,27 +46,3 @@ class ConfigurationProductESale(ModelSQL, CompanyValueMixin):
     attribute_set = attribute_set
     attribute_set_options = attribute_set_options
     default_uom = default_uom
-
-    @classmethod
-    def __register__(cls, module_name):
-        exist = backend.TableHandler.table_exist(cls._table)
-
-        super(ConfigurationProductESale, cls).__register__(module_name)
-
-        if not exist:
-            cls._migrate_property([], [], [])
-
-    @classmethod
-    def _migrate_property(cls, field_names, value_names, fields):
-        field_names.extend([
-                'attribute_set',
-                'attribute_set_options',
-                'default_uom',
-                ])
-        value_names.extend([
-                'attribute_set',
-                'attribute_set_options',
-                'default_uom',
-                ])
-        migrate_property('sale.configuration', field_names, cls, value_names,
-            fields=fields)
