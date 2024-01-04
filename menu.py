@@ -124,6 +124,7 @@ class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
 
     @classmethod
     def create(cls, vlist):
+        vlist = [x.copy() for x in vlist]
         for values in vlist:
             values = values.copy()
             slug = values.get('slug')
