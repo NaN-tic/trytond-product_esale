@@ -63,21 +63,21 @@ class Template(metaclass=PoolMeta):
                 ('id', '!=', Eval('id', -1)),
                 ('esale_available', '=', True),
                 ('salable', '=', True),
-            ], depends=['id'])
+            ])
     esale_upsells = fields.Many2Many('product.template-product.upsell',
             'template', 'upsell', 'Up Sells',
             domain=[
                 ('id', '!=', Eval('id', -1)),
                 ('esale_available', '=', True),
                 ('salable', '=', True),
-            ], depends=['id'])
+            ])
     esale_crosssells = fields.Many2Many('product.template-product.crosssell',
             'template', 'crosssell', 'Cross Sells',
             domain=[
                 ('id', '!=', Eval('id', -1)),
                 ('esale_available', '=', True),
                 ('salable', '=', True),
-            ], depends=['id'])
+            ])
     esale_sequence = fields.Integer('Sequence',
             help='Gives the sequence order when displaying category list.')
     esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
