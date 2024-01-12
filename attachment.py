@@ -18,18 +18,13 @@ class Attachment(metaclass=PoolMeta):
     __name__ = 'ir.attachment'
     esale_available  = fields.Boolean('Available eSale',
         help='This image are available in your e-commerce.')
-    esale_base_image = fields.Boolean('Base Image', states=STATES,
-        depends=DEPENDS)
-    esale_small_image = fields.Boolean('Small Image', states=STATES,
-        depends=DEPENDS)
-    esale_thumbnail = fields.Boolean('Thumbnail Image', states=STATES,
-        depends=DEPENDS)
+    esale_base_image = fields.Boolean('Base Image', states=STATES)
+    esale_small_image = fields.Boolean('Small Image', states=STATES)
+    esale_thumbnail = fields.Boolean('Thumbnail Image', states=STATES)
     esale_exclude = fields.Boolean('Exclude', states=STATES,
-        depends=DEPENDS,
         help='Defines whether the image will associate only to one of '
             'three image types ')
     esale_position = fields.Integer('Position', states=STATES,
-        depends=DEPENDS,
         help='Image file position ')
     esale_label = fields.Char('eSale Label', translate=True)
 

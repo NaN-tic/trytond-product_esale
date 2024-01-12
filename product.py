@@ -41,8 +41,7 @@ class Template(metaclass=PoolMeta):
     esale_slug = fields.Char('Slug', translate=True,
             states={
                 'required': Eval('esale_available', True),
-            },
-            depends=['esale_available'])
+            })
     esale_slug_langs = fields.Function(fields.Dict(None, 'Slug Langs'), 'get_esale_slug_langs')
     esale_shortdescription = fields.Text('Short Description', translate=True,
         help='You could write wiki markup to create html content. Formats text following '
@@ -329,8 +328,7 @@ class Product(metaclass=PoolMeta):
         'get_esale_available', searcher='search_esale_available')
     esale_active = fields.Function(fields.Boolean('Active eSale'),
         'get_esale_active', searcher='search_esale_active')
-    esale_slug = fields.Char('Slug', translate=True, states=STATES,
-        depends=DEPENDS)
+    esale_slug = fields.Char('Slug', translate=True, states=STATES)
     esale_sequence = fields.Integer('Sequence',
             help='Gives the sequence order when displaying variants list.')
     unique_variant = fields.Function(fields.Boolean('Unique Variant'),
