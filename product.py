@@ -6,7 +6,7 @@ from trytond.pool import Pool, PoolMeta
 from trytond.tools import cursor_dict
 from trytond.transaction import Transaction
 from trytond.cache import Cache
-from trytond.pyson import Eval, Bool, Or
+from trytond.pyson import Eval, Bool
 from .tools import slugify
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
@@ -93,6 +93,13 @@ class Template(metaclass=PoolMeta):
     @staticmethod
     def default_esale_sequence():
         return 1
+
+    @staticmethod
+    def default_default_uom():
+        '''Default UOM'''
+        Config = Pool().get('product.configuration')
+        config = Config(1)
+        return config.default_uom.id if config.default_uom else None
 
     @fields.depends('name', 'esale_slug')
     def on_change_esale_available(self):
@@ -305,6 +312,7 @@ class Template(metaclass=PoolMeta):
 
 class TemplateAttribute(metaclass=PoolMeta):
     __name__ = 'product.template'
+
     @staticmethod
     def default_attribute_set():
         '''Product Template Attribute'''
@@ -312,15 +320,6 @@ class TemplateAttribute(metaclass=PoolMeta):
         pconfig = Config(1)
         if hasattr(pconfig, 'attribute_set') and pconfig.attribute_set:
             return pconfig.attribute_set.id
-
-
-    @staticmethod
-    def default_default_uom():
-        '''Default UOM'''
-        Config = Pool().get('product.configuration')
-        config = Config(1)
-        if hasattr(config, 'default_uom') and config.default_uom:
-            return config.default_uom.id
 
 
 class Product(metaclass=PoolMeta):
