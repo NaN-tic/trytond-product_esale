@@ -2,11 +2,18 @@
 <!-- This file is part product_esale module for Tryton.
 The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
 <tryton>
-    <data depends="product_template_attribute">
+    <data>
         <record model="ir.ui.view" id="product_configuration_view_form">
             <field name="model">product.configuration</field>
             <field name="inherit" ref="product.product_configuration_view_form"/>
             <field name="name">configuration_form</field>
+        </record>
+    </data>
+    <data depends="product_template_attribute">
+        <record model="ir.ui.view" id="product_configuration_attribute_view_form">
+            <field name="model">product.configuration</field>
+            <field name="inherit" ref="product.product_configuration_view_form"/>
+            <field name="name">configuration_attribute_form</field>
         </record>
     </data>
 </tryton>
