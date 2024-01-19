@@ -1,10 +1,8 @@
 # This file is part product_esale module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
-from trytond import backend
 from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
-from trytond.tools.multivalue import migrate_property
 from trytond.modules.company.model import CompanyValueMixin
 
 attribute_set = fields.Many2One('product.attribute.set',
@@ -37,22 +35,6 @@ class ConfigurationProductESale(ModelSQL, CompanyValueMixin):
     __name__ = 'sale.configuration.product.esale'
     default_uom = default_uom
 
-    @classmethod
-    def __register__(cls, module_name):
-        exist = backend.TableHandler.table_exist(cls._table)
-
-        super(ConfigurationProductESale, cls).__register__(module_name)
-
-        if not exist:
-            cls._migrate_property([], [], [])
-
-    @classmethod
-    def _migrate_property(cls, field_names, value_names, fields):
-        field_names.extend(['default_uom'])
-        value_names.extend(['default_uom'])
-        migrate_property('sale.configuration', field_names, cls, value_names,
-            fields=fields)
-
 
 class ConfigurationAttribute(metaclass=PoolMeta):
     __name__ = 'product.configuration'
@@ -71,25 +53,3 @@ class ConfigurationProductESaleAttribute(metaclass=PoolMeta):
     __name__ = 'sale.configuration.product.esale'
     attribute_set = attribute_set
     attribute_set_options = attribute_set_options
-
-    @classmethod
-    def __register__(cls, module_name):
-        exist = backend.TableHandler.table_exist(cls._table)
-
-        super(ConfigurationProductESaleAttribute, cls).__register__(module_name)
-
-        if not exist:
-            cls._migrate_property([], [], [])
-
-    @classmethod
-    def _migrate_property(cls, field_names, value_names, fields):
-        field_names.extend([
-                'attribute_set',
-                'attribute_set_options',
-                ])
-        value_names.extend([
-                'attribute_set',
-                'attribute_set_options',
-                ])
-        migrate_property('sale.configuration', field_names, cls, value_names,
-            fields=fields)
