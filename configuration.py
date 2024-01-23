@@ -29,29 +29,13 @@ class Configuration(metaclass=PoolMeta):
     def multivalue_model(cls, field):
         if field in ['default_uom']:
             return Pool().get('sale.configuration.product.esale')
-        return super(Configuration, cls).multivalue_model(field)
+        return super().multivalue_model(field)
 
 
 class ConfigurationProductESale(ModelSQL, CompanyValueMixin):
     "Product eSale Configuration Company Values"
     __name__ = 'sale.configuration.product.esale'
     default_uom = default_uom
-
-    @classmethod
-    def __register__(cls, module_name):
-        exist = backend.TableHandler.table_exist(cls._table)
-
-        super(ConfigurationProductESale, cls).__register__(module_name)
-
-        if not exist:
-            cls._migrate_property([], [], [])
-
-    @classmethod
-    def _migrate_property(cls, field_names, value_names, fields):
-        field_names.extend(['default_uom'])
-        value_names.extend(['default_uom'])
-        migrate_property('sale.configuration', field_names, cls, value_names,
-            fields=fields)
 
 
 class ConfigurationAttribute(metaclass=PoolMeta):
@@ -64,32 +48,10 @@ class ConfigurationAttribute(metaclass=PoolMeta):
     def multivalue_model(cls, field):
         if field in ['attribute_set', 'attribute_set_options']:
             return Pool().get('sale.configuration.product.esale')
-        return super(Configuration, cls).multivalue_model(field)
+        return super().multivalue_model(field)
 
 
 class ConfigurationProductESaleAttribute(metaclass=PoolMeta):
     __name__ = 'sale.configuration.product.esale'
     attribute_set = attribute_set
     attribute_set_options = attribute_set_options
-
-    @classmethod
-    def __register__(cls, module_name):
-        exist = backend.TableHandler.table_exist(cls._table)
-
-        super(ConfigurationProductESaleAttribute, cls).__register__(module_name)
-
-        if not exist:
-            cls._migrate_property([], [], [])
-
-    @classmethod
-    def _migrate_property(cls, field_names, value_names, fields):
-        field_names.extend([
-                'attribute_set',
-                'attribute_set_options',
-                ])
-        value_names.extend([
-                'attribute_set',
-                'attribute_set_options',
-                ])
-        migrate_property('sale.configuration', field_names, cls, value_names,
-            fields=fields)
