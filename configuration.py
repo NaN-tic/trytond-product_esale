@@ -27,7 +27,7 @@ class Configuration(metaclass=PoolMeta):
     def multivalue_model(cls, field):
         if field in ['default_uom']:
             return Pool().get('sale.configuration.product.esale')
-        return super(Configuration, cls).multivalue_model(field)
+        return super().multivalue_model(field)
 
 
 class ConfigurationProductESale(ModelSQL, CompanyValueMixin):
@@ -46,7 +46,7 @@ class ConfigurationAttribute(metaclass=PoolMeta):
     def multivalue_model(cls, field):
         if field in ['attribute_set', 'attribute_set_options']:
             return Pool().get('sale.configuration.product.esale')
-        return super(Configuration, cls).multivalue_model(field)
+        return super().multivalue_model(field)
 
 
 class ConfigurationProductESaleAttribute(metaclass=PoolMeta):
