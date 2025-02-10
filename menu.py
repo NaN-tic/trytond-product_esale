@@ -53,6 +53,8 @@ class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
 
     @classmethod
     def copy(cls, menus, default=None):
+        if not menus:
+            return
         raise UserError(gettext('product_esale.not_copy'))
 
     def get_full_slug(self, name):
