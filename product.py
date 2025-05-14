@@ -11,16 +11,11 @@ from .tools import slugify
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
-__all__ = ['Template', 'Product', 'ProductMenu', 'ProductRelated',
-    'ProductUpSell', 'ProductCrossSell',]
-
 IMAGE_TYPES = ['image/jpeg', 'image/png',  'image/gif']
 STATES = {
-    'readonly': ~Eval('active', True),
     'invisible': (~Eval('unique_variant', False) & Eval(
         '_parent_template', {}).get('unique_variant', False)),
     }
-DEPENDS = ['active', 'unique_variant']
 
 def attribute2dict(s):
     d = {}
