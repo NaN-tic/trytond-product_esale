@@ -7,7 +7,7 @@ from trytond.tools import cursor_dict
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pyson import Eval, Bool
-from .tools import slugify
+from trytond.tools import slugify
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 

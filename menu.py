@@ -3,11 +3,9 @@
 # the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, DeactivableMixin, fields, tree
 from trytond.pool import Pool
-from .tools import slugify
+from trytond.tools import slugify
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
-
-__all__ = ['CatalogMenu']
 
 
 class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
