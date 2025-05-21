@@ -7,7 +7,7 @@ from trytond.tools import cursor_dict
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pyson import Eval, Bool
-from trytond.tools import slugify
+from trytond.modules.voyager import slugify
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
@@ -23,9 +23,6 @@ def attribute2dict(s):
         k, v = v.split(':')
         d[k] = v
     return d
-
-def _slugify(value):
-    return slugify(value).lower()
 
 
 class Template(metaclass=PoolMeta):
@@ -104,7 +101,7 @@ class Template(metaclass=PoolMeta):
         except AttributeError:
             pass
         if self.name and not self.esale_slug:
-            self.esale_slug = _slugify(self.name)
+            self.esale_slug = slugify(self.name)
 
     @fields.depends('name', 'esale_slug')
     def on_change_name(self):
@@ -113,12 +110,12 @@ class Template(metaclass=PoolMeta):
         except AttributeError:
             pass
         if self.name and not self.esale_slug:
-            self.esale_slug = _slugify(self.name)
+            self.esale_slug = slugify(self.name)
 
     @fields.depends('esale_slug')
     def on_change_esale_slug(self):
         if self.esale_slug:
-            self.esale_slug = _slugify(self.esale_slug)
+            self.esale_slug = slugify(self.esale_slug)
 
     @classmethod
     def view_attributes(cls):
@@ -239,7 +236,7 @@ class Template(metaclass=PoolMeta):
         for values in vlist:
             if values.get('esale_available'):
                 name = values.get('name')
-                slug = _slugify(values.get('esale_slug', name))
+                slug = slugify(values.get('esale_slug', name))
                 cls.get_slug(None, slug)
                 values['esale_slug'] = slug
         return super(Template, cls).create(vlist)
@@ -251,7 +248,7 @@ class Template(metaclass=PoolMeta):
         args = []
         for templates, values in zip(actions, actions):
             if values.get('esale_slug'):
-                slug = _slugify(values.get('esale_slug'))
+                slug = slugify(values.get('esale_slug'))
                 for template in templates:
                     cls.get_slug(template.id, slug)
                 values['esale_slug'] = slug

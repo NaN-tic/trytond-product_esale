@@ -5,7 +5,7 @@ from trytond.model import ModelView, ModelSQL, DeactivableMixin, fields, tree
 from trytond.pool import Pool
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
-from .product import _slugify
+from trytond.modules.voyager import slugify
 
 
 class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
@@ -42,7 +42,7 @@ class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
     @fields.depends('name', 'slug')
     def on_change_name(self):
         if self.name and not self.slug:
-            self.slug = _slugify(self.name)
+            self.slug = slugify(self.name)
 
     @classmethod
     def __setup__(cls):
