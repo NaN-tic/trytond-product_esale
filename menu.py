@@ -3,9 +3,9 @@
 # the full copyright notices and license terms.
 from trytond.model import ModelView, ModelSQL, DeactivableMixin, fields, tree
 from trytond.pool import Pool
-from trytond.tools import slugify
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
+from .product import _slugify
 
 
 class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
@@ -42,7 +42,7 @@ class CatalogMenu(tree(separator=' / '), DeactivableMixin, ModelSQL, ModelView):
     @fields.depends('name', 'slug')
     def on_change_name(self):
         if self.name and not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = _slugify(self.name)
 
     @classmethod
     def __setup__(cls):
