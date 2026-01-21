@@ -74,9 +74,9 @@ class Template(metaclass=PoolMeta):
             ])
     esale_sequence = fields.Integer('Sequence',
             help='Gives the sequence order when displaying category list.')
-    esale_images = fields.Function(fields.Char('eSale Images'), 'get_esale_images')
-    esale_default_images = fields.Function(fields.Char('eSale Default Images'), 'get_esale_default_images')
-    esale_all_images = fields.Function(fields.Char('eSale All Images'), 'get_esale_all_images')
+    esale_images = fields.Function(fields.Dict(None, 'eSale Images'), 'get_esale_images')
+    esale_default_images = fields.Function(fields.Dict(None, 'eSale Default Images'), 'get_esale_default_images')
+    esale_all_images = fields.Function(fields.Dict(None, 'eSale All Images'), 'get_esale_all_images')
     _esale_slug_langs_cache = Cache('product_template.esale_slug_langs')
 
     @staticmethod
@@ -169,14 +169,14 @@ class Template(metaclass=PoolMeta):
 
     def get_esale_all_images(self, name):
         '''Return list product images'''
-        images = []
+        images = {}
         for attachment in self.attachments:
             if not attachment.esale_available or attachment.esale_exclude:
                 continue
-            images.append({
+            images[attachment.id] = {
                 'name': attachment.name,
                 'digest': attachment.file_id,
-                })
+                }
 
         return images
 
