@@ -268,6 +268,9 @@ class Template(metaclass=PoolMeta):
         default.setdefault('esale_available', None)
         default.setdefault('esale_active', None)
         default.setdefault('esale_slug', None)
+        default.setdefault('esale_relateds', None)
+        default.setdefault('esale_upsells', None)
+        default.setdefault('esale_crosssells', None)
         return super(Template, cls).copy(templates, default=default)
 
     @classmethod
