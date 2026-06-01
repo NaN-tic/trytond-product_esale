@@ -10,7 +10,7 @@ from trytond.pool import Pool
 class ProductEsaleTestCase(CompanyTestMixin, ModuleTestCase):
     'Test ProductEsale module'
     module = 'product_esale'
-    extras = ['product_review', 'product_template_attribute', 'purchase']
+    extras = ['product_template_attribute', 'purchase']
 
     @with_transaction()
     def test_slugify(self):
