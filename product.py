@@ -1,9 +1,9 @@
 # This file is part product_esale module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
+from trytond import backend
 from trytond.model import ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
-from trytond.tools import cursor_dict
 from trytond.transaction import Transaction
 from trytond.cache import Cache
 from trytond.pyson import Eval, Bool
@@ -290,12 +290,12 @@ class Template(metaclass=PoolMeta):
         return dict {'attrname': {options}}
         '''
         options = {}
-        cursor = Transaction().connection.cursor()
+        cursor = Transaction().connection.cursor(row_factory=backend.dict_row)
         names = ["'"+c+"'" for c in codes]
         query = "SELECT name, selection from product_attribute " \
             "where name in (%s) and type_ = 'selection'" % ','.join(names)
         cursor.execute(query)
-        vals = cursor_dict(cursor)
+        vals = cursor
 
         for val in vals:
             opts = {}
