@@ -6,8 +6,7 @@ import unicodedata
 from simpleeval import simple_eval
 from genshi.template import NewTextTemplate as TextTemplate
 from jinja2 import Template as Jinja2Template
-from trytond.config import config as config_
-
+import trytond.config as config_
 template_engine = config_.get('product', 'template_engine', default='genshi')
 
 SRC_CHARS = u"""/*+?¿!&$[]{}`^<>=~%|\\"""
